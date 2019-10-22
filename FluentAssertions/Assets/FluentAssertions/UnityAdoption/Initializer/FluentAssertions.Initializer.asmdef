@@ -1,3 +1,14 @@
-﻿{
-	"name": "FluentAssertions.Initializer"
+{
+    "name": "FluentAssertions.Initializer",
+    "references": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": []
 }
