@@ -6,9 +6,15 @@ namespace FluentAssertions.Examples.Tests {
         [Test]
         public void This_test_will_throw()
         {
-            var one = 1;
+            const string someString = "This test is now";
+            someString.Should().Be("better readable");
+        }
 
-            one.Should().Be(2);
+        [Test]
+        public void Old_test_assert_will_throw()
+        {
+            const string someString = "This test is not good";
+            Assert.That(someString == "good readable");
         }
     }
 }
