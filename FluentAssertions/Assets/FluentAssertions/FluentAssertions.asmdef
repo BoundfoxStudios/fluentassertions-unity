@@ -1,3 +1,14 @@
-﻿{
-	"name": "FluentAssertions"
+{
+    "name": "FluentAssertions",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "NETSTANDARD2_0"
+    ],
+    "versionDefines": []
 }
