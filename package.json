@@ -1,0 +1,8 @@
+{
+  "name": "com.boundfoxstudios.fluentassertions",
+  "displayName": "FluentAssertions",
+  "version": "0.1.0-preview",
+  "unity": "2019.1",
+  "description": "This package adds a support for Fluent Assertions to Unity to write better maintainable unit tests.\n\nFor more information about Fluent Assertions, please visit https://fluentassertions.com",
+  "type": "tool"
+}
