@@ -1,0 +1,19 @@
+{
+    "name": "BoundfoxStudios.FluentAssertions.Editor",
+    "references": [
+        "ManuelRauber.Fluentassertions"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "NETSTANDARD2_0"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
