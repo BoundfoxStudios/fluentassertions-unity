@@ -14,7 +14,7 @@ namespace FluentAssertions.Examples.Tests {
         public void Old_test_assert_will_throw()
         {
             const string someString = "This test is not good";
-            Assert.That(someString == "good readable");
+            Assert.AreEqual("good readable", someString);
         }
     }
 }
