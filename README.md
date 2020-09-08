@@ -1,3 +1,5 @@
+[![openupm](https://img.shields.io/npm/v/com.boundfoxstudios.fluentassertions?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.boundfoxstudios.fluentassertions/)
+
 # Fluent Assertions for Unity
 
 This package contains the current version of FluentAssertions 5.9.0 ready to use with Unity.
