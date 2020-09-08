@@ -15,7 +15,26 @@ For more information about FluentAssertions itself, please head over to https://
 * NETSTANDARD2_0 scripting symbol set
 
 ## Installation
-Simply install the package, reference FluentAssertions in your test's assembly definition and you are good to go!
+
+### OpenUPM
+
+The package is available on the [openupm registry](https://openupm.com). It's recommended to install it via [openupm-cli](https://github.com/openupm/openupm-cli).
+
+```
+openupm add com.boundfoxstudios.fluentassertions-unity
+```
+
+### Unity Package Manager
+
+Window -> Package Manager -> + sign -> Add via git url:
+
+```
+https://github.com/BoundfoxStudios/fluentassertions-unity.git#upm
+```
+
+## Setup
+
+Then, reference FluentAssertions in your test's assembly definition and you are good to go!
 
 ## Notice for Unity < 2019
 When importing the package into Unity < 2019, do not import the examples folder, since it uses the new Unity Test Framework package.
