@@ -47,7 +47,6 @@
       <Path>Library/PackageCache/com.unity.timeline@1.2.6</Path>
       <Path>Library/PackageCache/com.unity.upm.develop@0.1.2-preview</Path>
       <Path>Library/PackageCache/nuget.mono-cecil@0.1.6-preview</Path>
-      <Path>Packages</Path>
       <Path>ProjectSettings</Path>
     </explicitIncludes>
     <explicitExcludes>
