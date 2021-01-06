@@ -8,32 +8,45 @@
       <Path>Assets</Path>
       <Path>Library/PackageCache/com.unity.ads@2.0.8</Path>
       <Path>Library/PackageCache/com.unity.ads@3.4.5</Path>
+      <Path>Library/PackageCache/com.unity.ads@3.5.0</Path>
       <Path>Library/PackageCache/com.unity.analytics@3.3.2</Path>
       <Path>Library/PackageCache/com.unity.analytics@3.3.5</Path>
       <Path>Library/PackageCache/com.unity.collab-proxy@1.2.16</Path>
+      <Path>Library/PackageCache/com.unity.collab-proxy@1.3.9</Path>
       <Path>Library/PackageCache/com.unity.ext.nunit@1.0.0</Path>
       <Path>Library/PackageCache/com.unity.ide.rider@1.1.0</Path>
       <Path>Library/PackageCache/com.unity.ide.rider@1.1.4</Path>
+      <Path>Library/PackageCache/com.unity.ide.rider@1.2.1</Path>
+      <Path>Library/PackageCache/com.unity.ide.visualstudio@2.0.3</Path>
       <Path>Library/PackageCache/com.unity.ide.vscode@1.1.2</Path>
       <Path>Library/PackageCache/com.unity.ide.vscode@1.2.1</Path>
+      <Path>Library/PackageCache/com.unity.ide.vscode@1.2.2</Path>
       <Path>Library/PackageCache/com.unity.package-validation-suite@0.7.10-preview</Path>
       <Path>Library/PackageCache/com.unity.postprocessing@2.1.6</Path>
       <Path>Library/PackageCache/com.unity.postprocessing@2.2.2</Path>
+      <Path>Library/PackageCache/com.unity.postprocessing@2.3.0</Path>
       <Path>Library/PackageCache/com.unity.purchasing@2.0.6</Path>
+      <Path>Library/PackageCache/com.unity.purchasing@2.1.1</Path>
       <Path>Library/PackageCache/com.unity.render-pipelines.core@6.9.0</Path>
       <Path>Library/PackageCache/com.unity.render-pipelines.core@7.3.1</Path>
+      <Path>Library/PackageCache/com.unity.render-pipelines.core@8.2.0</Path>
       <Path>Library/PackageCache/com.unity.render-pipelines.lightweight@6.9.0</Path>
       <Path>Library/PackageCache/com.unity.render-pipelines.lightweight@7.3.1</Path>
+      <Path>Library/PackageCache/com.unity.render-pipelines.lightweight@8.2.0</Path>
       <Path>Library/PackageCache/com.unity.render-pipelines.universal@7.3.1</Path>
+      <Path>Library/PackageCache/com.unity.render-pipelines.universal@8.2.0</Path>
+      <Path>Library/PackageCache/com.unity.searcher@4.0.9</Path>
       <Path>Library/PackageCache/com.unity.shadergraph@6.9.0</Path>
       <Path>Library/PackageCache/com.unity.shadergraph@7.3.1</Path>
+      <Path>Library/PackageCache/com.unity.shadergraph@8.2.0</Path>
       <Path>Library/PackageCache/com.unity.test-framework@1.0.13</Path>
       <Path>Library/PackageCache/com.unity.test-framework@1.1.14</Path>
+      <Path>Library/PackageCache/com.unity.test-framework@1.1.18</Path>
       <Path>Library/PackageCache/com.unity.textmeshpro@2.0.1</Path>
+      <Path>Library/PackageCache/com.unity.textmeshpro@3.0.1</Path>
       <Path>Library/PackageCache/com.unity.timeline@1.2.6</Path>
       <Path>Library/PackageCache/com.unity.upm.develop@0.1.2-preview</Path>
       <Path>Library/PackageCache/nuget.mono-cecil@0.1.6-preview</Path>
-      <Path>Packages</Path>
       <Path>ProjectSettings</Path>
     </explicitIncludes>
     <explicitExcludes>
@@ -41,6 +54,7 @@
       <Path>Library</Path>
       <Path>Logs</Path>
       <Path>Temp</Path>
+      <Path>UserSettings</Path>
       <Path>obj</Path>
     </explicitExcludes>
   </component>

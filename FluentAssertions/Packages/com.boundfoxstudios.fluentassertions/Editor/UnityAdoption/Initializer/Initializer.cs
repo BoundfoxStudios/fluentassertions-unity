@@ -2,6 +2,7 @@
 using UnityEngine;
 
 // Thanks to https://forum.unity.com/threads/scripting-define-symbols-access-in-code.174390/#post-3112433
+// ReSharper disable once CheckNamespace
 namespace FluentAssertions
 {
   [InitializeOnLoad]

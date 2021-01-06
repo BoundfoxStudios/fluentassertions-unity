@@ -1,3 +1,4 @@
+// ReSharper disable once CheckNamespace
 namespace FluentAssertions.Common
 {
   internal class AppSettingsConfigurationStore : IConfigurationStore
