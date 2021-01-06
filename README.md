@@ -12,7 +12,6 @@ For more information about FluentAssertions itself, please head over to https://
 
 * Unity 2018.3 or newer
 * .NET Standard 2.0 scripting backend
-* NETSTANDARD2_0 scripting symbol set
 
 ## Installation
 
