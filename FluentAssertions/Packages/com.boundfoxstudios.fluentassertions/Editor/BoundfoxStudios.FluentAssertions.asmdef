@@ -1,17 +1,13 @@
 {
     "name": "BoundfoxStudios.FluentAssertions",
-    "references": [
-        "ManuelRauber.Fluentassertions"
-    ],
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
     "precompiledReferences": [],
     "autoReferenced": true,
-    "defineConstraints": [
-        "NETSTANDARD2_0"
-    ],
+    "defineConstraints": [],
     "versionDefines": [],
     "noEngineReferences": false
 }
