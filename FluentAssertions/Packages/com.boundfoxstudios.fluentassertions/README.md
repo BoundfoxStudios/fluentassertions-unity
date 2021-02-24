@@ -20,7 +20,7 @@ For more information about FluentAssertions itself, please head over to https://
 The package is available on the [openupm registry](https://openupm.com). It's recommended to install it via [openupm-cli](https://github.com/openupm/openupm-cli).
 
 ```
-openupm add com.boundfoxstudios.fluentassertions-unity
+openupm add com.boundfoxstudios.fluentassertions
 ```
 
 ### Unity Package Manager
