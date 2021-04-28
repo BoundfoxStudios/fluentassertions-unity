@@ -36,8 +36,22 @@ https://github.com/BoundfoxStudios/fluentassertions-unity.git#upm
 Then, reference FluentAssertions in your test's assembly definition and you are good to go!
 
 ## Notice for Unity < 2019
+
 When importing the package into Unity < 2019, do not import the examples folder, since it uses the new Unity Test Framework package.
 However, FluentAssertions itself is working.
+
+## Troubleshooting
+
+If you get the following error:
+
+* `The type or namespace name 'DynamicMethod' could not be found (are you missing a using directive or an assembly reference?)` or
+* `The type or namespace name 'ILGenerator' could not be found (are you missing a using directive or an assembly reference?)`
+
+then you need to define the following scripting symbol (Edit -> Project Settings -> Player -> Other Settings -> Scripting Define Symbols): `NETSTANDARD2_0`.
+
+Wait for Unity to recompile, the error should be gone then.
+
+If not, please open an issue.
 
 ## Credits
 
