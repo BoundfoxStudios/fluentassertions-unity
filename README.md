@@ -10,7 +10,7 @@ For more information about FluentAssertions itself, please head over to https://
 
 ## Pre-requirements
 
-* Unity 2018.3 or newer
+* Unity 2019.1 or newer
 * .NET Standard 2.0 scripting backend
 
 ## Installation
@@ -34,11 +34,6 @@ https://github.com/BoundfoxStudios/fluentassertions-unity.git#upm
 ## Setup
 
 Then, reference FluentAssertions in your test's assembly definition and you are good to go!
-
-## Notice for Unity < 2019
-
-When importing the package into Unity < 2019, do not import the examples folder, since it uses the new Unity Test Framework package.
-However, FluentAssertions itself is working.
 
 ## Troubleshooting
 
