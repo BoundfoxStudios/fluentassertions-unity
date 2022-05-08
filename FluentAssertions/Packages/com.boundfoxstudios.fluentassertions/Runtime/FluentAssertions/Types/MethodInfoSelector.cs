@@ -18,6 +18,7 @@ namespace FluentAssertions.Types
         /// Initializes a new instance of the <see cref="MethodInfoSelector"/> class.
         /// </summary>
         /// <param name="type">The type from which to select methods.</param>
+        /// <exception cref="ArgumentNullException"><paramref name="type"/> is <c>null</c>.</exception>
         public MethodInfoSelector(Type type)
             : this(new[] { type })
         {
@@ -27,10 +28,14 @@ namespace FluentAssertions.Types
         /// Initializes a new instance of the <see cref="MethodInfoSelector"/> class.
         /// </summary>
         /// <param name="types">The types from which to select methods.</param>
+        /// <exception cref="ArgumentNullException"><paramref name="types"/> is <c>null</c>.</exception>
         public MethodInfoSelector(IEnumerable<Type> types)
         {
+            Guard.ThrowIfArgumentIsNull(types, nameof(types));
+            Guard.ThrowIfArgumentContainsNull(types, nameof(types));
+
             selectedMethods = types.SelectMany(t => t
-                .GetMethods(BindingFlags.DeclaredOnly | BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
+                .GetMethods(BindingFlags.DeclaredOnly | BindingFlags.Instance | BindingFlags.Static | BindingFlags.Public | BindingFlags.NonPublic)
                 .Where(method => !HasSpecialName(method)));
         }
 
@@ -129,6 +134,70 @@ namespace FluentAssertions.Types
         }
 
         /// <summary>
+        /// Only return methods that are async. 
+        /// </summary>
+        public MethodInfoSelector ThatAreAsync()
+        {
+            selectedMethods = selectedMethods.Where(method => method.IsAsync());
+            return this;
+        }
+
+        /// <summary>
+        /// Only return methods that are not async. 
+        /// </summary>
+        public MethodInfoSelector ThatAreNotAsync()
+        {
+            selectedMethods = selectedMethods.Where(method => !method.IsAsync());
+            return this;
+        }
+
+        /// <summary>
+        /// Only return methods that are static. 
+        /// </summary>
+        public MethodInfoSelector ThatAreStatic()
+        {
+            selectedMethods = selectedMethods.Where(method => method.IsStatic);
+            return this;
+        }
+
+        /// <summary>
+        /// Only return methods that are not static. 
+        /// </summary>
+        public MethodInfoSelector ThatAreNotStatic()
+        {
+            selectedMethods = selectedMethods.Where(method => !method.IsStatic);
+            return this;
+        }
+
+        /// <summary>
+        /// Only return methods that are virtual. 
+        /// </summary>
+        public MethodInfoSelector ThatAreVirtual()
+        {
+            selectedMethods = selectedMethods.Where(method => !method.IsNonVirtual());
+            return this;
+        }
+
+        /// <summary>
+        /// Only return methods that are not virtual. 
+        /// </summary>
+        public MethodInfoSelector ThatAreNotVirtual()
+        {
+            selectedMethods = selectedMethods.Where(method => method.IsNonVirtual());
+            return this;
+        }
+
+        /// <summary>
+        /// Select return types of the methods
+        /// </summary>
+        public TypeSelector ReturnTypes()
+        {
+            var returnTypes = selectedMethods.Select(mi => mi.ReturnType);
+
+            return new TypeSelector(returnTypes);
+        }
+
+        /// <summary>
         /// The resulting <see cref="MethodInfo"/> objects.
         /// </summary>
         public MethodInfo[] ToArray()
@@ -139,7 +208,7 @@ namespace FluentAssertions.Types
         /// <summary>
         /// Determines whether the specified method has a special name (like properties and events).
         /// </summary>
-        private bool HasSpecialName(MethodInfo method)
+        private static bool HasSpecialName(MethodInfo method)
         {
             return (method.Attributes & MethodAttributes.SpecialName) == MethodAttributes.SpecialName;
         }

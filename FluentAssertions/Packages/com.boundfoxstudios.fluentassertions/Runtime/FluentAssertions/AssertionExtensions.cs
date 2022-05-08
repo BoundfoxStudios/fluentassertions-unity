@@ -1,18 +1,26 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
+using System.IO;
 using System.Linq.Expressions;
+using System.Net.Http;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 using FluentAssertions.Collections;
 using FluentAssertions.Common;
+using FluentAssertions.Data;
+#if !NETSTANDARD2_0
 using FluentAssertions.Events;
+#endif
 using FluentAssertions.Numeric;
 using FluentAssertions.Primitives;
 using FluentAssertions.Reflection;
 using FluentAssertions.Specialized;
+using FluentAssertions.Streams;
 using FluentAssertions.Types;
 using FluentAssertions.Xml;
 using JetBrains.Annotations;
@@ -25,15 +33,20 @@ namespace FluentAssertions
     [DebuggerNonUserCode]
     public static class AssertionExtensions
     {
-        private static readonly AggregateExceptionExtractor extractor = new AggregateExceptionExtractor();
+        private static readonly AggregateExceptionExtractor Extractor = new();
 
         /// <summary>
         /// Invokes the specified action on a subject so that you can chain it
         /// with any of the assertions from <see cref="ActionAssertions"/>
         /// </summary>
+        /// <exception cref="ArgumentNullException"><paramref name="subject"/> is <c>null</c>.</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="action"/> is <c>null</c>.</exception>
         [Pure]
         public static Action Invoking<T>(this T subject, Action<T> action)
         {
+            Guard.ThrowIfArgumentIsNull(subject, nameof(subject));
+            Guard.ThrowIfArgumentIsNull(action, nameof(action));
+
             return () => action(subject);
         }
 
@@ -41,9 +54,14 @@ namespace FluentAssertions
         /// Invokes the specified action on a subject so that you can chain it
         /// with any of the assertions from <see cref="FunctionAssertions{T}"/>
         /// </summary>
+        /// <exception cref="ArgumentNullException"><paramref name="subject"/> is <c>null</c>.</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="action"/> is <c>null</c>.</exception>
         [Pure]
         public static Func<TResult> Invoking<T, TResult>(this T subject, Func<T, TResult> action)
         {
+            Guard.ThrowIfArgumentIsNull(subject, nameof(subject));
+            Guard.ThrowIfArgumentIsNull(action, nameof(action));
+
             return () => action(subject);
         }
 
@@ -67,29 +85,25 @@ namespace FluentAssertions
             return () => action(subject);
         }
 
-#if NETCOREAPP2_1 || NETSTANDARD2_1
         /// <summary>
         /// Invokes the specified action on a subject so that you can chain it
-        /// with any of the assertions from <see cref="AsyncFunctionAssertions"/>
+        /// with any of the assertions from <see cref="NonGenericAsyncFunctionAssertions"/>
         /// </summary>
         [Pure]
         public static Func<Task> Awaiting<T>(this T subject, Func<T, ValueTask> action)
         {
             return () => action(subject).AsTask();
         }
-#endif
 
-#if NETCOREAPP2_0 || NETCOREAPP2_1 || NETSTANDARD2_1
         /// <summary>
         /// Invokes the specified action on a subject so that you can chain it
-        /// with any of the assertions from <see cref="AsyncFunctionAssertions"/>
+        /// with any of the assertions from <see cref="GenericAsyncFunctionAssertions{TResult}"/>
         /// </summary>
         [Pure]
         public static Func<Task<TResult>> Awaiting<T, TResult>(this T subject, Func<T, ValueTask<TResult>> action)
         {
             return () => action(subject).AsTask();
         }
-#endif
 
         /// <summary>
         /// Provides methods for asserting the execution time of a method or property.
@@ -99,10 +113,18 @@ namespace FluentAssertions
         /// <returns>
         /// Returns an object for asserting that the execution time matches certain conditions.
         /// </returns>
+        /// <exception cref="ArgumentNullException"><paramref name="subject"/> is <c>null</c>.</exception>
+        /// <exception cref="ArgumentNullException"><paramref name="action"/> is <c>null</c>.</exception>
         [MustUseReturnValue /* do not use Pure because this method executes the action before returning to the caller */]
-        public static MemberExecutionTime<T> ExecutionTimeOf<T>(this T subject, Expression<Action<T>> action)
+        public static MemberExecutionTime<T> ExecutionTimeOf<T>(this T subject, Expression<Action<T>> action,
+            StartTimer createTimer = null)
         {
-            return new MemberExecutionTime<T>(subject, action);
+            Guard.ThrowIfArgumentIsNull(subject, nameof(subject));
+            Guard.ThrowIfArgumentIsNull(action, nameof(action));
+
+            createTimer ??= () => new StopwatchTimer();
+
+            return new MemberExecutionTime<T>(subject, action, createTimer);
         }
 
         /// <summary>
@@ -112,10 +134,13 @@ namespace FluentAssertions
         /// <returns>
         /// Returns an object for asserting that the execution time matches certain conditions.
         /// </returns>
+        /// <exception cref="ArgumentNullException"><paramref name="action"/> is <c>null</c>.</exception>
         [MustUseReturnValue /* do not use Pure because this method executes the action before returning to the caller */]
-        public static ExecutionTime ExecutionTime(this Action action)
+        public static ExecutionTime ExecutionTime(this Action action, StartTimer createTimer = null)
         {
-            return new ExecutionTime(action);
+            createTimer ??= () => new StopwatchTimer();
+
+            return new(action, createTimer);
         }
 
         /// <summary>
@@ -125,15 +150,16 @@ namespace FluentAssertions
         /// <returns>
         /// Returns an object for asserting that the execution time matches certain conditions.
         /// </returns>
+        /// <exception cref="ArgumentNullException"><paramref name="action"/> is <c>null</c>.</exception>
         [MustUseReturnValue /* do not use Pure because this method executes the action before returning to the caller */]
         public static ExecutionTime ExecutionTime(this Func<Task> action)
         {
-            return new ExecutionTime(action.ExecuteInDefaultSynchronizationContext);
+            return new(action, () => new StopwatchTimer());
         }
 
         /// <summary>
         /// Returns an <see cref="ExecutionTimeAssertions"/> object that can be used to assert the
-        /// current <see cref="ExecutionTime"/>.
+        /// current <see cref="FluentAssertions.Specialized.ExecutionTime"/>.
         /// </summary>
         [Pure]
         public static ExecutionTimeAssertions Should(this ExecutionTime executionTime)
@@ -182,6 +208,26 @@ namespace FluentAssertions
         }
 
         /// <summary>
+        /// Returns an <see cref="StreamAssertions"/> object that can be used to assert the
+        /// current <see cref="Stream"/>.
+        /// </summary>
+        [Pure]
+        public static StreamAssertions Should(this Stream actualValue)
+        {
+            return new StreamAssertions(actualValue);
+        }
+
+        /// <summary>
+        /// Returns an <see cref="BufferedStreamAssertions"/> object that can be used to assert the
+        /// current <see cref="BufferedStream"/>.
+        /// </summary>
+        [Pure]
+        public static BufferedStreamAssertions Should(this BufferedStream actualValue)
+        {
+            return new BufferedStreamAssertions(actualValue);
+        }
+
+        /// <summary>
         /// Forces enumerating a collection. Should be used to assert that a method that uses the
         /// <c>yield</c> keyword throws a particular exception.
         /// </summary>
@@ -201,9 +247,28 @@ namespace FluentAssertions
             return () => ForceEnumeration(enumerable);
         }
 
+        /// <summary>
+        /// Forces enumerating a collection of the provided <paramref name="subject"/>.
+        /// Should be used to assert that a method that uses the <c>yield</c> keyword throws a particular exception.
+        /// </summary>
+        /// <param name="subject">The object that exposes the method or property.</param>
+        /// <param name="enumerable">A reference to the method or property to force enumeration of.</param>
+        public static Action Enumerating<T, TResult>(this T subject, Func<T, IEnumerable<TResult>> enumerable)
+        {
+            return () => ForceEnumeration(subject, enumerable);
+        }
+
         private static void ForceEnumeration(Func<IEnumerable> enumerable)
         {
             foreach (object _ in enumerable())
+            {
+                // Do nothing
+            }
+        }
+
+        private static void ForceEnumeration<T>(T subject, Func<T, IEnumerable> enumerable)
+        {
+            foreach (object _ in enumerable(subject))
             {
                 // Do nothing
             }
@@ -240,6 +305,16 @@ namespace FluentAssertions
         }
 
         /// <summary>
+        /// Returns an <see cref="HttpResponseMessageAssertions"/> object that can be used to assert the
+        /// current <see cref="HttpResponseMessage"/>.
+        /// </summary>
+        [Pure]
+        public static HttpResponseMessageAssertions Should(this HttpResponseMessage actualValue)
+        {
+            return new HttpResponseMessageAssertions(actualValue);
+        }
+
+        /// <summary>
         /// Returns an <see cref="GuidAssertions"/> object that can be used to assert the
         /// current <see cref="Guid"/>.
         /// </summary>
@@ -257,16 +332,6 @@ namespace FluentAssertions
         public static NullableGuidAssertions Should(this Guid? actualValue)
         {
             return new NullableGuidAssertions(actualValue);
-        }
-
-        /// <summary>
-        /// Returns an <see cref="NonGenericCollectionAssertions"/> object that can be used to assert the
-        /// current <see cref="IEnumerable"/>.
-        /// </summary>
-        [Pure]
-        public static NonGenericCollectionAssertions Should(this IEnumerable actualValue)
-        {
-            return new NonGenericCollectionAssertions(actualValue);
         }
 
         /// <summary>
@@ -290,13 +355,44 @@ namespace FluentAssertions
         }
 
         /// <summary>
-        /// Returns an <see cref="GenericDictionaryAssertions{TKey, TValue}"/> object that can be used to assert the
+        /// Returns an <see cref="GenericDictionaryAssertions{TCollection, TKey, TValue}"/> object that can be used to assert the
         /// current <see cref="IDictionary{TKey, TValue}"/>.
         /// </summary>
         [Pure]
-        public static GenericDictionaryAssertions<TKey, TValue> Should<TKey, TValue>(this IDictionary<TKey, TValue> actualValue)
+        public static GenericDictionaryAssertions<IDictionary<TKey, TValue>, TKey, TValue> Should<TKey, TValue>(this IDictionary<TKey, TValue> actualValue)
         {
-            return new GenericDictionaryAssertions<TKey, TValue>(actualValue);
+            return new GenericDictionaryAssertions<IDictionary<TKey, TValue>, TKey, TValue>(actualValue);
+        }
+
+        /// <summary>
+        /// Returns an <see cref="GenericDictionaryAssertions{TCollection, TKey, TValue}"/> object that can be used to assert the
+        /// current <see cref="IEnumerable{T}"/> of <see cref="KeyValuePair{TKey, TValue}"/>.
+        /// </summary>
+        [Pure]
+        public static GenericDictionaryAssertions<IEnumerable<KeyValuePair<TKey, TValue>>, TKey, TValue> Should<TKey, TValue>(this IEnumerable<KeyValuePair<TKey, TValue>> actualValue)
+        {
+            return new GenericDictionaryAssertions<IEnumerable<KeyValuePair<TKey, TValue>>, TKey, TValue>(actualValue);
+        }
+
+        /// <summary>
+        /// Returns an <see cref="GenericDictionaryAssertions{TCollection, TKey, TValue}"/> object that can be used to assert the
+        /// current <typeparamref name="TCollection"/>.
+        /// </summary>
+        [Pure]
+        public static GenericDictionaryAssertions<TCollection, TKey, TValue> Should<TCollection, TKey, TValue>(this TCollection actualValue)
+            where TCollection : IEnumerable<KeyValuePair<TKey, TValue>>
+        {
+            return new GenericDictionaryAssertions<TCollection, TKey, TValue>(actualValue);
+        }
+
+        /// <summary>
+        /// Returns a <see cref="DataColumnAssertions"/> object that can be used to assert the
+        /// current <see cref="DataColumn"/>.
+        /// </summary>
+        [Pure]
+        public static DataColumnAssertions Should(this DataColumn actualValue)
+        {
+            return new DataColumnAssertions(actualValue);
         }
 
         /// <summary>
@@ -339,6 +435,50 @@ namespace FluentAssertions
             return new NullableDateTimeOffsetAssertions(actualValue);
         }
 
+#if NET6_0_OR_GREATER
+
+        /// <summary>
+        /// Returns an <see cref="DateOnlyAssertions"/> object that can be used to assert the
+        /// current <see cref="DateOnly"/>.
+        /// </summary>
+        [Pure]
+        public static DateOnlyAssertions Should(this DateOnly actualValue)
+        {
+            return new DateOnlyAssertions(actualValue);
+        }
+
+        /// <summary>
+        /// Returns an <see cref="NullableDateOnlyAssertions"/> object that can be used to assert the
+        /// current nullable <see cref="DateOnly"/>.
+        /// </summary>
+        [Pure]
+        public static NullableDateOnlyAssertions Should(this DateOnly? actualValue)
+        {
+            return new NullableDateOnlyAssertions(actualValue);
+        }
+
+        /// <summary>
+        /// Returns an <see cref="TimeOnlyAssertions"/> object that can be used to assert the
+        /// current <see cref="TimeOnly"/>.
+        /// </summary>
+        [Pure]
+        public static TimeOnlyAssertions Should(this TimeOnly actualValue)
+        {
+            return new TimeOnlyAssertions(actualValue);
+        }
+
+        /// <summary>
+        /// Returns an <see cref="NullableTimeOnlyAssertions"/> object that can be used to assert the
+        /// current nullable <see cref="TimeOnly"/>.
+        /// </summary>
+        [Pure]
+        public static NullableTimeOnlyAssertions Should(this TimeOnly? actualValue)
+        {
+            return new NullableTimeOnlyAssertions(actualValue);
+        }
+
+#endif
+
         /// <summary>
         /// Returns an <see cref="ComparableTypeAssertions{T}"/> object that can be used to assert the
         /// current <see cref="IComparable{T}"/>.
@@ -356,7 +496,7 @@ namespace FluentAssertions
         [Pure]
         public static NumericAssertions<int> Should(this int actualValue)
         {
-            return new NumericAssertions<int>(actualValue);
+            return new Int32Assertions(actualValue);
         }
 
         /// <summary>
@@ -366,7 +506,7 @@ namespace FluentAssertions
         [Pure]
         public static NullableNumericAssertions<int> Should(this int? actualValue)
         {
-            return new NullableNumericAssertions<int>(actualValue);
+            return new NullableInt32Assertions(actualValue);
         }
 
         /// <summary>
@@ -376,7 +516,7 @@ namespace FluentAssertions
         [Pure]
         public static NumericAssertions<uint> Should(this uint actualValue)
         {
-            return new NumericAssertions<uint>(actualValue);
+            return new UInt32Assertions(actualValue);
         }
 
         /// <summary>
@@ -386,7 +526,7 @@ namespace FluentAssertions
         [Pure]
         public static NullableNumericAssertions<uint> Should(this uint? actualValue)
         {
-            return new NullableNumericAssertions<uint>(actualValue);
+            return new NullableUInt32Assertions(actualValue);
         }
 
         /// <summary>
@@ -396,7 +536,7 @@ namespace FluentAssertions
         [Pure]
         public static NumericAssertions<decimal> Should(this decimal actualValue)
         {
-            return new NumericAssertions<decimal>(actualValue);
+            return new DecimalAssertions(actualValue);
         }
 
         /// <summary>
@@ -406,7 +546,7 @@ namespace FluentAssertions
         [Pure]
         public static NullableNumericAssertions<decimal> Should(this decimal? actualValue)
         {
-            return new NullableNumericAssertions<decimal>(actualValue);
+            return new NullableDecimalAssertions(actualValue);
         }
 
         /// <summary>
@@ -416,7 +556,7 @@ namespace FluentAssertions
         [Pure]
         public static NumericAssertions<byte> Should(this byte actualValue)
         {
-            return new NumericAssertions<byte>(actualValue);
+            return new ByteAssertions(actualValue);
         }
 
         /// <summary>
@@ -426,7 +566,7 @@ namespace FluentAssertions
         [Pure]
         public static NullableNumericAssertions<byte> Should(this byte? actualValue)
         {
-            return new NullableNumericAssertions<byte>(actualValue);
+            return new NullableByteAssertions(actualValue);
         }
 
         /// <summary>
@@ -436,7 +576,7 @@ namespace FluentAssertions
         [Pure]
         public static NumericAssertions<sbyte> Should(this sbyte actualValue)
         {
-            return new NumericAssertions<sbyte>(actualValue);
+            return new SByteAssertions(actualValue);
         }
 
         /// <summary>
@@ -446,7 +586,7 @@ namespace FluentAssertions
         [Pure]
         public static NullableNumericAssertions<sbyte> Should(this sbyte? actualValue)
         {
-            return new NullableNumericAssertions<sbyte>(actualValue);
+            return new NullableSByteAssertions(actualValue);
         }
 
         /// <summary>
@@ -456,7 +596,7 @@ namespace FluentAssertions
         [Pure]
         public static NumericAssertions<short> Should(this short actualValue)
         {
-            return new NumericAssertions<short>(actualValue);
+            return new Int16Assertions(actualValue);
         }
 
         /// <summary>
@@ -466,7 +606,7 @@ namespace FluentAssertions
         [Pure]
         public static NullableNumericAssertions<short> Should(this short? actualValue)
         {
-            return new NullableNumericAssertions<short>(actualValue);
+            return new NullableInt16Assertions(actualValue);
         }
 
         /// <summary>
@@ -476,7 +616,7 @@ namespace FluentAssertions
         [Pure]
         public static NumericAssertions<ushort> Should(this ushort actualValue)
         {
-            return new NumericAssertions<ushort>(actualValue);
+            return new UInt16Assertions(actualValue);
         }
 
         /// <summary>
@@ -486,7 +626,7 @@ namespace FluentAssertions
         [Pure]
         public static NullableNumericAssertions<ushort> Should(this ushort? actualValue)
         {
-            return new NullableNumericAssertions<ushort>(actualValue);
+            return new NullableUInt16Assertions(actualValue);
         }
 
         /// <summary>
@@ -496,7 +636,7 @@ namespace FluentAssertions
         [Pure]
         public static NumericAssertions<long> Should(this long actualValue)
         {
-            return new NumericAssertions<long>(actualValue);
+            return new Int64Assertions(actualValue);
         }
 
         /// <summary>
@@ -506,7 +646,7 @@ namespace FluentAssertions
         [Pure]
         public static NullableNumericAssertions<long> Should(this long? actualValue)
         {
-            return new NullableNumericAssertions<long>(actualValue);
+            return new NullableInt64Assertions(actualValue);
         }
 
         /// <summary>
@@ -516,7 +656,7 @@ namespace FluentAssertions
         [Pure]
         public static NumericAssertions<ulong> Should(this ulong actualValue)
         {
-            return new NumericAssertions<ulong>(actualValue);
+            return new UInt64Assertions(actualValue);
         }
 
         /// <summary>
@@ -526,7 +666,7 @@ namespace FluentAssertions
         [Pure]
         public static NullableNumericAssertions<ulong> Should(this ulong? actualValue)
         {
-            return new NullableNumericAssertions<ulong>(actualValue);
+            return new NullableUInt64Assertions(actualValue);
         }
 
         /// <summary>
@@ -536,7 +676,7 @@ namespace FluentAssertions
         [Pure]
         public static NumericAssertions<float> Should(this float actualValue)
         {
-            return new NumericAssertions<float>(actualValue);
+            return new SingleAssertions(actualValue);
         }
 
         /// <summary>
@@ -546,7 +686,7 @@ namespace FluentAssertions
         [Pure]
         public static NullableNumericAssertions<float> Should(this float? actualValue)
         {
-            return new NullableNumericAssertions<float>(actualValue);
+            return new NullableSingleAssertions(actualValue);
         }
 
         /// <summary>
@@ -556,7 +696,7 @@ namespace FluentAssertions
         [Pure]
         public static NumericAssertions<double> Should(this double actualValue)
         {
-            return new NumericAssertions<double>(actualValue);
+            return new DoubleAssertions(actualValue);
         }
 
         /// <summary>
@@ -566,7 +706,7 @@ namespace FluentAssertions
         [Pure]
         public static NullableNumericAssertions<double> Should(this double? actualValue)
         {
-            return new NullableNumericAssertions<double>(actualValue);
+            return new NullableDoubleAssertions(actualValue);
         }
 
         /// <summary>
@@ -611,11 +751,14 @@ namespace FluentAssertions
 
         /// <summary>
         /// Returns a <see cref="TypeAssertions"/> object that can be used to assert the
-        /// current <see cref="System.Type"/>.
+        /// current <see cref="Type"/>.
         /// </summary>
+        /// <exception cref="ArgumentNullException"><paramref name="typeSelector"/> is <c>null</c>.</exception>
         [Pure]
         public static TypeSelectorAssertions Should(this TypeSelector typeSelector)
         {
+            Guard.ThrowIfArgumentIsNull(typeSelector, nameof(typeSelector));
+
             return new TypeSelectorAssertions(typeSelector.ToArray());
         }
 
@@ -645,9 +788,12 @@ namespace FluentAssertions
         /// current <see cref="MethodInfoSelector"/>.
         /// </summary>
         /// <seealso cref="TypeAssertions"/>
+        /// <exception cref="ArgumentNullException"><paramref name="methodSelector"/> is <c>null</c>.</exception>
         [Pure]
         public static MethodInfoSelectorAssertions Should(this MethodInfoSelector methodSelector)
         {
+            Guard.ThrowIfArgumentIsNull(methodSelector, nameof(methodSelector));
+
             return new MethodInfoSelectorAssertions(methodSelector.ToArray());
         }
 
@@ -667,9 +813,12 @@ namespace FluentAssertions
         /// current <see cref="PropertyInfoSelector"/>.
         /// </summary>
         /// <seealso cref="TypeAssertions"/>
+        /// <exception cref="ArgumentNullException"><paramref name="propertyInfoSelector"/> is <c>null</c>.</exception>
         [Pure]
         public static PropertyInfoSelectorAssertions Should(this PropertyInfoSelector propertyInfoSelector)
         {
+            Guard.ThrowIfArgumentIsNull(propertyInfoSelector, nameof(propertyInfoSelector));
+
             return new PropertyInfoSelectorAssertions(propertyInfoSelector.ToArray());
         }
 
@@ -680,7 +829,7 @@ namespace FluentAssertions
         [Pure]
         public static ActionAssertions Should(this Action action)
         {
-            return new ActionAssertions(action, extractor);
+            return new ActionAssertions(action, Extractor);
         }
 
         /// <summary>
@@ -690,7 +839,7 @@ namespace FluentAssertions
         [Pure]
         public static NonGenericAsyncFunctionAssertions Should(this Func<Task> action)
         {
-            return new NonGenericAsyncFunctionAssertions(action, extractor);
+            return new NonGenericAsyncFunctionAssertions(action, Extractor);
         }
 
         /// <summary>
@@ -700,7 +849,7 @@ namespace FluentAssertions
         [Pure]
         public static GenericAsyncFunctionAssertions<T> Should<T>(this Func<Task<T>> action)
         {
-            return new GenericAsyncFunctionAssertions<T>(action, extractor);
+            return new GenericAsyncFunctionAssertions<T>(action, Extractor);
         }
 
         /// <summary>
@@ -710,10 +859,20 @@ namespace FluentAssertions
         [Pure]
         public static FunctionAssertions<T> Should<T>(this Func<T> func)
         {
-            return new FunctionAssertions<T>(func, extractor);
+            return new FunctionAssertions<T>(func, Extractor);
         }
 
-#if !NETSTANDARD1_3 && !NETSTANDARD1_6 && !NETSTANDARD2_0
+        /// <summary>
+        /// Returns a <see cref="TaskCompletionSourceAssertions{T}"/> object that can be used to assert the
+        /// current <see cref="TaskCompletionSource{T}"/>.
+        /// </summary>
+        [Pure]
+        public static TaskCompletionSourceAssertions<T> Should<T>(this TaskCompletionSource<T> tcs)
+        {
+            return new TaskCompletionSourceAssertions<T>(tcs);
+        }
+
+#if !NETSTANDARD2_0
 
         /// <summary>
         /// Starts monitoring <paramref name="eventSource"/> for its events.
@@ -723,7 +882,7 @@ namespace FluentAssertions
         /// An optional delegate that returns the current date and time in UTC format.
         /// Will revert to <see cref="DateTime.UtcNow"/> if no delegate was provided.
         /// </param>
-        /// <exception cref = "ArgumentNullException">Thrown if <paramref name="eventSource"/> is Null.</exception>
+        /// <exception cref="ArgumentNullException">Thrown if <paramref name="eventSource"/> is Null.</exception>
         public static IMonitor<T> Monitor<T>(this T eventSource, Func<DateTime> utcNow = null)
         {
             return new EventMonitor<T>(eventSource, utcNow ?? (() => DateTime.UtcNow));
@@ -737,34 +896,144 @@ namespace FluentAssertions
         /// <remarks>
         /// Has been introduced to allow casting objects without breaking the fluent API.
         /// </remarks>
-        /// <typeparam name="TTo"></typeparam>
+        /// <typeparam name="TTo">The <see cref="Type"/> to cast <paramref name="subject"/> to</typeparam>
         [Pure]
         public static TTo As<TTo>(this object subject)
         {
-            return subject is TTo ? (TTo)subject : default;
+            return subject is TTo to ? to : default;
         }
 
-        /// <summary>
-        /// Asserts that the thrown exception has a message that matches <paramref name = "expectedWildcardPattern" />.
-        /// </summary>
-        /// <param name = "expectedWildcardPattern">
-        /// The wildcard pattern with which the exception message is matched, where * and ? have special meanings.
-        /// </param>
-        /// <param name = "because">
-        /// A formatted phrase as is supported by <see cref = "string.Format(string,object[])" /> explaining why the assertion
-        /// is needed. If the phrase does not start with the word <i>because</i>, it is prepended automatically.
-        /// </param>
-        /// <param name = "becauseArgs">
-        /// Zero or more objects to format using the placeholders in <see cref = "because" />.
-        /// </param>
-        public static async Task<ExceptionAssertions<TException>> WithMessage<TException>(
-            this Task<ExceptionAssertions<TException>> task,
-            string expectedWildcardPattern,
-            string because = "",
-            params object[] becauseArgs)
-            where TException : Exception
+        #region Prevent chaining on AndConstraint
+
+        /// <inheritdoc cref="Should(ExecutionTimeAssertions)" />
+        [Obsolete("You are asserting the 'AndConstraint' itself. Remove the 'Should()' method directly following 'And'", error: true)]
+        public static void Should<TSubject, TAssertions>(this ReferenceTypeAssertions<TSubject, TAssertions> _)
+            where TAssertions : ReferenceTypeAssertions<TSubject, TAssertions>
         {
-            return (await task).WithMessage(expectedWildcardPattern, because, becauseArgs);
+            InvalidShouldCall();
         }
+
+        /// <inheritdoc cref="Should(ExecutionTimeAssertions)" />
+        [Obsolete("You are asserting the 'AndConstraint' itself. Remove the 'Should()' method directly following 'And'", error: true)]
+        public static void Should<TAssertions>(this BooleanAssertions<TAssertions> _)
+            where TAssertions : BooleanAssertions<TAssertions>
+        {
+            InvalidShouldCall();
+        }
+
+        /// <inheritdoc cref="Should(ExecutionTimeAssertions)" />
+        [Obsolete("You are asserting the 'AndConstraint' itself. Remove the 'Should()' method directly following 'And'", error: true)]
+        public static void Should<TAssertions>(this DateTimeAssertions<TAssertions> _)
+            where TAssertions : DateTimeAssertions<TAssertions>
+        {
+            InvalidShouldCall();
+        }
+
+        /// <inheritdoc cref="Should(ExecutionTimeAssertions)" />
+        [Obsolete("You are asserting the 'AndConstraint' itself. Remove the 'Should()' method directly following 'And'", error: true)]
+        public static void Should<TAssertions>(this DateTimeOffsetAssertions<TAssertions> _)
+            where TAssertions : DateTimeOffsetAssertions<TAssertions>
+        {
+            InvalidShouldCall();
+        }
+
+#if  NET6_0_OR_GREATER
+
+        /// <inheritdoc cref="Should(ExecutionTimeAssertions)" />
+        [Obsolete("You are asserting the 'AndConstraint' itself. Remove the 'Should()' method directly following 'And'", error: true)]
+        public static void Should<TAssertions>(this DateOnlyAssertions<TAssertions> _)
+            where TAssertions : DateOnlyAssertions<TAssertions>
+        {
+            InvalidShouldCall();
+        }
+
+        /// <inheritdoc cref="Should(ExecutionTimeAssertions)" />
+        [Obsolete("You are asserting the 'AndConstraint' itself. Remove the 'Should()' method directly following 'And'", error: true)]
+        public static void Should<TAssertions>(this TimeOnlyAssertions<TAssertions> _)
+            where TAssertions : TimeOnlyAssertions<TAssertions>
+        {
+            InvalidShouldCall();
+        }
+
+#endif
+
+        /// <summary>
+        /// You are asserting the <see cref="AndConstraint{T}"/> itself. Remove the <c>Should()</c> method directly following <c>And</c>.
+        /// </summary>
+        [Obsolete("You are asserting the 'AndConstraint' itself. Remove the 'Should()' method directly following 'And'", error: true)]
+        public static void Should(this ExecutionTimeAssertions _)
+        {
+            InvalidShouldCall();
+        }
+
+        /// <inheritdoc cref="Should(ExecutionTimeAssertions)" />
+        [Obsolete("You are asserting the 'AndConstraint' itself. Remove the 'Should()' method directly following 'And'", error: true)]
+        public static void Should<TAssertions>(this GuidAssertions<TAssertions> _)
+            where TAssertions : GuidAssertions<TAssertions>
+        {
+            InvalidShouldCall();
+        }
+
+        /// <inheritdoc cref="Should(ExecutionTimeAssertions)" />
+        [Obsolete("You are asserting the 'AndConstraint' itself. Remove the 'Should()' method directly following 'And'", error: true)]
+        public static void Should(this MethodInfoSelectorAssertions _)
+        {
+            InvalidShouldCall();
+        }
+
+        /// <inheritdoc cref="Should(ExecutionTimeAssertions)" />
+        [Obsolete("You are asserting the 'AndConstraint' itself. Remove the 'Should()' method directly following 'And'", error: true)]
+        public static void Should<TSubject, TAssertions>(this NumericAssertions<TSubject, TAssertions> _)
+            where TSubject : struct, IComparable<TSubject>
+            where TAssertions : NumericAssertions<TSubject, TAssertions>
+        {
+            InvalidShouldCall();
+        }
+
+        /// <inheritdoc cref="Should(ExecutionTimeAssertions)" />
+        [Obsolete("You are asserting the 'AndConstraint' itself. Remove the 'Should()' method directly following 'And'", error: true)]
+        public static void Should(this PropertyInfoSelectorAssertions _)
+        {
+            InvalidShouldCall();
+        }
+
+        /// <inheritdoc cref="Should(ExecutionTimeAssertions)" />
+        [Obsolete("You are asserting the 'AndConstraint' itself. Remove the 'Should()' method directly following 'And'", error: true)]
+        public static void Should<TAssertions>(this SimpleTimeSpanAssertions<TAssertions> _)
+            where TAssertions : SimpleTimeSpanAssertions<TAssertions>
+        {
+            InvalidShouldCall();
+        }
+
+        /// <inheritdoc cref="Should(ExecutionTimeAssertions)" />
+        [Obsolete("You are asserting the 'AndConstraint' itself. Remove the 'Should()' method directly following 'And'", error: true)]
+        public static void Should<TSubject>(this TaskCompletionSourceAssertions<TSubject> _)
+        {
+            InvalidShouldCall();
+        }
+
+        /// <inheritdoc cref="Should(ExecutionTimeAssertions)" />
+        [Obsolete("You are asserting the 'AndConstraint' itself. Remove the 'Should()' method directly following 'And'", error: true)]
+        public static void Should(this TypeSelectorAssertions _)
+        {
+            InvalidShouldCall();
+        }
+
+        /// <inheritdoc cref="Should(ExecutionTimeAssertions)" />
+        [Obsolete("You are asserting the 'AndConstraint' itself. Remove the 'Should()' method directly following 'And'", error: true)]
+        public static void Should<TEnum, TAssertions>(this EnumAssertions<TEnum, TAssertions> _)
+            where TEnum : struct, Enum
+            where TAssertions : EnumAssertions<TEnum, TAssertions>
+        {
+            InvalidShouldCall();
+        }
+
+        [DoesNotReturn]
+        private static void InvalidShouldCall()
+        {
+            throw new InvalidOperationException("You are asserting the 'AndConstraint' itself. Remove the 'Should()' method directly following 'And'.");
+        }
+
+        #endregion
     }
 }
