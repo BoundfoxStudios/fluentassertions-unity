@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using FluentAssertions.Common;
 
 namespace FluentAssertions.Extensions
 {
@@ -134,7 +135,7 @@ namespace FluentAssertions.Extensions
         /// </summary>
         public static DateTime At(this DateTime date, TimeSpan time)
         {
-            return new DateTime(date.Year, date.Month, date.Day, time.Hours, time.Minutes, time.Seconds);
+            return date.Date + time;
         }
 
         /// <summary>
@@ -153,7 +154,7 @@ namespace FluentAssertions.Extensions
                 throw new ArgumentOutOfRangeException(nameof(nanoseconds), "Valid values are between 0 and 999");
             }
 
-            var value = new DateTime(date.Year, date.Month, date.Day, hours, minutes, seconds, milliseconds);
+            var value = new DateTime(date.Year, date.Month, date.Day, hours, minutes, seconds, milliseconds, date.Kind);
 
             if (microseconds != 0)
             {
@@ -317,6 +318,15 @@ namespace FluentAssertions.Extensions
             }
 
             return self + microseconds.Microseconds();
+        }
+
+        /// <summary>
+        /// Returns new <see cref="DateTimeOffset"/> that uses <paramref name="self"/>
+        /// as its datetime and <paramref name="offset"/> as its offset.
+        /// </summary>
+        public static DateTimeOffset WithOffset(this DateTime self, TimeSpan offset)
+        {
+            return self.ToDateTimeOffset(offset);
         }
     }
 }
