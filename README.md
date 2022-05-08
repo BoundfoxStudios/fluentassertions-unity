@@ -2,7 +2,7 @@
 
 # Fluent Assertions for Unity
 
-This package contains the current version of FluentAssertions 5.10.3 ready to use with Unity.
+This package contains the current version of FluentAssertions 6.6.0 ready to use with Unity.
 
 If you encouter any bugs, which are related to the package and not to FluentAssertions itself, feel free to open an issue. 
 

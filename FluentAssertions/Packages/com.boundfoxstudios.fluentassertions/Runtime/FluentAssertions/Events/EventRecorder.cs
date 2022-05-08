@@ -1,12 +1,10 @@
-#if !NETSTANDARD1_3 && !NETSTANDARD1_6 && !NETSTANDARD2_0
-
 using System;
 using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Reflection;
+using JetBrains.Annotations;
 
 namespace FluentAssertions.Events
 {
@@ -14,37 +12,37 @@ namespace FluentAssertions.Events
     /// Records activity for a single event.
     /// </summary>
     [DebuggerNonUserCode]
-    public class EventRecorder : IEventRecorder
+    internal sealed class EventRecorder : IEventRecording, IDisposable
     {
         private readonly Func<DateTime> utcNow;
-        private readonly BlockingCollection<RecordedEvent> raisedEvents = new BlockingCollection<RecordedEvent>();
-        private readonly object lockable = new object();
-        private WeakReference eventObject;
+        private readonly BlockingCollection<RecordedEvent> raisedEvents = new();
+        private readonly object lockable = new();
         private Action cleanup;
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="EventRecorder"/> class.
         /// </summary>
-        /// <param name = "eventRaiser">The object events are recorded from</param>
-        /// <param name = "eventName">The name of the event that's recorded</param>
+        /// <param name="eventRaiser">The object events are recorded from</param>
+        /// <param name="eventName">The name of the event that's recorded</param>
         /// <param name="utcNow">A delegate to get the current date and time in UTC format.</param>
-        public EventRecorder(object eventRaiser, string eventName, Func<DateTime> utcNow)
+        /// <param name="sequenceGenerator">Class used to generate a sequence in a thread-safe manner.</param>
+        public EventRecorder(object eventRaiser, string eventName, Func<DateTime> utcNow, ThreadSafeSequenceGenerator sequenceGenerator)
         {
             this.utcNow = utcNow;
             EventObject = eventRaiser;
             EventName = eventName;
+            this.sequenceGenerator = sequenceGenerator;
         }
 
         /// <summary>
         /// The object events are recorded from
         /// </summary>
-        public object EventObject
-        {
-            get => eventObject?.Target;
-            private set => eventObject = new WeakReference(value);
-        }
+        public object EventObject { get; private set; }
 
         /// <inheritdoc />
         public string EventName { get; }
+
+        private readonly ThreadSafeSequenceGenerator sequenceGenerator;
 
         public Type EventHandlerType { get; private set; }
 
@@ -57,7 +55,7 @@ namespace FluentAssertions.Events
 
             cleanup = () =>
             {
-                if (!(subject.Target is null))
+                if (subject.Target is not null)
                 {
                     eventInfo.RemoveEventHandler(subject.Target, handler);
                 }
@@ -66,45 +64,24 @@ namespace FluentAssertions.Events
 
         public void Dispose()
         {
-            if (cleanup != null)
+            if (cleanup is not null)
             {
                 cleanup?.Invoke();
                 cleanup = null;
-                eventObject = null;
-            }
-        }
-
-        /// <summary>
-        /// Enumerate raised events
-        /// </summary>
-        public IEnumerator<RecordedEvent> GetEnumerator()
-        {
-            lock (lockable)
-            {
-                return raisedEvents.ToList().GetEnumerator();
-            }
-        }
-
-        /// <summary>
-        /// Enumerate raised events
-        /// </summary>
-        /// <returns></returns>
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            lock (lockable)
-            {
-                return raisedEvents.ToList().GetEnumerator();
+                EventObject = null;
+                raisedEvents.Dispose();
             }
         }
 
         /// <summary>
         /// Called by the auto-generated IL, to record information about a raised event.
         /// </summary>
+        [UsedImplicitly]
         public void RecordEvent(params object[] parameters)
         {
             lock (lockable)
             {
-                raisedEvents.Add(new RecordedEvent(utcNow(), EventObject, parameters));
+                raisedEvents.Add(new RecordedEvent(utcNow(), sequenceGenerator.Increment(), parameters));
             }
         }
 
@@ -121,7 +98,21 @@ namespace FluentAssertions.Events
                 }
             }
         }
+
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+
+        public IEnumerator<OccurredEvent> GetEnumerator()
+        {
+            foreach (RecordedEvent @event in raisedEvents.ToArray())
+            {
+                yield return new OccurredEvent
+                {
+                    EventName = EventName,
+                    Parameters = @event.Parameters,
+                    TimestampUtc = @event.TimestampUtc,
+                    Sequence = @event.Sequence
+                };
+            }
+        }
     }
 }
-
-#endif

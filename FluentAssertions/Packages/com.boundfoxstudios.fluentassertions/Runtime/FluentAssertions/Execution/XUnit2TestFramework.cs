@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 
 namespace FluentAssertions.Execution
 {
     internal class XUnit2TestFramework : ITestFramework
     {
-        private Assembly assembly = null;
+        private Assembly assembly;
 
         public bool IsAvailable
         {
@@ -13,9 +14,10 @@ namespace FluentAssertions.Execution
             {
                 try
                 {
+                    // For netfx the assembly is not in AppDomain by default, so we can't just scan AppDomain.CurrentDomain
                     assembly = Assembly.Load(new AssemblyName("xunit.assert"));
 
-                    return (assembly != null);
+                    return assembly is not null;
                 }
                 catch
                 {
@@ -24,6 +26,7 @@ namespace FluentAssertions.Execution
             }
         }
 
+        [DoesNotReturn]
         public void Throw(string message)
         {
             Type exceptionType = assembly.GetType("Xunit.Sdk.XunitException");
