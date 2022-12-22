@@ -1,0 +1,6 @@
+RegExes used to transform from file-scoped to block-scoped namespaces:
+
+Search: (?s)(?m)(?i)^namespace (.*?);$(.*)
+Replace: namespace $1 {$2}
+
+Afterwards, some files have to be fixed manually due to containing compiler directives.
