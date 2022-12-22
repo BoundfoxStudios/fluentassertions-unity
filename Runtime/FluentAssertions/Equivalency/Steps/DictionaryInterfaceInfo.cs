@@ -6,7 +6,7 @@ using System.Reflection;
 using FluentAssertions.Common;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Equivalency.Steps;
+namespace FluentAssertions.Equivalency.Steps {
 
 /// <summary>
 /// Provides Reflection-backed meta-data information about a type implementing the <see cref="IDictionary{TKey,TValue}"/> interface.
@@ -147,4 +147,5 @@ internal class DictionaryInterfaceInfo
     }
 
     public override string ToString() => $"IDictionary<{Key}, {Value}>";
+}
 }

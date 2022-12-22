@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Text;
 
-namespace FluentAssertions.CallerIdentification;
+namespace FluentAssertions.CallerIdentification {
 
 internal class CallerStatementBuilder
 {
@@ -60,4 +60,5 @@ internal class CallerStatementBuilder
     internal bool IsDone() => parsingState == ParsingState.Done;
 
     public override string ToString() => statement.ToString();
+}
 }

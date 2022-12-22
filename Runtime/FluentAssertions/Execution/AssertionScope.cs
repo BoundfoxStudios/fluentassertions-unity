@@ -7,7 +7,7 @@ using System.Threading;
 using FluentAssertions.Common;
 using FluentAssertions.Formatting;
 
-namespace FluentAssertions.Execution;
+namespace FluentAssertions.Execution {
 
 /// <summary>
 /// Represents an implicit or explicit scope within which multiple assertions can be collected.
@@ -453,4 +453,5 @@ public sealed class AssertionScope : IAssertionScope
     IAssertionScope IAssertionScope.UsingLineBreaks => UsingLineBreaks;
 
     #endregion
+}
 }

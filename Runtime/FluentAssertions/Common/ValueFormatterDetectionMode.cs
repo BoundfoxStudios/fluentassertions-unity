@@ -1,4 +1,4 @@
-﻿namespace FluentAssertions.Common;
+﻿namespace FluentAssertions.Common {
 
 /// <summary>
 /// Defines the modes in which custom implementations of <see cref="FluentAssertions.Formatting.IValueFormatter"/>
@@ -21,4 +21,5 @@ public enum ValueFormatterDetectionMode
     /// All custom value formatters in any assembly loaded in the current <see cref="System.AppDomain"/> will be detected.
     /// </summary>
     Scan,
+}
 }

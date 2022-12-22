@@ -1,6 +1,6 @@
 using System.Xml.Linq;
 
-namespace FluentAssertions.Formatting;
+namespace FluentAssertions.Formatting {
 
 public class XAttributeValueFormatter : IValueFormatter
 {
@@ -20,4 +20,5 @@ public class XAttributeValueFormatter : IValueFormatter
     {
         formattedGraph.AddFragment(((XAttribute)value).ToString());
     }
+}
 }

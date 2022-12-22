@@ -25,7 +25,7 @@ using FluentAssertions.Types;
 using FluentAssertions.Xml;
 using JetBrains.Annotations;
 
-namespace FluentAssertions;
+namespace FluentAssertions {
 
 /// <summary>
 /// Contains extension methods for custom assertions in unit tests.
@@ -1095,4 +1095,5 @@ public static class AssertionExtensions
     }
 
     #endregion
+}
 }

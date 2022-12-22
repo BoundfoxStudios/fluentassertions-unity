@@ -3,7 +3,7 @@ using FluentAssertions.Equivalency.Tracing;
 using FluentAssertions.Execution;
 using static System.FormattableString;
 
-namespace FluentAssertions.Equivalency;
+namespace FluentAssertions.Equivalency {
 
 /// <summary>
 /// Provides information on a particular property during an assertion for structural equality of two object graphs.
@@ -84,4 +84,5 @@ public class EquivalencyValidationContext : IEquivalencyValidationContext
     {
         return Invariant($"{{Path=\"{CurrentNode.Description}\"}}");
     }
+}
 }

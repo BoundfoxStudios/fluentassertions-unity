@@ -1,7 +1,7 @@
 ﻿using System;
 using FluentAssertions.Formatting;
 
-namespace FluentAssertions.Common;
+namespace FluentAssertions.Common {
 
 public class Configuration
 {
@@ -125,4 +125,5 @@ public class Configuration
         }
         set => testFrameworkName = value;
     }
+}
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 
-namespace FluentAssertions.Formatting;
+namespace FluentAssertions.Formatting {
 
 public class ExpressionValueFormatter : IValueFormatter
 {
@@ -21,4 +21,5 @@ public class ExpressionValueFormatter : IValueFormatter
     {
         formattedGraph.AddFragment(value.ToString().Replace(" = ", " == ", StringComparison.Ordinal));
     }
+}
 }

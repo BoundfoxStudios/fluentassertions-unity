@@ -1,6 +1,6 @@
 using System;
 
-namespace FluentAssertions.Primitives;
+namespace FluentAssertions.Primitives {
 
 internal class NegatedStringStartValidator : StringValidator
 {
@@ -39,4 +39,5 @@ internal class NegatedStringStartValidator : StringValidator
                 Expected, Subject);
         }
     }
+}
 }

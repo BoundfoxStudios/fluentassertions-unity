@@ -8,7 +8,7 @@ using FluentAssertions.Common;
 using FluentAssertions.Execution;
 using FluentAssertions.Primitives;
 
-namespace FluentAssertions.Types;
+namespace FluentAssertions.Types {
 
 /// <summary>
 /// Contains a number of methods to assert that a <see cref="MemberInfo"/> is in the expected state.
@@ -150,4 +150,5 @@ public abstract class MemberInfoAssertions<TSubject, TAssertions> : ReferenceTyp
     protected override string Identifier => "member";
 
     internal virtual string SubjectDescription => $"{Subject.DeclaringType}.{Subject.Name}";
+}
 }

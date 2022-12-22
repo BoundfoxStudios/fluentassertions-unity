@@ -9,7 +9,7 @@ using FluentAssertions.Execution;
 using FluentAssertions.Formatting;
 using FluentAssertions.Primitives;
 
-namespace FluentAssertions.Specialized;
+namespace FluentAssertions.Specialized {
 
 /// <summary>
 /// Contains a number of methods to assert that an <see cref="Exception" /> is in the correct state.
@@ -301,4 +301,5 @@ public class ExceptionAssertions<TException> :
             }
         }
     }
+}
 }

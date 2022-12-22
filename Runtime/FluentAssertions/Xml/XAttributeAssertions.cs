@@ -3,7 +3,7 @@ using System.Xml.Linq;
 using FluentAssertions.Execution;
 using FluentAssertions.Primitives;
 
-namespace FluentAssertions.Xml;
+namespace FluentAssertions.Xml {
 
 /// <summary>
 /// Contains a number of methods to assert that an <see cref="XAttribute"/> is in the expected state.
@@ -96,4 +96,5 @@ public class XAttributeAssertions : ReferenceTypeAssertions<XAttribute, XAttribu
     /// Returns the type of the subject the assertion applies on.
     /// </summary>
     protected override string Identifier => "XML attribute";
+}
 }

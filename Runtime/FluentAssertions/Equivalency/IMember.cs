@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 using FluentAssertions.Common;
 
-namespace FluentAssertions.Equivalency;
+namespace FluentAssertions.Equivalency {
 
 /// <summary>
 /// Exposes information about an object's member
@@ -40,4 +40,5 @@ public interface IMember : INode
     /// <see cref="EditorBrowsableAttribute"/>.
     /// </summary>
     bool IsBrowsable { get; }
+}
 }

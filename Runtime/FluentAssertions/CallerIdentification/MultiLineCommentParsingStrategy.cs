@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace FluentAssertions.CallerIdentification;
+namespace FluentAssertions.CallerIdentification {
 
 internal class MultiLineCommentParsingStrategy : IParsingStrategy
 {
@@ -47,4 +47,5 @@ internal class MultiLineCommentParsingStrategy : IParsingStrategy
     public void NotifyEndOfLineReached()
     {
     }
+}
 }

@@ -3,7 +3,7 @@ using System.Xml;
 using FluentAssertions.Common;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Xml;
+namespace FluentAssertions.Xml {
 
 /// <summary>
 /// Contains a number of methods to assert that an <see cref="XmlElement"/>
@@ -167,4 +167,5 @@ public class XmlElementAssertions : XmlNodeAssertions<XmlElement, XmlElementAsse
     }
 
     protected override string Identifier => "XML element";
+}
 }

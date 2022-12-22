@@ -6,7 +6,7 @@ using FluentAssertions.Common;
 using FluentAssertions.Events;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions;
+namespace FluentAssertions {
 
 /// <summary>
 /// Provides extension methods for monitoring and querying events.
@@ -141,4 +141,5 @@ public static class EventRaisingExtensions
 
         return new FilteredEventRecording(eventRecording, eventsWithMatchingPredicate);
     }
+}
 }

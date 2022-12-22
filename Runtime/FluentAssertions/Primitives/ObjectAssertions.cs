@@ -4,7 +4,7 @@ using FluentAssertions.Common;
 using FluentAssertions.Equivalency;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Primitives;
+namespace FluentAssertions.Primitives {
 
 /// <summary>
 /// Contains a number of methods to assert that an <see cref="object"/> is in the expected state.
@@ -230,4 +230,5 @@ public class ObjectAssertions<TSubject, TAssertions> : ReferenceTypeAssertions<T
     /// Returns the type of the subject the assertion applies on.
     /// </summary>
     protected override string Identifier => "object";
+}
 }

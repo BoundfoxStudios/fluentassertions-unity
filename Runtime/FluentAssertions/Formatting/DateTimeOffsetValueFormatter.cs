@@ -2,7 +2,7 @@
 using System.Globalization;
 using FluentAssertions.Common;
 
-namespace FluentAssertions.Formatting;
+namespace FluentAssertions.Formatting {
 
 public class DateTimeOffsetValueFormatter : IValueFormatter
 {
@@ -130,4 +130,5 @@ public class DateTimeOffsetValueFormatter : IValueFormatter
     {
         return (dateTime.Ticks % (TimeSpan.FromMilliseconds(1).Ticks / 1000)) > 0;
     }
+}
 }

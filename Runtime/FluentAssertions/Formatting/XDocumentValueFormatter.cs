@@ -1,6 +1,6 @@
 ﻿using System.Xml.Linq;
 
-namespace FluentAssertions.Formatting;
+namespace FluentAssertions.Formatting {
 
 public class XDocumentValueFormatter : IValueFormatter
 {
@@ -22,4 +22,5 @@ public class XDocumentValueFormatter : IValueFormatter
             formattedGraph.AddFragment("[XML document without root element]");
         }
     }
+}
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Primitives;
+namespace FluentAssertions.Primitives {
 
 /// <summary>
 /// Contains a number of methods to assert that a nullable <typeparamref name="TEnum"/> is in the expected state.
@@ -96,4 +96,5 @@ public class NullableEnumAssertions<TEnum, TAssertions> : EnumAssertions<TEnum, 
     {
         return NotHaveValue(because, becauseArgs);
     }
+}
 }

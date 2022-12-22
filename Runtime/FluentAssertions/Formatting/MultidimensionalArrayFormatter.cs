@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Linq;
 
-namespace FluentAssertions.Formatting;
+namespace FluentAssertions.Formatting {
 
 public class MultidimensionalArrayFormatter : IValueFormatter
 {
@@ -98,4 +98,5 @@ public class MultidimensionalArrayFormatter : IValueFormatter
     {
         return index >= arr.GetUpperBound(dimension);
     }
+}
 }

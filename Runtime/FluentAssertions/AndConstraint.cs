@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-namespace FluentAssertions;
+namespace FluentAssertions {
 
 [DebuggerNonUserCode]
 public class AndConstraint<T>
@@ -14,4 +14,5 @@ public class AndConstraint<T>
     {
         And = parentConstraint;
     }
+}
 }

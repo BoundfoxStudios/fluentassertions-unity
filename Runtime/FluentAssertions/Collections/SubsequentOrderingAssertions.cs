@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace FluentAssertions.Collections;
+namespace FluentAssertions.Collections {
 
 [DebuggerNonUserCode]
 public class SubsequentOrderingAssertions<T> :
@@ -170,4 +170,5 @@ public class SubsequentOrderingGenericCollectionAssertions<TCollection, T, TAsse
 
         return base.GetOrderedEnumerable(propertyExpression, comparer, direction, unordered);
     }
+}
 }

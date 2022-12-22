@@ -4,7 +4,7 @@ using System.Reflection;
 using FluentAssertions.Common;
 using FluentAssertions.Equivalency;
 
-namespace FluentAssertions.Formatting;
+namespace FluentAssertions.Formatting {
 
 public class DefaultValueFormatter : IValueFormatter
 {
@@ -120,4 +120,5 @@ public class DefaultValueFormatter : IValueFormatter
         formattedGraph.AddFragmentOnNewLine($"{new string(' ', FormattedObjectGraph.SpacesPerIndentation)}{member.Name} = ");
         formatChild(member.Name, memberValue, formattedGraph);
     }
+}
 }

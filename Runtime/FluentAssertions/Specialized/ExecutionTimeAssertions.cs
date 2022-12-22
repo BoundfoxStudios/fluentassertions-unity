@@ -3,7 +3,7 @@ using System.ComponentModel;
 using FluentAssertions.Common;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Specialized;
+namespace FluentAssertions.Specialized {
 
 #pragma warning disable CS0659 // Ignore not overriding Object.GetHashCode()
 #pragma warning disable CA1065 // Ignore throwing NotSupportedException from Equals
@@ -232,4 +232,5 @@ public class ExecutionTimeAssertions
     /// <inheritdoc/>
     public override bool Equals(object obj) =>
         throw new NotSupportedException("Equals is not part of Fluent Assertions. Did you mean BeLessThanOrEqualTo() or BeGreaterThanOrEqualTo() instead?");
+}
 }

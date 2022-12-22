@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Reflection;
 using FluentAssertions.Common;
 
-namespace FluentAssertions.Equivalency;
+namespace FluentAssertions.Equivalency {
 
 /// <summary>
 /// A specialized type of <see cref="INode  "/> that represents a field of an object in a structural equivalency assertion.
@@ -48,4 +48,5 @@ public class Field : Node, IMember
 
     public bool IsBrowsable =>
         isBrowsable ??= fieldInfo.GetCustomAttribute<EditorBrowsableAttribute>() is not { State: EditorBrowsableState.Never };
+}
 }

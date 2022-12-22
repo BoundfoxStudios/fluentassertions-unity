@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using FluentAssertions.Common;
 
-namespace FluentAssertions.Types;
+namespace FluentAssertions.Types {
 
 /// <summary>
 /// Allows for fluent selection of properties of a type through reflection.
@@ -154,4 +154,5 @@ public class PropertyInfoSelector : IEnumerable<PropertyInfo>
     {
         return GetEnumerator();
     }
+}
 }

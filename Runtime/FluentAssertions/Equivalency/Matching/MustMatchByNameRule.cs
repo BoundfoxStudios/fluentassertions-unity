@@ -2,7 +2,7 @@ using System.Reflection;
 using FluentAssertions.Common;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Equivalency.Matching;
+namespace FluentAssertions.Equivalency.Matching {
 
 /// <summary>
 /// Requires the subject to have a member with the exact same name as the expectation has.
@@ -57,4 +57,5 @@ internal class MustMatchByNameRule : IMemberMatchingRule
     {
         return "Match member by name (or throw)";
     }
+}
 }

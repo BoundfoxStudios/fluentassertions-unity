@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FluentAssertions.Formatting;
+namespace FluentAssertions.Formatting {
 
 public class MaxLinesExceededException : Exception
 {
@@ -17,4 +17,5 @@ public class MaxLinesExceededException : Exception
     public MaxLinesExceededException()
     {
     }
+}
 }

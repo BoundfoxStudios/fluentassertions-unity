@@ -3,7 +3,7 @@ using System.Diagnostics;
 using FluentAssertions.Execution;
 using FluentAssertions.Extensions;
 
-namespace FluentAssertions.Primitives;
+namespace FluentAssertions.Primitives {
 
 /// <summary>
 /// Contains a number of methods to assert that a nullable <see cref="DateTime"/> or
@@ -106,4 +106,5 @@ public class NullableDateTimeAssertions<TAssertions> : DateTimeAssertions<TAsser
     {
         return NotHaveValue(because, becauseArgs);
     }
+}
 }

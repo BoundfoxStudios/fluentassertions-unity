@@ -3,7 +3,7 @@ using System.Collections;
 using System.Linq;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Equivalency.Steps;
+namespace FluentAssertions.Equivalency.Steps {
 
 public class EnumerableEquivalencyStep : IEquivalencyStep
 {
@@ -66,4 +66,5 @@ public class EnumerableEquivalencyStep : IEquivalencyStep
             return Array.Empty<object>();
         }
     }
+}
 }

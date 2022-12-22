@@ -1,7 +1,7 @@
 using System.Diagnostics;
 using System.Globalization;
 
-namespace FluentAssertions.Numeric;
+namespace FluentAssertions.Numeric {
 
 /// <summary>
 /// Contains a number of methods to assert that a nullable <see cref="double"/> is in the expected state.
@@ -21,4 +21,5 @@ internal class NullableDoubleAssertions : NullableNumericAssertions<double>
         double difference = subject - expected;
         return difference != 0 ? difference.ToString("R", CultureInfo.InvariantCulture) : null;
     }
+}
 }

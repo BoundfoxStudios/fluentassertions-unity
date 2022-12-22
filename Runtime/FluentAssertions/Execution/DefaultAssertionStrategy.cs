@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 using FluentAssertions.Common;
 
-namespace FluentAssertions.Execution;
+namespace FluentAssertions.Execution {
 
 internal class DefaultAssertionStrategy : IAssertionStrategy
 {
@@ -39,4 +39,5 @@ internal class DefaultAssertionStrategy : IAssertionStrategy
     public void ThrowIfAny(IDictionary<string, object> context)
     {
     }
+}
 }

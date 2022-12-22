@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace FluentAssertions.Formatting;
+namespace FluentAssertions.Formatting {
 
 public class ByteValueFormatter : IValueFormatter
 {
@@ -20,4 +20,5 @@ public class ByteValueFormatter : IValueFormatter
     {
         formattedGraph.AddFragment("0x" + ((byte)value).ToString("X2", CultureInfo.InvariantCulture));
     }
+}
 }

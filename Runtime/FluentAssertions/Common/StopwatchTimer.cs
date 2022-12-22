@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 
-namespace FluentAssertions.Common;
+namespace FluentAssertions.Common {
 
 internal class StopwatchTimer : ITimer
 {
@@ -23,4 +23,5 @@ internal class StopwatchTimer : ITimer
             stopwatch.Stop();
         }
     }
+}
 }

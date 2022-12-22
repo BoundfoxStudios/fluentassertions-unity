@@ -3,7 +3,7 @@ using System.Net;
 using System.Net.Http;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Primitives;
+namespace FluentAssertions.Primitives {
 
 /// <summary>
 /// Contains a number of methods to assert that a <see cref="HttpResponseMessage"/> is in the expected state.
@@ -232,4 +232,5 @@ public class HttpResponseMessageAssertions<TAssertions> : ObjectAssertions<HttpR
     private bool IsClientError() => (int)Subject.StatusCode is >= 400 and <= 499;
 
     protected override string Identifier => "HTTP response message";
+}
 }

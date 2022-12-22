@@ -2,7 +2,7 @@
 using System.Xml;
 using FluentAssertions.Xml;
 
-namespace FluentAssertions;
+namespace FluentAssertions {
 
 [DebuggerNonUserCode]
 public static class XmlAssertionExtensions
@@ -16,4 +16,5 @@ public static class XmlAssertionExtensions
     {
         return new XmlElementAssertions(actualValue);
     }
+}
 }

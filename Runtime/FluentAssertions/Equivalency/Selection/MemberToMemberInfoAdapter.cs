@@ -1,7 +1,7 @@
 using System;
 using FluentAssertions.Common;
 
-namespace FluentAssertions.Equivalency.Selection;
+namespace FluentAssertions.Equivalency.Selection {
 
 /// <summary>
 /// Represents a selection context of a nested property
@@ -30,4 +30,5 @@ internal class MemberToMemberInfoAdapter : IMemberInfo
     public CSharpAccessModifier GetterAccessibility => member.GetterAccessibility;
 
     public CSharpAccessModifier SetterAccessibility => member.SetterAccessibility;
+}
 }

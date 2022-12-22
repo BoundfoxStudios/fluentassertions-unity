@@ -1,4 +1,4 @@
-﻿namespace FluentAssertions.Common;
+﻿namespace FluentAssertions.Common {
 
 public enum CSharpAccessModifier
 {
@@ -9,4 +9,5 @@ public enum CSharpAccessModifier
     ProtectedInternal,
     InvalidForCSharp,
     PrivateProtected,
+}
 }

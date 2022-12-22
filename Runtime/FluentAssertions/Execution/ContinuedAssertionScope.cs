@@ -1,6 +1,6 @@
 using System;
 
-namespace FluentAssertions.Execution;
+namespace FluentAssertions.Execution {
 
 /// <summary>
 /// Allows chaining multiple assertion scopes together using <see cref="Continuation.Then"/>.
@@ -141,4 +141,5 @@ public sealed class ContinuedAssertionScope : IAssertionScope
     {
         predecessor.Dispose();
     }
+}
 }

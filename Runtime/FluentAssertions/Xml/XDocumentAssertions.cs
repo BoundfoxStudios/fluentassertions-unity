@@ -10,7 +10,7 @@ using FluentAssertions.Execution;
 using FluentAssertions.Primitives;
 using FluentAssertions.Xml.Equivalency;
 
-namespace FluentAssertions.Xml;
+namespace FluentAssertions.Xml {
 
 /// <summary>
 /// Contains a number of methods to assert that an <see cref="XDocument"/> is in the expected state.
@@ -328,4 +328,5 @@ public class XDocumentAssertions : ReferenceTypeAssertions<XDocument, XDocumentA
     /// Returns the type of the subject the assertion applies on.
     /// </summary>
     protected override string Identifier => "XML document";
+}
 }

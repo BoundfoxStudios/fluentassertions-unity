@@ -1,4 +1,4 @@
-﻿namespace System;
+﻿namespace System {
 
 internal static class SystemExtensions
 {
@@ -16,4 +16,5 @@ internal static class SystemExtensions
 
     public static bool Contains(this string str, char value, StringComparison comparison) =>
         str.IndexOf(value, comparison) != -1;
+}
 }

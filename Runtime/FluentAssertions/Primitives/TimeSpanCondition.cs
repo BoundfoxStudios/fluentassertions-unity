@@ -1,4 +1,4 @@
-namespace FluentAssertions.Primitives;
+namespace FluentAssertions.Primitives {
 
 public enum TimeSpanCondition
 {
@@ -7,4 +7,5 @@ public enum TimeSpanCondition
     Exactly,
     Within,
     LessThan
+}
 }

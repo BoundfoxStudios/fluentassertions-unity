@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FluentAssertions;
+namespace FluentAssertions {
 
 internal class Disposable : IDisposable
 {
@@ -15,4 +15,5 @@ internal class Disposable : IDisposable
     {
         action();
     }
+}
 }

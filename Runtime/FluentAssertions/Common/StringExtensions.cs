@@ -3,7 +3,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using FluentAssertions.Formatting;
 
-namespace FluentAssertions.Common;
+namespace FluentAssertions.Common {
 
 internal static class StringExtensions
 {
@@ -150,4 +150,5 @@ internal static class StringExtensions
 
         return count;
     }
+}
 }

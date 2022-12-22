@@ -7,7 +7,7 @@ using FluentAssertions.Equivalency.Execution;
 using FluentAssertions.Execution;
 using FluentAssertions.Xml;
 
-namespace FluentAssertions.Formatting;
+namespace FluentAssertions.Formatting {
 
 /// <summary>
 /// Provides services for formatting an object being used in an assertion in a human readable format.
@@ -219,4 +219,5 @@ public static class Formatter
             return string.Join(".", pathStack.Reverse());
         }
     }
+}
 }

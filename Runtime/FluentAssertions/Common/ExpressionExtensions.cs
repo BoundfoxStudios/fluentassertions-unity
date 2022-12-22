@@ -4,7 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
 
-namespace FluentAssertions.Common;
+namespace FluentAssertions.Common {
 
 internal static class ExpressionExtensions
 {
@@ -163,4 +163,5 @@ internal static class ExpressionExtensions
 
     private static string GetUnsupportedExpressionMessage(Expression expression) =>
         $"Expression <{expression}> cannot be used to select a member.";
+}
 }

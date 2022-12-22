@@ -4,7 +4,7 @@ using System.Linq;
 using FluentAssertions.Common;
 using FluentAssertions.Specialized;
 
-namespace FluentAssertions;
+namespace FluentAssertions {
 
 public class AggregateExceptionExtractor : IExtractExceptions
 {
@@ -37,4 +37,5 @@ public class AggregateExceptionExtractor : IExtractExceptions
 
         return exceptions;
     }
+}
 }

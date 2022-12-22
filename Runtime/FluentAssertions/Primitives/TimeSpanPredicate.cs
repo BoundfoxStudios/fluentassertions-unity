@@ -1,6 +1,6 @@
 using System;
 
-namespace FluentAssertions.Primitives;
+namespace FluentAssertions.Primitives {
 
 /// <summary>
 /// Provides the logic and the display text for a <see cref="TimeSpanCondition"/>.
@@ -22,4 +22,5 @@ internal class TimeSpanPredicate
     {
         return lambda(actual, expected) && actual >= TimeSpan.Zero;
     }
+}
 }

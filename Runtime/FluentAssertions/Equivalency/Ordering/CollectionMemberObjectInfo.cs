@@ -1,6 +1,6 @@
 using System;
 
-namespace FluentAssertions.Equivalency.Ordering;
+namespace FluentAssertions.Equivalency.Ordering {
 
 internal class CollectionMemberObjectInfo : IObjectInfo
 {
@@ -31,4 +31,5 @@ internal class CollectionMemberObjectInfo : IObjectInfo
     public Type CompileTimeType { get; }
 
     public Type RuntimeType { get; }
+}
 }

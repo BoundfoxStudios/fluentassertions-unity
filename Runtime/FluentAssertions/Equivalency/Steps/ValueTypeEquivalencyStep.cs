@@ -1,6 +1,6 @@
 using System;
 
-namespace FluentAssertions.Equivalency.Steps;
+namespace FluentAssertions.Equivalency.Steps {
 
 /// <summary>
 /// Ensures that types that are marked as value types are treated as such.
@@ -32,4 +32,5 @@ public class ValueTypeEquivalencyStep : IEquivalencyStep
             return EquivalencyResult.ContinueWithNext;
         }
     }
+}
 }

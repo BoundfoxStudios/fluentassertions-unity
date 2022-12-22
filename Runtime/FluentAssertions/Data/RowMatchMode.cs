@@ -1,6 +1,6 @@
 ﻿using System.Data;
 
-namespace FluentAssertions.Data;
+namespace FluentAssertions.Data {
 
 /// <summary>
 /// Indicates how <see cref="DataRow"/> objects from different <see cref="DataTable"/> objects should be matched
@@ -21,4 +21,5 @@ public enum RowMatchMode
     /// configuration.
     /// </summary>
     PrimaryKey,
+}
 }

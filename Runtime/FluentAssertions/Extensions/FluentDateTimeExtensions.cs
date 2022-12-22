@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using FluentAssertions.Common;
 
-namespace FluentAssertions.Extensions;
+namespace FluentAssertions.Extensions {
 
 /// <summary>
 /// Extension methods on <see cref="int"/> to allow for a more fluent way of specifying a <see cref="DateTime"/>.
@@ -328,4 +328,5 @@ public static class FluentDateTimeExtensions
     {
         return self.ToDateTimeOffset(offset);
     }
+}
 }

@@ -3,7 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
 
-namespace FluentAssertions.Execution;
+namespace FluentAssertions.Execution {
 
 internal abstract class LateBoundTestFramework : ITestFramework
 {
@@ -39,4 +39,5 @@ internal abstract class LateBoundTestFramework : ITestFramework
     protected internal abstract string AssemblyName { get; }
 
     protected abstract string ExceptionFullName { get; }
+}
 }

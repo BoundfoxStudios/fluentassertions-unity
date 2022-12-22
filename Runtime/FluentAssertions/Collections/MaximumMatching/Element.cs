@@ -1,4 +1,4 @@
-﻿namespace FluentAssertions.Collections.MaximumMatching;
+﻿namespace FluentAssertions.Collections.MaximumMatching {
 
 /// <summary>
 /// Stores an element's value and index in the maximum matching problem.
@@ -21,4 +21,5 @@ internal class Element<TValue>
     /// The value of the element in the maximum matching problem.
     /// </summary>
     public TValue Value { get; }
+}
 }

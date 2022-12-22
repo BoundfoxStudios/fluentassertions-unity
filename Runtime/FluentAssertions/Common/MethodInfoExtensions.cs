@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 
-namespace FluentAssertions.Common;
+namespace FluentAssertions.Common {
 
 internal static class MethodInfoExtensions
 {
@@ -61,4 +61,5 @@ internal static class MethodInfoExtensions
 
         return (false, null);
     }
+}
 }

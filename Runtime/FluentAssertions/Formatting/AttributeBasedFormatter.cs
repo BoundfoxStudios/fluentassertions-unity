@@ -5,7 +5,7 @@ using System.Reflection;
 
 using FluentAssertions.Common;
 
-namespace FluentAssertions.Formatting;
+namespace FluentAssertions.Formatting {
 
 /// <summary>
 /// Specialized value formatter that looks for static methods in the caller's assembly marked with the
@@ -105,4 +105,5 @@ public class AttributeBasedFormatter : IValueFormatter
             (mode == ValueFormatterDetectionMode.Specific) &&
             assembly.FullName.Split(',')[0].Equals(configuration.ValueFormatterAssembly, StringComparison.OrdinalIgnoreCase));
     }
+}
 }

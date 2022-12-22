@@ -1,4 +1,4 @@
-﻿namespace FluentAssertions.Execution;
+﻿namespace FluentAssertions.Execution {
 
 /// <summary>
 /// Represents assertion fail reason. Contains the message and arguments for message's numbered placeholders.
@@ -43,4 +43,5 @@ public class FailReason
     /// Arguments for the numbered <see cref="string.Format(string,object[])"/>-style placeholders of <see cref="Message"/>.
     /// </summary>
     public object[] Args { get; }
+}
 }

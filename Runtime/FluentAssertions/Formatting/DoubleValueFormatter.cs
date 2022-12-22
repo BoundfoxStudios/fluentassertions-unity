@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace FluentAssertions.Formatting;
+namespace FluentAssertions.Formatting {
 
 public class DoubleValueFormatter : IValueFormatter
 {
@@ -47,4 +47,5 @@ public class DoubleValueFormatter : IValueFormatter
             ? formattedValue + ".0"
             : formattedValue;
     }
+}
 }

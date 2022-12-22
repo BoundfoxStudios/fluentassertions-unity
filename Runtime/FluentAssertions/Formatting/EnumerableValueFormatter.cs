@@ -5,7 +5,7 @@ using System.Globalization;
 using System.Linq;
 using FluentAssertions.Common;
 
-namespace FluentAssertions.Formatting;
+namespace FluentAssertions.Formatting {
 
 public class EnumerableValueFormatter : IValueFormatter
 {
@@ -78,4 +78,5 @@ public class EnumerableValueFormatter : IValueFormatter
             formattedGraph.AddFragment(fragment);
         }
     }
+}
 }

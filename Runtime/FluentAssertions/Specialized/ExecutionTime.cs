@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using FluentAssertions.Common;
 
-namespace FluentAssertions.Specialized;
+namespace FluentAssertions.Specialized {
 
 public class ExecutionTime
 {
@@ -111,4 +111,5 @@ public class ExecutionTime
     internal Task Task { get; }
 
     internal Exception Exception { get; private set; }
+}
 }

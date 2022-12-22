@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace FluentAssertions.Common;
+namespace FluentAssertions.Common {
 
 /// <summary>
 /// A smarter enumerator that can provide information about the relative location (current, first, last)
@@ -141,4 +141,5 @@ internal class Iterator<T> : IEnumerator<T>
     {
         enumerator.Dispose();
     }
+}
 }

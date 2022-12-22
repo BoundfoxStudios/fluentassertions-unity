@@ -4,7 +4,7 @@ using System.IO;
 using FluentAssertions.Execution;
 #endif
 
-namespace FluentAssertions.Streams;
+namespace FluentAssertions.Streams {
 
 /// <summary>
 /// Contains a number of methods to assert that an <see cref="Stream"/> is in the expected state.
@@ -92,4 +92,5 @@ public class BufferedStreamAssertions<TAssertions> : StreamAssertions<BufferedSt
         return new AndConstraint<TAssertions>((TAssertions)this);
     }
 #endif
+}
 }

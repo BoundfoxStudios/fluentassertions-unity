@@ -2,7 +2,7 @@ using System;
 using FluentAssertions.Equivalency.Tracing;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Equivalency;
+namespace FluentAssertions.Equivalency {
 
 /// <summary>
 /// Provides information on a particular property or field during an assertion for structural equality of two object graphs.
@@ -53,4 +53,5 @@ public interface IEquivalencyValidationContext
     /// Creates a deep clone of the current context.
     /// </summary>
     IEquivalencyValidationContext Clone();
+}
 }

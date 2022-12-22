@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using FluentAssertions.Common;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Specialized;
+namespace FluentAssertions.Specialized {
 
 public class GenericAsyncFunctionAssertions<TResult> : AsyncFunctionAssertions<Task<TResult>, GenericAsyncFunctionAssertions<TResult>>
 {
@@ -168,4 +168,5 @@ public class GenericAsyncFunctionAssertions<TResult> : AsyncFunctionAssertions<T
             return new AndWhichConstraint<GenericAsyncFunctionAssertions<TResult>, TResult>(this, default(TResult));
         }
     }
+}
 }

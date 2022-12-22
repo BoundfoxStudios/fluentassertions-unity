@@ -3,7 +3,7 @@ using System.Diagnostics;
 using FluentAssertions.Common;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Specialized;
+namespace FluentAssertions.Specialized {
 
 /// <summary>
 /// Contains a number of methods to assert that a synchronous function yields the expected result.
@@ -82,4 +82,5 @@ public class FunctionAssertions<T> : DelegateAssertions<Func<T>, FunctionAsserti
         T result = FunctionAssertionHelpers.NotThrowAfter(Subject, Clock, waitTime, pollInterval, because, becauseArgs);
         return new AndWhichConstraint<FunctionAssertions<T>, T>(this, result);
     }
+}
 }

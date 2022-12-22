@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Xml;
 
-namespace FluentAssertions.Xml.Equivalency;
+namespace FluentAssertions.Xml.Equivalency {
 
 internal class XmlIterator
 {
@@ -74,4 +74,5 @@ internal class XmlIterator
 
         return attributes;
     }
+}
 }

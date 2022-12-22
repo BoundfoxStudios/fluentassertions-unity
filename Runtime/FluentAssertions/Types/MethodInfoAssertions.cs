@@ -4,7 +4,7 @@ using System.Reflection;
 using FluentAssertions.Common;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Types;
+namespace FluentAssertions.Types {
 
 /// <summary>
 /// Contains a number of methods to assert that a <see cref="MethodInfo"/> is in the expected state.
@@ -300,4 +300,5 @@ public class MethodInfoAssertions : MethodBaseAssertions<MethodInfo, MethodInfoA
     internal override string SubjectDescription => GetDescriptionFor(Subject);
 
     protected override string Identifier => "method";
+}
 }

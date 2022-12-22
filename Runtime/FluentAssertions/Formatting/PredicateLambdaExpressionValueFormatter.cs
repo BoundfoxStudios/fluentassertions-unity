@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace FluentAssertions.Formatting;
+namespace FluentAssertions.Formatting {
 
 /// <summary>
 /// The <see cref="PredicateLambdaExpressionValueFormatter" /> is responsible for formatting
@@ -134,4 +134,5 @@ public class PredicateLambdaExpressionValueFormatter : IValueFormatter
             return null;
         }
     }
+}
 }

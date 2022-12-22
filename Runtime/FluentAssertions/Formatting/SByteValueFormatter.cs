@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace FluentAssertions.Formatting;
+namespace FluentAssertions.Formatting {
 
 public class SByteValueFormatter : IValueFormatter
 {
@@ -20,4 +20,5 @@ public class SByteValueFormatter : IValueFormatter
     {
         formattedGraph.AddFragment(((sbyte)value).ToString(CultureInfo.InvariantCulture) + "y");
     }
+}
 }

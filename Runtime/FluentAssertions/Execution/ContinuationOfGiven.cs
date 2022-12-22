@@ -1,4 +1,4 @@
-namespace FluentAssertions.Execution;
+namespace FluentAssertions.Execution {
 
 /// <summary>
 /// Enables chaining multiple assertions from a <see cref="AssertionScope.Given{T}"/> call.
@@ -26,4 +26,5 @@ public class ContinuationOfGiven<TSubject>
     {
         return continuationOfGiven.succeeded;
     }
+}
 }

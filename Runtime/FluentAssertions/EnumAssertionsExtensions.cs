@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Diagnostics.Contracts;
 using FluentAssertions.Primitives;
 
-namespace FluentAssertions;
+namespace FluentAssertions {
 
 /// <summary>
 /// Contains an extension method for custom assertions in unit tests related to Enum objects.
@@ -32,4 +32,5 @@ public static class EnumAssertionsExtensions
     {
         return new NullableEnumAssertions<TEnum>(@enum);
     }
+}
 }

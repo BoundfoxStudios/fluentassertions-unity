@@ -1,7 +1,7 @@
 using System;
 using System.Text;
 
-namespace FluentAssertions.Equivalency.Tracing;
+namespace FluentAssertions.Equivalency.Tracing {
 
 public class StringBuilderTraceWriter : ITraceWriter
 {
@@ -38,4 +38,5 @@ public class StringBuilderTraceWriter : ITraceWriter
     {
         return builder.ToString();
     }
+}
 }

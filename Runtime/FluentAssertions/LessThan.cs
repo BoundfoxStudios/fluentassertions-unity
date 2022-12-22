@@ -1,4 +1,4 @@
-﻿namespace FluentAssertions;
+﻿namespace FluentAssertions {
 
 public static class LessThan
 {
@@ -19,4 +19,5 @@ public static class LessThan
 
         internal override bool Assert(int actual) => actual < ExpectedCount;
     }
+}
 }

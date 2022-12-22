@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace FluentAssertions.Formatting;
+namespace FluentAssertions.Formatting {
 
 public class UInt32ValueFormatter : IValueFormatter
 {
@@ -20,4 +20,5 @@ public class UInt32ValueFormatter : IValueFormatter
     {
         formattedGraph.AddFragment(((uint)value).ToString(CultureInfo.InvariantCulture) + "u");
     }
+}
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FluentAssertions.Events;
+namespace FluentAssertions.Events {
 
 /// <summary>
 /// Monitors events on a given source
@@ -34,4 +34,5 @@ public interface IMonitor<T> : IDisposable
     /// <see cref="Clear"/> was called.
     /// </summary>
     OccurredEvent[] OccurredEvents { get; }
+}
 }

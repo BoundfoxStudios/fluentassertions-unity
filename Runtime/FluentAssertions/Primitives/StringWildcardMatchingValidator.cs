@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 using FluentAssertions.Common;
 
-namespace FluentAssertions.Primitives;
+namespace FluentAssertions.Primitives {
 
 internal class StringWildcardMatchingValidator : StringValidator
 {
@@ -80,4 +80,5 @@ internal class StringWildcardMatchingValidator : StringValidator
     /// Ignores the difference between environment newline differences
     /// </summary>
     public bool IgnoreNewLineDifferences { get; set; }
+}
 }

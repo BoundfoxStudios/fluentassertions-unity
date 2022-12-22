@@ -5,7 +5,7 @@ using System.Linq;
 using FluentAssertions.Common;
 using FluentAssertions.Formatting;
 
-namespace FluentAssertions;
+namespace FluentAssertions {
 
 /// <summary>
 /// Constraint which can be returned from an assertion which matches a condition and which will allow
@@ -64,4 +64,5 @@ public class AndWhichConstraint<TParentConstraint, TMatchedElement> : AndConstra
     /// Just a convenience property that returns the same value as <see cref="Which"/>.
     /// </remarks>
     public TMatchedElement Subject => Which;
+}
 }

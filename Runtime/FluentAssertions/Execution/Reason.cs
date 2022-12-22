@@ -1,4 +1,4 @@
-namespace FluentAssertions.Execution;
+namespace FluentAssertions.Execution {
 
 /// <summary>
 /// Represents the reason for a structural equivalency assertion.
@@ -21,4 +21,5 @@ public class Reason
     /// Zero or more objects to format using the placeholders in <see cref="Reason.FormattedMessage" />.
     /// </summary>
     public object[] Arguments { get; set; }
+}
 }

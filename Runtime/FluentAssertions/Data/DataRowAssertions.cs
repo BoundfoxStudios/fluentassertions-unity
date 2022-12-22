@@ -9,7 +9,7 @@ using FluentAssertions.Equivalency;
 using FluentAssertions.Execution;
 using FluentAssertions.Primitives;
 
-namespace FluentAssertions.Data;
+namespace FluentAssertions.Data {
 
 /// <summary>
 /// Provides convenient assertion methods on a <see cref="DataRow"/> that can be
@@ -199,4 +199,5 @@ public class DataRowAssertions<TDataRow> : ReferenceTypeAssertions<TDataRow, Dat
     }
 
     protected override string Identifier => "DataRow";
+}
 }

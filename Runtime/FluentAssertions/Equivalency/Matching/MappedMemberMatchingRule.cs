@@ -2,7 +2,7 @@ using System;
 using System.Text.RegularExpressions;
 using FluentAssertions.Common;
 
-namespace FluentAssertions.Equivalency.Matching;
+namespace FluentAssertions.Equivalency.Matching {
 
 /// <summary>
 /// Allows mapping a member (property or field) of the expectation to a differently named member
@@ -48,4 +48,5 @@ internal class MappedMemberMatchingRule<TExpectation, TSubject> : IMemberMatchin
 
         return null;
     }
+}
 }

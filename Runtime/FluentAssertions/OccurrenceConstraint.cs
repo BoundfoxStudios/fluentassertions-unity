@@ -2,7 +2,7 @@
 using FluentAssertions.Common;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions;
+namespace FluentAssertions {
 
 public abstract class OccurrenceConstraint
 {
@@ -26,4 +26,5 @@ public abstract class OccurrenceConstraint
     {
         scope.AddReportable("expectedOccurrence", $"{Mode} {ExpectedCount.Times()}");
     }
+}
 }

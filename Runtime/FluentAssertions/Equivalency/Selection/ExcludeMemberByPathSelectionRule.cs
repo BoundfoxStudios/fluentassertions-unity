@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using FluentAssertions.Common;
 
-namespace FluentAssertions.Equivalency.Selection;
+namespace FluentAssertions.Equivalency.Selection {
 
 /// <summary>
 /// Selection rule that removes a particular property from the structural comparison.
@@ -33,4 +33,5 @@ internal class ExcludeMemberByPathSelectionRule : SelectMemberByPathSelectionRul
     {
         return "Exclude member " + memberToExclude;
     }
+}
 }

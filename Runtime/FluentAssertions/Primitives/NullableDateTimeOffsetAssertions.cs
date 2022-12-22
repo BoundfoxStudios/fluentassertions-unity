@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Primitives;
+namespace FluentAssertions.Primitives {
 
 /// <summary>
 /// Contains a number of methods to assert that a nullable <see cref="DateTimeOffset"/> is in the expected state.
@@ -107,4 +107,5 @@ public class NullableDateTimeOffsetAssertions<TAssertions> : DateTimeOffsetAsser
     {
         return NotHaveValue(because, becauseArgs);
     }
+}
 }

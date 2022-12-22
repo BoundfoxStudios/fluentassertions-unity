@@ -1,7 +1,7 @@
 using System.Diagnostics;
 using System.Reflection;
 
-namespace FluentAssertions.Types;
+namespace FluentAssertions.Types {
 
 /// <summary>
 /// Contains a number of methods to assert that a <see cref="ConstructorInfo"/> is in the expected state.
@@ -26,4 +26,5 @@ public class ConstructorInfoAssertions : MethodBaseAssertions<ConstructorInfo, C
     internal override string SubjectDescription => GetDescriptionFor(Subject);
 
     protected override string Identifier => "constructor";
+}
 }

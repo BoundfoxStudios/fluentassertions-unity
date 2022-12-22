@@ -9,7 +9,7 @@ using FluentAssertions.Equivalency.Steps;
 
 #endregion
 
-namespace FluentAssertions;
+namespace FluentAssertions {
 
 /// <summary>
 /// Represents a mutable collection of equivalency steps that can be reordered and/or amended with additional
@@ -139,4 +139,5 @@ public class EquivalencyPlan : IEnumerable<IEquivalencyStep>
             new SimpleEqualityEquivalencyStep(),
         };
     }
+}
 }

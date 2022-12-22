@@ -1,4 +1,4 @@
-﻿namespace FluentAssertions.Equivalency.Steps;
+﻿namespace FluentAssertions.Equivalency.Steps {
 
 /// <summary>
 /// Represents a composite equivalency step that passes the execution to all user-supplied steps that can handle the
@@ -18,4 +18,5 @@ public class RunAllUserStepsEquivalencyStep : IEquivalencyStep
 
         return EquivalencyResult.ContinueWithNext;
     }
+}
 }

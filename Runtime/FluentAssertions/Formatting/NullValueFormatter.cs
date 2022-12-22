@@ -1,4 +1,4 @@
-﻿namespace FluentAssertions.Formatting;
+﻿namespace FluentAssertions.Formatting {
 
 public class NullValueFormatter : IValueFormatter
 {
@@ -18,4 +18,5 @@ public class NullValueFormatter : IValueFormatter
     {
         formattedGraph.AddFragment("<null>");
     }
+}
 }

@@ -3,7 +3,7 @@ using System.Globalization;
 
 #if NET6_0_OR_GREATER
 
-namespace FluentAssertions.Formatting;
+namespace FluentAssertions.Formatting {
 
 public class DateOnlyValueFormatter : IValueFormatter
 {
@@ -26,4 +26,5 @@ public class DateOnlyValueFormatter : IValueFormatter
     }
 }
 
+}
 #endif

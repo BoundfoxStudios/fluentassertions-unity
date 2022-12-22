@@ -7,7 +7,7 @@ using System.Linq;
 using FluentAssertions.Data;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Equivalency.Steps;
+namespace FluentAssertions.Equivalency.Steps {
 
 public class DataRowEquivalencyStep : EquivalencyStep<DataRow>
 {
@@ -213,4 +213,5 @@ public class DataRowEquivalencyStep : EquivalencyStep<DataRow>
 
         return selectedMembers;
     }
+}
 }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 
-namespace FluentAssertions.Common;
+namespace FluentAssertions.Common {
 
 internal static class ReadOnlyNonGenericCollectionWrapper
 {
@@ -62,4 +62,5 @@ internal class ReadOnlyNonGenericCollectionWrapper<TCollection, TItem> : ICollec
     void ICollection<TItem>.Clear() => throw new NotSupportedException();
 
     bool ICollection<TItem>.Remove(TItem item) => throw new NotSupportedException();
+}
 }

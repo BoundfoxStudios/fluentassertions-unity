@@ -2,7 +2,7 @@ using System;
 using FluentAssertions.Common;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Primitives;
+namespace FluentAssertions.Primitives {
 
 internal class StringEqualityValidator : StringValidator
 {
@@ -84,4 +84,5 @@ internal class StringEqualityValidator : StringValidator
             return comparisonMode == StringComparison.OrdinalIgnoreCase;
         }
     }
+}
 }

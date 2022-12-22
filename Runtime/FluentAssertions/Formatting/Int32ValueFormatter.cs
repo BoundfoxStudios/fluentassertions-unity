@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace FluentAssertions.Formatting;
+namespace FluentAssertions.Formatting {
 
 public class Int32ValueFormatter : IValueFormatter
 {
@@ -20,4 +20,5 @@ public class Int32ValueFormatter : IValueFormatter
     {
         formattedGraph.AddFragment(((int)value).ToString(CultureInfo.InvariantCulture));
     }
+}
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Common;
+namespace FluentAssertions.Common {
 
 /// <summary>
 /// Maintains the framework-specific services.
@@ -48,4 +48,5 @@ public static class Services
 #endif
         ThrowException = TestFrameworkProvider.Throw;
     }
+}
 }

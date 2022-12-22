@@ -14,7 +14,7 @@ using FluentAssertions.Equivalency.Selection;
 using FluentAssertions.Equivalency.Steps;
 using FluentAssertions.Equivalency.Tracing;
 
-namespace FluentAssertions.Equivalency;
+namespace FluentAssertions.Equivalency {
 
 /// <summary>
 /// Represents the run-time behavior of a structural equivalency assertion.
@@ -888,4 +888,5 @@ public abstract class SelfReferenceEquivalencyAssertionOptions<TSelf> : IEquival
     }
 
     #endregion
+}
 }

@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Primitives;
+namespace FluentAssertions.Primitives {
 
 /// <summary>
 /// Contains a number of methods to assert that a <see cref="Guid"/> is in the correct state.
@@ -172,4 +172,5 @@ public class GuidAssertions<TAssertions>
     /// <inheritdoc/>
     public override bool Equals(object obj) =>
         throw new NotSupportedException("Equals is not part of Fluent Assertions. Did you mean Be() or BeOneOf() instead?");
+}
 }

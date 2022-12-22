@@ -6,7 +6,7 @@ using FluentAssertions.Common;
 using FluentAssertions.Execution;
 using FluentAssertions.Primitives;
 
-namespace FluentAssertions.Events;
+namespace FluentAssertions.Events {
 
 /// <summary>
 /// Provides convenient assertion methods on a <see cref="IMonitor{T}"/> that can be
@@ -156,4 +156,5 @@ public class EventAssertions<T> : ReferenceTypeAssertions<T, EventAssertions<T>>
     }
 
     protected override string Identifier => "subject";
+}
 }

@@ -1,7 +1,7 @@
 using System;
 using System.Text.RegularExpressions;
 
-namespace FluentAssertions.Equivalency.Ordering;
+namespace FluentAssertions.Equivalency.Ordering {
 
 /// <summary>
 /// Represents a rule for determining whether or not a certain collection within the object graph should be compared using
@@ -62,4 +62,5 @@ internal class PathBasedOrderingRule : IOrderingRule
     {
         return "Be strict about the order of collection items when path is " + path;
     }
+}
 }

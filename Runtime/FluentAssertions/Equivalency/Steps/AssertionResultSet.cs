@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Equivalency.Steps;
+namespace FluentAssertions.Equivalency.Steps {
 
 /// <summary>
 /// Represents a collection of assertion results obtained through a <see cref="AssertionScope"/>.
@@ -57,4 +57,5 @@ internal class AssertionResultSet
     /// Gets a value indicating whether this collection contains a set without any failures at all.
     /// </summary>
     public bool ContainsSuccessfulSet() => set.Values.Any(v => v.Length == 0);
+}
 }

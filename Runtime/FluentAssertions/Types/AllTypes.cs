@@ -1,6 +1,6 @@
 using System.Reflection;
 
-namespace FluentAssertions.Types;
+namespace FluentAssertions.Types {
 
 /// <summary>
 /// Static class that allows for a 'fluent' selection of the types from an <see cref="Assembly"/>.
@@ -22,4 +22,5 @@ public static class AllTypes
     {
         return assembly.Types();
     }
+}
 }

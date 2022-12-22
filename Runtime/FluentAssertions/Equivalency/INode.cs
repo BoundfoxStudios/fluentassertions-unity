@@ -1,7 +1,7 @@
 using System;
 using JetBrains.Annotations;
 
-namespace FluentAssertions.Equivalency;
+namespace FluentAssertions.Equivalency {
 
 /// <summary>
 /// Represents a node in the object graph that is being compared as part of a structural equivalency check.
@@ -81,3 +81,4 @@ public interface INode
 /// Allows deferred fetching of the subject ID.
 /// </summary>
 public delegate string GetSubjectId();
+}

@@ -1,7 +1,7 @@
 using System;
 using FluentAssertions.Common;
 
-namespace FluentAssertions.Equivalency;
+namespace FluentAssertions.Equivalency {
 
 /// <summary>
 /// Represents a field or property in an object graph.
@@ -37,4 +37,5 @@ public interface IMemberInfo
     /// Gets the access modifier for the setter of this member.
     /// </summary>
     CSharpAccessModifier SetterAccessibility { get; }
+}
 }

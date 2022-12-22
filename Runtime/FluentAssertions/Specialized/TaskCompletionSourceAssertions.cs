@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using FluentAssertions.Common;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Specialized;
+namespace FluentAssertions.Specialized {
 
 #pragma warning disable CS0659 // Ignore not overriding Object.GetHashCode()
 #pragma warning disable CA1065 // Ignore throwing NotSupportedException from Equals
@@ -205,4 +205,5 @@ public class TaskCompletionSourceAssertionsBase
         timeoutCancellationTokenSource.Cancel();
         return true;
     }
+}
 }

@@ -6,7 +6,7 @@ using System.Reflection;
 using FluentAssertions.Common;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Types;
+namespace FluentAssertions.Types {
 
 /// <summary>
 /// Contains a number of methods to assert that a <see cref="MethodBase"/> is in the expected state.
@@ -99,4 +99,5 @@ public abstract class MethodBaseAssertions<TSubject, TAssertions> : MemberInfoAs
 
         return string.Join(", ", parameterTypes.Select(p => p.FullName));
     }
+}
 }

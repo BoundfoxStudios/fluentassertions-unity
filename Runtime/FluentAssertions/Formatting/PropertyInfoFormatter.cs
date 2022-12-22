@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace FluentAssertions.Formatting;
+namespace FluentAssertions.Formatting {
 
 public class PropertyInfoFormatter : IValueFormatter
 {
@@ -20,4 +20,5 @@ public class PropertyInfoFormatter : IValueFormatter
     {
         formattedGraph.AddFragment(((PropertyInfo)value).Name);
     }
+}
 }

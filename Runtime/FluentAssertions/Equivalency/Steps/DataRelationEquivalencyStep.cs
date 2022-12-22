@@ -5,7 +5,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Equivalency.Steps;
+namespace FluentAssertions.Equivalency.Steps {
 
 public class DataRelationEquivalencyStep : EquivalencyStep<DataRelation>
 {
@@ -242,4 +242,5 @@ public class DataRelationEquivalencyStep : EquivalencyStep<DataRelation>
 
         return members;
     }
+}
 }

@@ -8,7 +8,7 @@ using System.Threading;
 using FluentAssertions.CallerIdentification;
 using FluentAssertions.Common;
 
-namespace FluentAssertions;
+namespace FluentAssertions {
 
 /// <summary>
 /// Tries to extract the name of the variable or invocation on which the assertion is executed.
@@ -253,4 +253,5 @@ public static class CallerIdentifier
     {
         return candidate is "true" or "false";
     }
+}
 }

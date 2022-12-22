@@ -6,7 +6,7 @@ using FluentAssertions.Common;
 using FluentAssertions.Equivalency;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Collections;
+namespace FluentAssertions.Collections {
 
 /// <summary>
 /// Contains a number of methods to assert that a <typeparamref name="TCollection"/> is in the expected state.
@@ -951,4 +951,5 @@ public class GenericDictionaryAssertions<TCollection, TKey, TValue, TAssertions>
     private static TValue GetValue<T>(T collection, TKey key)
         where T : IEnumerable<KeyValuePair<TKey, TValue>> =>
         collection.GetValue<T, TKey, TValue>(key);
+}
 }

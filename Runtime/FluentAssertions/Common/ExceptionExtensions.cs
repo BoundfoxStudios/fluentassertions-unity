@@ -2,7 +2,7 @@
 using System.Reflection;
 using System.Runtime.ExceptionServices;
 
-namespace FluentAssertions.Common;
+namespace FluentAssertions.Common {
 
 internal static class ExceptionExtensions
 {
@@ -16,4 +16,5 @@ internal static class ExceptionExtensions
 
         return ExceptionDispatchInfo.Capture(result);
     }
+}
 }

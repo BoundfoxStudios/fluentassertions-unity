@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Equivalency.Steps;
+namespace FluentAssertions.Equivalency.Steps {
 
 public class EqualityComparerEquivalencyStep<T> : IEquivalencyStep
 {
@@ -37,4 +37,5 @@ public class EqualityComparerEquivalencyStep<T> : IEquivalencyStep
     {
         return $"Use {comparer} for objects of type {typeof(T)}";
     }
+}
 }

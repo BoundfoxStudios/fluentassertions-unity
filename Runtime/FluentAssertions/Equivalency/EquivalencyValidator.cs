@@ -2,7 +2,7 @@ using System;
 using FluentAssertions.Equivalency.Tracing;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Equivalency;
+namespace FluentAssertions.Equivalency {
 
 /// <summary>
 /// Is responsible for validating the equivalency of a subject with another object.
@@ -79,4 +79,5 @@ public class EquivalencyValidator : IEquivalencyValidator
         throw new NotImplementedException(
             $"Do not know how to compare {comparands.Subject} and {comparands.Expectation}. Please report an issue through https://www.fluentassertions.com.");
     }
+}
 }

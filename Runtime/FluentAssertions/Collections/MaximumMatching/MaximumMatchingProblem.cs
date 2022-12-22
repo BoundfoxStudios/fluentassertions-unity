@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace FluentAssertions.Collections.MaximumMatching;
+namespace FluentAssertions.Collections.MaximumMatching {
 
 /// <summary>
 /// The <see cref="MaximumMatchingProblem{TElement}"/> class defines input for the maximum matching problem.
@@ -28,4 +28,5 @@ internal class MaximumMatchingProblem<TValue>
     public List<Element<TValue>> Elements { get; } = new();
 
     public MaximumMatchingSolution<TValue> Solve() => new MaximumMatchingSolver<TValue>(this).Solve();
+}
 }

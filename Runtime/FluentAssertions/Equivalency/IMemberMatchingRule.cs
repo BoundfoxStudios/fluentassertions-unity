@@ -1,4 +1,4 @@
-namespace FluentAssertions.Equivalency;
+namespace FluentAssertions.Equivalency {
 
 /// <summary>
 /// Represents a rule that defines how to map the selected members of the expectation object to the properties
@@ -28,4 +28,5 @@ public interface IMemberMatchingRule
     /// if no match was found.
     /// </returns>
     IMember Match(IMember expectedMember, object subject, INode parent, IEquivalencyAssertionOptions options);
+}
 }

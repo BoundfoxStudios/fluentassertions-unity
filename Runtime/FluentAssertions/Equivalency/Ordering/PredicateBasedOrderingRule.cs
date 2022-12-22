@@ -1,7 +1,7 @@
 using System;
 using System.Linq.Expressions;
 
-namespace FluentAssertions.Equivalency.Ordering;
+namespace FluentAssertions.Equivalency.Ordering {
 
 internal class PredicateBasedOrderingRule : IOrderingRule
 {
@@ -32,4 +32,5 @@ internal class PredicateBasedOrderingRule : IOrderingRule
     {
         return $"Be {(Invert ? "not strict" : "strict")} about the order of collections when {description}";
     }
+}
 }

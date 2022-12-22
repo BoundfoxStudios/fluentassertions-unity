@@ -1,4 +1,4 @@
-namespace FluentAssertions.Equivalency;
+namespace FluentAssertions.Equivalency {
 
 /// <summary>
 /// Provides the required information for executing an equality assertion between a subject and an expectation.
@@ -32,4 +32,5 @@ public interface IAssertionContext<TSubject>
     /// Zero or more objects to format using the placeholders in <see cref="Because" />.
     /// </summary>
     object[] BecauseArgs { get; set; }
+}
 }

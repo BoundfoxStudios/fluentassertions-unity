@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace FluentAssertions.Collections;
+namespace FluentAssertions.Collections {
 
 public class WhoseValueConstraint<TCollection, TKey, TValue, TAssertions> : AndConstraint<TAssertions>
     where TCollection : IEnumerable<KeyValuePair<TKey, TValue>>
@@ -19,4 +19,5 @@ public class WhoseValueConstraint<TCollection, TKey, TValue, TAssertions> : AndC
     /// Gets the value of the object referred to by the key.
     /// </summary>
     public TValue WhoseValue { get; }
+}
 }

@@ -6,7 +6,7 @@ using FluentAssertions.Execution;
 
 #if NET6_0_OR_GREATER
 
-namespace FluentAssertions.Primitives;
+namespace FluentAssertions.Primitives {
 
 /// <summary>
 /// Contains a number of methods to assert that a <see cref="TimeOnly"/> is in the expected state.
@@ -569,4 +569,5 @@ public class TimeOnlyAssertions<TAssertions>
         throw new NotSupportedException("Equals is not part of Fluent Assertions. Did you mean Be() instead?");
 }
 
+}
 #endif

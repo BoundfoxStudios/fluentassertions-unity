@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace FluentAssertions.Common;
+namespace FluentAssertions.Common {
 
 /// <summary>
 /// Default implementation for <see cref="IClock"/> for production use.
@@ -17,4 +17,5 @@ internal class Clock : IClock
     }
 
     public ITimer StartTimer() => new StopwatchTimer();
+}
 }

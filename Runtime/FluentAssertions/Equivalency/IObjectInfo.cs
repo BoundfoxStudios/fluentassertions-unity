@@ -1,7 +1,7 @@
 using System;
 using JetBrains.Annotations;
 
-namespace FluentAssertions.Equivalency;
+namespace FluentAssertions.Equivalency {
 
 /// <summary>
 /// Represents an object, dictionary key pair, collection item or member in an object graph.
@@ -38,4 +38,5 @@ public interface IObjectInfo
     /// Gets the run-time type of the current object.
     /// </summary>
     Type RuntimeType { get; }
+}
 }

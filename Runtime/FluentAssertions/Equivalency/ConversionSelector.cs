@@ -7,7 +7,7 @@ using FluentAssertions.Common;
 using FluentAssertions.Equivalency.Execution;
 using FluentAssertions.Equivalency.Steps;
 
-namespace FluentAssertions.Equivalency;
+namespace FluentAssertions.Equivalency {
 
 /// <summary>
 /// Collects the members that need to be converted by the <see cref="AutoConversionStep"/>.
@@ -102,4 +102,5 @@ public class ConversionSelector
     {
         return new ConversionSelector(new List<ConversionSelectorRule>(inclusions), new List<ConversionSelectorRule>(exclusions));
     }
+}
 }

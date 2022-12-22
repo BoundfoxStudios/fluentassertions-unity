@@ -1,6 +1,6 @@
 using System;
 
-namespace FluentAssertions.Equivalency.Execution;
+namespace FluentAssertions.Equivalency.Execution {
 
 internal class ObjectInfo : IObjectInfo
 {
@@ -22,4 +22,5 @@ internal class ObjectInfo : IObjectInfo
     public Type CompileTimeType { get; }
 
     public Type RuntimeType { get; }
+}
 }

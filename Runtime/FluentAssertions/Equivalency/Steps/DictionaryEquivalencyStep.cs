@@ -3,7 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using FluentAssertions.Execution;
 using static System.FormattableString;
 
-namespace FluentAssertions.Equivalency.Steps;
+namespace FluentAssertions.Equivalency.Steps {
 
 public class DictionaryEquivalencyStep : EquivalencyStep<IDictionary>
 {
@@ -65,4 +65,5 @@ public class DictionaryEquivalencyStep : EquivalencyStep<IDictionary>
             .FailWith("Expected {context:subject} to be a dictionary with {0} item(s), but it only contains {1} item(s).",
                 expectation?.Keys.Count, subject?.Keys.Count);
     }
+}
 }

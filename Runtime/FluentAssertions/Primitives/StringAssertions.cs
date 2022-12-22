@@ -8,7 +8,7 @@ using FluentAssertions.Common;
 using FluentAssertions.Execution;
 using JetBrains.Annotations;
 
-namespace FluentAssertions.Primitives;
+namespace FluentAssertions.Primitives {
 
 /// <summary>
 /// Contains a number of methods to assert that a <see cref="string"/> is in the expected state.
@@ -1485,4 +1485,5 @@ public class StringAssertions<TAssertions> : ReferenceTypeAssertions<string, TAs
     /// Returns the type of the subject the assertion applies on.
     /// </summary>
     protected override string Identifier => "string";
+}
 }

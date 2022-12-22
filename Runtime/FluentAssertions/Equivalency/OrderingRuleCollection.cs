@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions.Equivalency.Ordering;
 
-namespace FluentAssertions.Equivalency;
+namespace FluentAssertions.Equivalency {
 
 /// <summary>
 /// Collection of <see cref="PathBasedOrderingRule"/>s.
@@ -70,4 +70,5 @@ public class OrderingRuleCollection : IEnumerable<IOrderingRule>
         List<OrderStrictness> results = rules.Select(r => r.Evaluate(objectInfo)).ToList();
         return results.Contains(OrderStrictness.Strict) && !results.Contains(OrderStrictness.NotStrict);
     }
+}
 }

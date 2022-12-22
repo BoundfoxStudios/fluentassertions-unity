@@ -1,4 +1,4 @@
-﻿namespace FluentAssertions.Formatting;
+﻿namespace FluentAssertions.Formatting {
 
 public class StringValueFormatter : IValueFormatter
 {
@@ -27,4 +27,5 @@ public class StringValueFormatter : IValueFormatter
             formattedGraph.AddFragment(result);
         }
     }
+}
 }

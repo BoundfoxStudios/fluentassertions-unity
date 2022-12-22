@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 
-namespace FluentAssertions.Xml.Equivalency;
+namespace FluentAssertions.Xml.Equivalency {
 
 internal sealed class Node
 {
@@ -76,4 +76,5 @@ internal sealed class Node
         children.Add(node);
         return node;
     }
+}
 }

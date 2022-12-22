@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace FluentAssertions.Execution;
+namespace FluentAssertions.Execution {
 
 /// <summary>
 /// Represents an abstraction of a particular test framework such as MSTest, nUnit, etc.
@@ -17,4 +17,5 @@ internal interface ITestFramework
     /// </summary>
     [DoesNotReturn]
     void Throw(string message);
+}
 }

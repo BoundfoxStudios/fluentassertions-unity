@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using FluentAssertions.Common;
 
-namespace FluentAssertions.Types;
+namespace FluentAssertions.Types {
 
 /// <summary>
 /// Allows for fluent filtering a list of types.
@@ -291,4 +291,5 @@ public class TypeSelector : IEnumerable<Type>
     {
         return GetEnumerator();
     }
+}
 }

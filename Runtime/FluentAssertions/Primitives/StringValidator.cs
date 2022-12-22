@@ -1,7 +1,7 @@
 using System;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Primitives;
+namespace FluentAssertions.Primitives {
 
 /// <summary>
 /// Dedicated class for comparing two strings and generating consistent error messages.
@@ -79,4 +79,5 @@ internal abstract class StringValidator
     protected abstract void ValidateAgainstMismatch();
 
     protected abstract string ExpectationDescription { get; }
+}
 }

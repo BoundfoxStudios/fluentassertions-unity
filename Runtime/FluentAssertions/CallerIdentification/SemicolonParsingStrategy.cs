@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace FluentAssertions.CallerIdentification;
+namespace FluentAssertions.CallerIdentification {
 
 internal class SemicolonParsingStrategy : IParsingStrategy
 {
@@ -23,4 +23,5 @@ internal class SemicolonParsingStrategy : IParsingStrategy
     public void NotifyEndOfLineReached()
     {
     }
+}
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FluentAssertions.Events;
+namespace FluentAssertions.Events {
 
 /// <summary>
 /// Provides the metadata of a monitored event.
@@ -22,4 +22,5 @@ public class EventMetadata
         EventName = eventName;
         HandlerType = handlerType;
     }
+}
 }

@@ -1,4 +1,4 @@
-namespace FluentAssertions.Equivalency.Ordering;
+namespace FluentAssertions.Equivalency.Ordering {
 
 /// <summary>
 /// An ordering rule that basically states that the order of items in all collections is important.
@@ -17,4 +17,5 @@ internal class MatchAllOrderingRule : IOrderingRule
     {
         return "Always be strict about the collection order";
     }
+}
 }

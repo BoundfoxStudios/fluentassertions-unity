@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Globalization;
 
-namespace FluentAssertions.Numeric;
+namespace FluentAssertions.Numeric {
 
 /// <summary>
 /// Contains a number of methods to assert that a <see cref="ulong"/> is in the expected state.
@@ -24,4 +24,5 @@ internal class UInt64Assertions : NumericAssertions<ulong>
         decimal difference = (decimal)subject - expected;
         return difference != 0 ? difference.ToString(CultureInfo.InvariantCulture) : null;
     }
+}
 }

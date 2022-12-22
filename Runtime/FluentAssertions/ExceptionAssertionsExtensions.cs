@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using FluentAssertions.Execution;
 using FluentAssertions.Specialized;
 
-namespace FluentAssertions;
+namespace FluentAssertions {
 
 public static class ExceptionAssertionsExtensions
 {
@@ -197,4 +197,5 @@ public static class ExceptionAssertionsExtensions
     }
 
 #pragma warning restore AV1755
+}
 }

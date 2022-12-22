@@ -8,7 +8,7 @@ using FluentAssertions.Collections;
 using FluentAssertions.Common;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions;
+namespace FluentAssertions {
 
 public static class DataColumnCollectionAssertionExtensions
 {
@@ -165,4 +165,5 @@ public static class DataColumnCollectionAssertionExtensions
 
         return new AndConstraint<GenericCollectionAssertions<DataColumn>>(assertion);
     }
+}
 }

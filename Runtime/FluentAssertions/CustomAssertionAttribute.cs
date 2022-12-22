@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FluentAssertions;
+namespace FluentAssertions {
 
 /// <summary>
 /// Marks a method as an extension to Fluent Assertions that either uses the built-in assertions
@@ -9,4 +9,5 @@ namespace FluentAssertions;
 [AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
 public class CustomAssertionAttribute : Attribute
 {
+}
 }

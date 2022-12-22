@@ -1,4 +1,4 @@
-﻿namespace FluentAssertions.Formatting;
+﻿namespace FluentAssertions.Formatting {
 
 public class FormattingOptions
 {
@@ -32,4 +32,5 @@ public class FormattingOptions
             MaxLines = MaxLines
         };
     }
+}
 }
