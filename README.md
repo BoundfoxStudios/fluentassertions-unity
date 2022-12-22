@@ -10,7 +10,7 @@ For more information about FluentAssertions itself, please head over to https://
 
 ## Pre-requirements
 
-* Unity 2019.1 or newer
+* Unity 2021.2 or newer
 * .NET Standard 2.0 scripting backend
 
 ## Installation
