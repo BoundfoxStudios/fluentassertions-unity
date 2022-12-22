@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using FluentAssertions.Common;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Specialized;
+namespace FluentAssertions.Specialized {
 
 /// <summary>
 /// Contains a number of methods to assert that a synchronous method yields the expected result.
@@ -236,4 +236,5 @@ public abstract class DelegateAssertions<TDelegate, TAssertions> : DelegateAsser
             throw new InvalidOperationException("Cannot use action assertions on an async void method. Assign the async method to a variable of type Func<Task> instead of Action so that it can be awaited.");
         }
     }
+}
 }

@@ -4,7 +4,7 @@ using System.Reflection;
 using FluentAssertions.Common;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Types;
+namespace FluentAssertions.Types {
 
 /// <summary>
 /// Contains a number of methods to assert that a <see cref="PropertyInfo"/> is in the expected state.
@@ -374,4 +374,5 @@ public class PropertyInfoAssertions :
     /// Returns the type of the subject the assertion applies on.
     /// </summary>
     protected override string Identifier => "property";
+}
 }

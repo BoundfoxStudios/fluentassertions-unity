@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FluentAssertions.Execution;
+namespace FluentAssertions.Execution {
 
 public interface IAssertionScope : IDisposable
 {
@@ -170,4 +170,5 @@ public interface IAssertionScope : IDisposable
     /// Discards and returns the failures that happened up to now.
     /// </summary>
     string[] Discard();
+}
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FluentAssertions.Extensions;
+namespace FluentAssertions.Extensions {
 
 /// <summary>
 /// Extension methods on <see cref="int"/> to allow for a more fluent way of specifying a <see cref="TimeSpan"/>.
@@ -247,4 +247,5 @@ public static class FluentTimeSpanExtensions
     {
         return sourceTime.Add(offset);
     }
+}
 }

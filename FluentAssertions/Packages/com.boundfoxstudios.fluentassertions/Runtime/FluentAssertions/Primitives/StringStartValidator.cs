@@ -1,7 +1,7 @@
 using System;
 using FluentAssertions.Common;
 
-namespace FluentAssertions.Primitives;
+namespace FluentAssertions.Primitives {
 
 internal class StringStartValidator : StringValidator
 {
@@ -50,4 +50,5 @@ internal class StringStartValidator : StringValidator
                 Expected, Subject);
         }
     }
+}
 }

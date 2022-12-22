@@ -5,7 +5,7 @@ using System.Linq;
 using FluentAssertions.Data;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Equivalency.Steps;
+namespace FluentAssertions.Equivalency.Steps {
 
 public class DataTableEquivalencyStep : EquivalencyStep<DataTable>
 {
@@ -181,4 +181,5 @@ public class DataTableEquivalencyStep : EquivalencyStep<DataTable>
 
         return members;
     }
+}
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 
-namespace FluentAssertions.Formatting;
+namespace FluentAssertions.Formatting {
 
 public class TimeSpanValueFormatter : IValueFormatter
 {
@@ -123,4 +123,5 @@ public class TimeSpanValueFormatter : IValueFormatter
             fragments.Add(timeSpan.Days.ToString(CultureInfo.InvariantCulture) + "d");
         }
     }
+}
 }

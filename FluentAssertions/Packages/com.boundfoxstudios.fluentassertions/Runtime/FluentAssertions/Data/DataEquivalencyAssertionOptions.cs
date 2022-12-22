@@ -7,7 +7,7 @@ using System.Reflection;
 
 using FluentAssertions.Equivalency;
 
-namespace FluentAssertions.Data;
+namespace FluentAssertions.Data {
 
 internal class DataEquivalencyAssertionOptions<T> : EquivalencyAssertionOptions<T>, IDataEquivalencyAssertionOptions<T>
 {
@@ -310,4 +310,5 @@ internal class DataEquivalencyAssertionOptions<T> : EquivalencyAssertionOptions<
 
         return false;
     }
+}
 }

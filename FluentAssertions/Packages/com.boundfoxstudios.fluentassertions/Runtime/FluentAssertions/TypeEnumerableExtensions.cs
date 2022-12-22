@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using FluentAssertions.Types;
 
-namespace FluentAssertions;
+namespace FluentAssertions {
 
 /// <summary>
 /// Extension methods for filtering a collection of types.
@@ -133,4 +133,5 @@ public static class TypeEnumerableExtensions
     {
         return new TypeSelector(types).UnwrapEnumerableTypes();
     }
+}
 }

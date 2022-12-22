@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 using FluentAssertions.Common;
 using static System.FormattableString;
 
-namespace FluentAssertions.Equivalency.Execution;
+namespace FluentAssertions.Equivalency.Execution {
 
 /// <summary>
 /// Represents  an object tracked by the <see cref="CyclicReferenceDetector"/> including it's location within an object graph.
@@ -70,4 +70,5 @@ internal class ObjectReference
     }
 
     public bool IsComplexType => isComplexType ?? (@object is not null && !@object.GetType().OverridesEquals());
+}
 }

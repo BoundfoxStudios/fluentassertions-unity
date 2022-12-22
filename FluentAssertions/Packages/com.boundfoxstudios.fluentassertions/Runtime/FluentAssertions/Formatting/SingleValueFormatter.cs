@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace FluentAssertions.Formatting;
+namespace FluentAssertions.Formatting {
 
 public class SingleValueFormatter : IValueFormatter
 {
@@ -38,4 +38,5 @@ public class SingleValueFormatter : IValueFormatter
             formattedGraph.AddFragment(singleValue.ToString("R", CultureInfo.InvariantCulture) + "F");
         }
     }
+}
 }

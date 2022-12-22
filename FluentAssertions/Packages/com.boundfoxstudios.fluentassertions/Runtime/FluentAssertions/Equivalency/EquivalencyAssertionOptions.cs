@@ -11,7 +11,7 @@ using FluentAssertions.Equivalency.Selection;
 
 #endregion
 
-namespace FluentAssertions.Equivalency;
+namespace FluentAssertions.Equivalency {
 
 // REFACTOR rename to EquivalencyOptions
 
@@ -187,4 +187,5 @@ public class EquivalencyAssertionOptions : SelfReferenceEquivalencyAssertionOpti
 
         RespectingDeclaredTypes();
     }
+}
 }

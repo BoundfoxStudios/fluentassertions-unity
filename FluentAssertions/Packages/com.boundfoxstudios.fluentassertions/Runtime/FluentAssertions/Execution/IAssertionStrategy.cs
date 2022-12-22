@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace FluentAssertions.Execution;
+namespace FluentAssertions.Execution {
 
 /// <summary>
 /// Defines a strategy for handling failures in a <see cref="AssertionScope"/>.
@@ -26,4 +26,5 @@ public interface IAssertionStrategy
     /// Will throw a combined exception for any failures have been collected.
     /// </summary>
     void ThrowIfAny(IDictionary<string, object> context);
+}
 }

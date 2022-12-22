@@ -4,7 +4,7 @@ using FluentAssertions.Execution;
 
 #if NET6_0_OR_GREATER
 
-namespace FluentAssertions.Primitives;
+namespace FluentAssertions.Primitives {
 
 /// <summary>
 /// Contains a number of methods to assert that a nullable <see cref="DateOnly"/> or
@@ -101,4 +101,5 @@ public class NullableDateOnlyAssertions<TAssertions> : DateOnlyAssertions<TAsser
     }
 }
 
+}
 #endif

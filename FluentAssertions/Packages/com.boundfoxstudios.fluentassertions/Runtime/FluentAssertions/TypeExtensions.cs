@@ -6,7 +6,7 @@ using System.Reflection;
 using FluentAssertions.Common;
 using FluentAssertions.Types;
 
-namespace FluentAssertions;
+namespace FluentAssertions {
 
 /// <summary>
 /// Extension methods for getting method and property selectors for a type.
@@ -77,4 +77,5 @@ public static class TypeExtensions
 
         return new PropertyInfoSelector(typeSelector.ToList());
     }
+}
 }

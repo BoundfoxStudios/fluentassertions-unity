@@ -5,7 +5,7 @@ using FluentAssertions.Common;
 using FluentAssertions.Equivalency;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Collections;
+namespace FluentAssertions.Collections {
 
 public class StringCollectionAssertions :
     StringCollectionAssertions<IEnumerable<string>>
@@ -351,4 +351,5 @@ public class StringCollectionAssertions<TCollection, TAssertions> :
             return !scope.Discard().Any();
         });
     }
+}
 }

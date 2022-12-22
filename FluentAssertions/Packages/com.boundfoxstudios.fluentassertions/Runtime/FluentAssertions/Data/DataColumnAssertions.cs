@@ -7,7 +7,7 @@ using FluentAssertions.Equivalency;
 using FluentAssertions.Execution;
 using FluentAssertions.Primitives;
 
-namespace FluentAssertions.Data;
+namespace FluentAssertions.Data {
 
 /// <summary>
 /// Provides convenient assertion methods on a <see cref="DataColumn"/> that can be
@@ -134,4 +134,5 @@ public class DataColumnAssertions : ReferenceTypeAssertions<DataColumn, DataColu
     }
 
     protected override string Identifier => "DataColumn";
+}
 }

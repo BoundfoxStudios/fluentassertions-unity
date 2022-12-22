@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text;
 
-namespace FluentAssertions.Formatting;
+namespace FluentAssertions.Formatting {
 
 internal static class EnumerableExtensions
 {
@@ -40,4 +40,5 @@ internal static class EnumerableExtensions
 
         return buffer.ToString();
     }
+}
 }

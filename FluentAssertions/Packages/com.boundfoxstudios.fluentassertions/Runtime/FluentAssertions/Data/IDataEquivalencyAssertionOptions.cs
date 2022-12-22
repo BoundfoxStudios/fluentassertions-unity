@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 using FluentAssertions.Equivalency;
 
-namespace FluentAssertions.Data;
+namespace FluentAssertions.Data {
 
 /// <summary>
 /// Provides access to configuration for equivalency assertions on System.Data types (<see cref="DataSet"/>,
@@ -191,4 +191,5 @@ public interface IDataEquivalencyAssertionOptions<T> : IEquivalencyAssertionOpti
     /// </summary>
     /// <param name="expression">An <see cref="Expression{TDelegate}"/> that accesses the member to be excluded.</param>
     IDataEquivalencyAssertionOptions<T> ExcludingRelated(Expression<Func<DataTable, object>> expression);
+}
 }

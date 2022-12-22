@@ -8,7 +8,7 @@ using FluentAssertions.Common;
 using FluentAssertions.Execution;
 using FluentAssertions.Primitives;
 
-namespace FluentAssertions.Types;
+namespace FluentAssertions.Types {
 
 /// <summary>
 /// Contains a number of methods to assert that a <see cref="Type"/> meets certain expectations.
@@ -1834,4 +1834,5 @@ public class TypeAssertions : ReferenceTypeAssertions<Type, TypeAssertions>
             throw new InvalidOperationException($"{Subject} must be a class.");
         }
     }
+}
 }

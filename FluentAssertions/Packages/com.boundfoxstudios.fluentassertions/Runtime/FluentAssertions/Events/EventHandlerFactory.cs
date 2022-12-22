@@ -2,7 +2,7 @@ using System;
 using System.Reflection;
 using System.Reflection.Emit;
 
-namespace FluentAssertions.Events;
+namespace FluentAssertions.Events {
 
 /// <summary>
 /// Static methods that aid in generic event subscription
@@ -145,4 +145,5 @@ internal static class EventHandlerFactory
         MethodInfo invoke = d.GetMethod("Invoke");
         return invoke;
     }
+}
 }

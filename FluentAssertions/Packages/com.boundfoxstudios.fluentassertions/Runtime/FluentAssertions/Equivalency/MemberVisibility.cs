@@ -1,7 +1,7 @@
 ﻿using System;
 
 #pragma warning disable CA1714
-namespace FluentAssertions.Equivalency;
+namespace FluentAssertions.Equivalency {
 
 /// <summary>
 /// Determines which members are included in the equivalency assertion
@@ -12,4 +12,5 @@ public enum MemberVisibility
     None = 0,
     Internal = 1,
     Public = 2
+}
 }

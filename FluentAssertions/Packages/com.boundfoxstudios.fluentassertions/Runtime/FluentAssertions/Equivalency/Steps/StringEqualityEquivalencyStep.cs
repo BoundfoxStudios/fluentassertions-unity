@@ -1,7 +1,7 @@
 using System;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Equivalency.Steps;
+namespace FluentAssertions.Equivalency.Steps {
 
 public class StringEqualityEquivalencyStep : IEquivalencyStep
 {
@@ -62,4 +62,5 @@ public class StringEqualityEquivalencyStep : IEquivalencyStep
                 .FailWith($"Expected {currentNode} to be {{0}}, but found {{1}}.",
                     comparands.RuntimeType, comparands.Subject.GetType());
     }
+}
 }

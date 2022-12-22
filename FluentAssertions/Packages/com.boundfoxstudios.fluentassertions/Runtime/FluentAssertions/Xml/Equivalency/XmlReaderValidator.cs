@@ -4,7 +4,7 @@ using System.Linq;
 using System.Xml;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Xml.Equivalency;
+namespace FluentAssertions.Xml.Equivalency {
 
 internal class XmlReaderValidator
 {
@@ -238,4 +238,5 @@ internal class XmlReaderValidator
 
         return null;
     }
+}
 }

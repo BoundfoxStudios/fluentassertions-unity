@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Primitives;
+namespace FluentAssertions.Primitives {
 
 /// <summary>
 /// Contains a number of methods to assert that a nullable <see cref="TimeSpan"/> is in the expected state.
@@ -127,4 +127,5 @@ public class NullableSimpleTimeSpanAssertions<TAssertions> : SimpleTimeSpanAsser
 
         return new AndConstraint<TAssertions>((TAssertions)this);
     }
+}
 }

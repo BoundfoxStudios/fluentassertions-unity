@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions.Equivalency;
 
-namespace FluentAssertions.Common;
+namespace FluentAssertions.Common {
 
 /// <summary>
 /// Encapsulates a dotted candidate to a (nested) member of a type as well as the
@@ -127,4 +127,5 @@ internal class MemberPath
     {
         return dottedPath;
     }
+}
 }

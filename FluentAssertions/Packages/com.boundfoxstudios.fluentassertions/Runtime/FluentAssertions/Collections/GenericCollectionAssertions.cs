@@ -12,7 +12,7 @@ using FluentAssertions.Execution;
 using FluentAssertions.Formatting;
 using FluentAssertions.Primitives;
 
-namespace FluentAssertions.Collections;
+namespace FluentAssertions.Collections {
 
 [DebuggerNonUserCode]
 public class GenericCollectionAssertions<T> :
@@ -3487,4 +3487,5 @@ public class GenericCollectionAssertions<TCollection, T, TAssertions> :
 
         return expectedItems.Count;
     }
+}
 }

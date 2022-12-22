@@ -5,7 +5,7 @@ using System.Globalization;
 using System.Linq;
 using FluentAssertions.Common;
 
-namespace FluentAssertions.Formatting;
+namespace FluentAssertions.Formatting {
 
 public class DictionaryValueFormatter : IValueFormatter
 {
@@ -94,4 +94,5 @@ public class DictionaryValueFormatter : IValueFormatter
             }
         }
     }
+}
 }

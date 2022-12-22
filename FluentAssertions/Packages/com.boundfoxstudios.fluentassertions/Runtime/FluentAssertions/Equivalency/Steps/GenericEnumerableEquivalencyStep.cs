@@ -6,7 +6,7 @@ using System.Reflection;
 using FluentAssertions.Common;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Equivalency.Steps;
+namespace FluentAssertions.Equivalency.Steps {
 
 public class GenericEnumerableEquivalencyStep : IEquivalencyStep
 {
@@ -119,4 +119,5 @@ public class GenericEnumerableEquivalencyStep : IEquivalencyStep
             return Array.Empty<T>();
         }
     }
+}
 }

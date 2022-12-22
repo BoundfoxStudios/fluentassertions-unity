@@ -5,7 +5,7 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using JetBrains.Annotations;
 
-namespace FluentAssertions;
+namespace FluentAssertions {
 
 /// <summary>
 /// Contains static methods to help with exception assertions on actions.
@@ -50,4 +50,5 @@ public static class FluentActions
     /// </summary>
     [Pure]
     public static Action Enumerating<T>(Func<IEnumerable<T>> enumerable) => enumerable.Enumerating();
+}
 }

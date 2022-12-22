@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace FluentAssertions.Formatting;
+namespace FluentAssertions.Formatting {
 
 public class DecimalValueFormatter : IValueFormatter
 {
@@ -20,4 +20,5 @@ public class DecimalValueFormatter : IValueFormatter
     {
         formattedGraph.AddFragment(((decimal)value).ToString(CultureInfo.InvariantCulture) + "M");
     }
+}
 }

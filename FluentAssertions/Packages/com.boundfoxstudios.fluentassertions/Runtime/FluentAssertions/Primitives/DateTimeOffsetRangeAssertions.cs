@@ -4,7 +4,7 @@ using System.Diagnostics;
 using FluentAssertions.Execution;
 using FluentAssertions.Extensions;
 
-namespace FluentAssertions.Primitives;
+namespace FluentAssertions.Primitives {
 
 #pragma warning disable CS0659 // Ignore not overriding Object.GetHashCode()
 #pragma warning disable CA1065 // Ignore throwing NotSupportedException from Equals
@@ -133,4 +133,5 @@ public class DateTimeOffsetRangeAssertions<TAssertions>
     /// <inheritdoc/>
     public override bool Equals(object obj) =>
         throw new NotSupportedException("Equals is not part of Fluent Assertions. Did you mean Before() or After() instead?");
+}
 }

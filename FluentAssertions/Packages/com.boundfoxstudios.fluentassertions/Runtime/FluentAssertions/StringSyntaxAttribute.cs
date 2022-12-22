@@ -4,7 +4,7 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 #nullable enable
 
-namespace System.Diagnostics.CodeAnalysis;
+namespace System.Diagnostics.CodeAnalysis {
 
 /// <summary>Specifies the syntax used in a string.</summary>
 [AttributeUsage(AttributeTargets.Parameter | AttributeTargets.Field | AttributeTargets.Property, AllowMultiple = false, Inherited = false)]
@@ -48,3 +48,4 @@ sealed class StringSyntaxAttribute : Attribute
     public const string Regex = nameof(Regex);
 }
 #endif
+}

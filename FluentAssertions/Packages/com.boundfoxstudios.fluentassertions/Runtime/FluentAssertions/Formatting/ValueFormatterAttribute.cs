@@ -1,6 +1,6 @@
 using System;
 
-namespace FluentAssertions.Formatting;
+namespace FluentAssertions.Formatting {
 
 /// <summary>
 /// Marks a static method as a kind of <see cref="IValueFormatter"/> for a particular type.
@@ -8,4 +8,5 @@ namespace FluentAssertions.Formatting;
 [AttributeUsage(AttributeTargets.Method, AllowMultiple = false)]
 public class ValueFormatterAttribute : Attribute
 {
+}
 }

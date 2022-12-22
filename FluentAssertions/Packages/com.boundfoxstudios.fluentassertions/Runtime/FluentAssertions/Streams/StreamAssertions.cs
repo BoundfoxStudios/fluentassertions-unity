@@ -4,7 +4,7 @@ using System.IO;
 using FluentAssertions.Execution;
 using FluentAssertions.Primitives;
 
-namespace FluentAssertions.Streams;
+namespace FluentAssertions.Streams {
 
 /// <summary>
 /// Contains a number of methods to assert that an <see cref="Stream"/> is in the expected state.
@@ -503,4 +503,5 @@ public class StreamAssertions<TSubject, TAssertions> : ReferenceTypeAssertions<T
 
         return new AndConstraint<TAssertions>((TAssertions)this);
     }
+}
 }

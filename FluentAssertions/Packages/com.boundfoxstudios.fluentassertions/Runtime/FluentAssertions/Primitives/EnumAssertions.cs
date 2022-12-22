@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 using FluentAssertions.Common;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Primitives;
+namespace FluentAssertions.Primitives {
 
 /// <summary>
 /// Contains a number of methods to assert that a <typeparamref name="TEnum"/> is in the expected state.
@@ -444,4 +444,5 @@ public class EnumAssertions<TEnum, TAssertions>
     /// <inheritdoc/>
     public override bool Equals(object obj) =>
         throw new NotSupportedException("Equals is not part of Fluent Assertions. Did you mean Be() instead?");
+}
 }

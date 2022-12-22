@@ -4,7 +4,7 @@ using FluentAssertions.Common;
 using FluentAssertions.Equivalency.Execution;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Equivalency.Steps;
+namespace FluentAssertions.Equivalency.Steps {
 
 public class AssertionRuleEquivalencyStep<TSubject> : IEquivalencyStep
 {
@@ -105,4 +105,5 @@ public class AssertionRuleEquivalencyStep<TSubject> : IEquivalencyStep
     {
         return "Invoke Action<" + typeof(TSubject).Name + "> when " + description;
     }
+}
 }

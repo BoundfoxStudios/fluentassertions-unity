@@ -1,4 +1,4 @@
-namespace FluentAssertions.Xml.Equivalency;
+namespace FluentAssertions.Xml.Equivalency {
 
 internal class AttributeData
 {
@@ -30,4 +30,5 @@ internal class AttributeData
             return Prefix + ":" + LocalName;
         }
     }
+}
 }

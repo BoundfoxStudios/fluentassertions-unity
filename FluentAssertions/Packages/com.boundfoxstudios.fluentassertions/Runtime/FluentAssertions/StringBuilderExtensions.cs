@@ -1,4 +1,4 @@
-﻿namespace System.Text;
+﻿namespace System.Text {
 
 /// <summary>
 /// Since net6.0 StringBuilder has additional overloads taking an AppendInterpolatedStringHandler
@@ -10,4 +10,5 @@ internal static class StringBuilderExtensions
 {
     public static StringBuilder AppendLine(this StringBuilder stringBuilder, IFormatProvider _, string value) =>
         stringBuilder.AppendLine(value);
+}
 }

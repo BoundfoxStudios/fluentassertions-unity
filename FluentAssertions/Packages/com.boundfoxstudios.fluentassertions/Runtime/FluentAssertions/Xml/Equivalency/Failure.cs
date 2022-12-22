@@ -1,4 +1,4 @@
-namespace FluentAssertions.Xml.Equivalency;
+namespace FluentAssertions.Xml.Equivalency {
 
 internal class Failure
 {
@@ -11,4 +11,5 @@ internal class Failure
     public string FormatString { get; }
 
     public object[] FormatParams { get; }
+}
 }

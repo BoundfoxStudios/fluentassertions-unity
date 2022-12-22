@@ -1,7 +1,8 @@
-namespace FluentAssertions.Collections;
+namespace FluentAssertions.Collections {
 
 internal enum SortOrder
 {
     Ascending,
     Descending
+}
 }

@@ -1,7 +1,7 @@
 using System;
 using FluentAssertions.Common;
 
-namespace FluentAssertions.Equivalency;
+namespace FluentAssertions.Equivalency {
 
 /// <summary>
 /// Provides contextual information to an <see cref="IMemberSelectionRule"/>.
@@ -41,4 +41,5 @@ public class MemberSelectionContext
             return type.NullableOrActualType();
         }
     }
+}
 }

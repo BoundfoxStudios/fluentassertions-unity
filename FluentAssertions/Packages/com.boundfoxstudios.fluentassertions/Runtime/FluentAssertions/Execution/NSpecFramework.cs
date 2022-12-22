@@ -3,7 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Reflection;
 
-namespace FluentAssertions.Execution;
+namespace FluentAssertions.Execution {
 
 internal class NSpecFramework : ITestFramework
 {
@@ -39,4 +39,5 @@ internal class NSpecFramework : ITestFramework
 
         throw (Exception)Activator.CreateInstance(exceptionType, message);
     }
+}
 }

@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 using FluentAssertions.Common;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Numeric;
+namespace FluentAssertions.Numeric {
 
 [DebuggerNonUserCode]
 public class NullableNumericAssertions<T> : NullableNumericAssertions<T, NullableNumericAssertions<T>>
@@ -122,4 +122,5 @@ public class NullableNumericAssertions<T, TAssertions> : NumericAssertions<T, TA
 
         return new AndConstraint<TAssertions>((TAssertions)this);
     }
+}
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace FluentAssertions.Formatting;
+namespace FluentAssertions.Formatting {
 
 public class EnumValueFormatter : IValueFormatter
 {
@@ -27,4 +27,5 @@ public class EnumValueFormatter : IValueFormatter
 
         formattedGraph.AddFragment($"{typePart}.{namePart} {{value: {valuePart}}}");
     }
+}
 }

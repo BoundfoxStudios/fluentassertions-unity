@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 
-namespace FluentAssertions.Equivalency.Selection;
+namespace FluentAssertions.Equivalency.Selection {
 
 internal abstract class SelectMemberByPathSelectionRule : IMemberSelectionRule
 {
@@ -58,4 +58,5 @@ internal abstract class SelectMemberByPathSelectionRule : IMemberSelectionRule
 
         return path;
     }
+}
 }

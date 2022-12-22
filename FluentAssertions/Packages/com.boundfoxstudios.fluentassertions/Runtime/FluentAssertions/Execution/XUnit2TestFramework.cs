@@ -2,7 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 
-namespace FluentAssertions.Execution;
+namespace FluentAssertions.Execution {
 
 internal class XUnit2TestFramework : ITestFramework
 {
@@ -37,4 +37,5 @@ internal class XUnit2TestFramework : ITestFramework
 
         throw (Exception)Activator.CreateInstance(exceptionType, message);
     }
+}
 }

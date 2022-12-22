@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using FluentAssertions.Common;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Specialized;
+namespace FluentAssertions.Specialized {
 
 /// <summary>
 /// Contains a number of methods to assert that an asynchronous method yields the expected result.
@@ -353,4 +353,5 @@ public class AsyncFunctionAssertions<TTask, TAssertions> : DelegateAssertionsBas
             return exception;
         }
     }
+}
 }

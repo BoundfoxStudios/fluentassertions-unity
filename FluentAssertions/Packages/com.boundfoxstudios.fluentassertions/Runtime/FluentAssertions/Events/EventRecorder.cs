@@ -6,7 +6,7 @@ using System.Diagnostics;
 using System.Reflection;
 using JetBrains.Annotations;
 
-namespace FluentAssertions.Events;
+namespace FluentAssertions.Events {
 
 /// <summary>
 /// Records activity for a single event.
@@ -114,4 +114,5 @@ internal sealed class EventRecorder : IEventRecording, IDisposable
             };
         }
     }
+}
 }

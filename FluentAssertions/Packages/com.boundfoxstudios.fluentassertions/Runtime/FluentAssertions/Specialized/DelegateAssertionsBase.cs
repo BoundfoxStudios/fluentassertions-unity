@@ -6,7 +6,7 @@ using FluentAssertions.Common;
 using FluentAssertions.Execution;
 using FluentAssertions.Primitives;
 
-namespace FluentAssertions.Specialized;
+namespace FluentAssertions.Specialized {
 
 /// <summary>
 /// Contains a number of methods to assert that a method yields the expected result.
@@ -70,4 +70,5 @@ public abstract class DelegateAssertionsBase<TDelegate, TAssertions> : Reference
 
         return new AndConstraint<TAssertions>((TAssertions)this);
     }
+}
 }

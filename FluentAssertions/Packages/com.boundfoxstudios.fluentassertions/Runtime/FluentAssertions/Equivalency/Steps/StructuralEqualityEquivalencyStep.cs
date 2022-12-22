@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Equivalency.Steps;
+namespace FluentAssertions.Equivalency.Steps {
 
 public class StructuralEqualityEquivalencyStep : IEquivalencyStep
 {
@@ -105,4 +105,5 @@ public class StructuralEqualityEquivalencyStep : IEquivalencyStep
 
         return members;
     }
+}
 }

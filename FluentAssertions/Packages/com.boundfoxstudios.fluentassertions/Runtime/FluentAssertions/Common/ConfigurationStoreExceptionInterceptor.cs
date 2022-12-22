@@ -1,4 +1,4 @@
-﻿namespace FluentAssertions.Common;
+﻿namespace FluentAssertions.Common {
 
 internal class ConfigurationStoreExceptionInterceptor : IConfigurationStore
 {
@@ -28,4 +28,5 @@ internal class ConfigurationStoreExceptionInterceptor : IConfigurationStore
             return null;
         }
     }
+}
 }

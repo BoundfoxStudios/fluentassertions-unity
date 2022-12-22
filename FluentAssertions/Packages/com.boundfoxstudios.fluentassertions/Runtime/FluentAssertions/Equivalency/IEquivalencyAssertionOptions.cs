@@ -4,7 +4,7 @@ using System.ComponentModel;
 
 using FluentAssertions.Equivalency.Tracing;
 
-namespace FluentAssertions.Equivalency;
+namespace FluentAssertions.Equivalency {
 
 /// <summary>
 /// Provides the run-time details of the <see cref="EquivalencyAssertionOptions{TSubject}" /> class.
@@ -122,4 +122,5 @@ public enum EqualityStrategy
     /// Compare the members, regardless of an <see cref="object.Equals(object)"/> override exists or not.
     /// </summary>
     ForceMembers,
+}
 }

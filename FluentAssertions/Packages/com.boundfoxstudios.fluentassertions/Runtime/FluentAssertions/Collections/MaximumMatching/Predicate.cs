@@ -2,7 +2,7 @@
 using System.Linq.Expressions;
 using FluentAssertions.Formatting;
 
-namespace FluentAssertions.Collections.MaximumMatching;
+namespace FluentAssertions.Collections.MaximumMatching {
 
 /// <summary>
 /// Stores a predicate's expression and index in the maximum matching problem.
@@ -35,4 +35,5 @@ internal class Predicate<TValue>
     public bool Matches(TValue element) => compiledExpression(element);
 
     public override string ToString() => $"Index: {Index}, Expression: {Formatter.ToString(Expression)}";
+}
 }

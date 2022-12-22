@@ -1,7 +1,7 @@
 using System.Threading.Tasks;
 using FluentAssertions.Specialized;
 
-namespace FluentAssertions;
+namespace FluentAssertions {
 
 public static class AsyncAssertionsExtensions
 {
@@ -51,4 +51,5 @@ public static class AsyncAssertionsExtensions
 
         return andWhichConstraint;
     }
+}
 }

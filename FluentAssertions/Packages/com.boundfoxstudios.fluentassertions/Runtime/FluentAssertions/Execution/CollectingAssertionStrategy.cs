@@ -6,7 +6,7 @@ using System.Text;
 
 using FluentAssertions.Common;
 
-namespace FluentAssertions.Execution;
+namespace FluentAssertions.Execution {
 
 internal class CollectingAssertionStrategy : IAssertionStrategy
 {
@@ -56,4 +56,5 @@ internal class CollectingAssertionStrategy : IAssertionStrategy
     {
         failureMessages.Add(message);
     }
+}
 }

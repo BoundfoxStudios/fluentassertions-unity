@@ -1,7 +1,7 @@
 ﻿using System;
 using static System.FormattableString;
 
-namespace FluentAssertions.Formatting;
+namespace FluentAssertions.Formatting {
 
 public class AggregateExceptionValueFormatter : IValueFormatter
 {
@@ -37,4 +37,5 @@ public class AggregateExceptionValueFormatter : IValueFormatter
             }
         }
     }
+}
 }

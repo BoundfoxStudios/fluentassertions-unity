@@ -1,7 +1,7 @@
 ﻿using System;
 using FluentAssertions.Common;
 
-namespace FluentAssertions.Equivalency.Matching;
+namespace FluentAssertions.Equivalency.Matching {
 
 /// <summary>
 /// Allows mapping a member (property or field) of the expectation to a differently named member
@@ -55,4 +55,5 @@ internal class MappedPathMatchingRule : IMemberMatchingRule
 
         return null;
     }
+}
 }

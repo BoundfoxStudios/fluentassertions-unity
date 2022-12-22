@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Diagnostics;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Primitives;
+namespace FluentAssertions.Primitives {
 
 /// <summary>
 /// Contains a number of methods to assert that a nullable <see cref="TimeSpan"/> is in the expected state.
@@ -302,4 +302,5 @@ public class SimpleTimeSpanAssertions<TAssertions>
     /// <inheritdoc/>
     public override bool Equals(object obj) =>
         throw new NotSupportedException("Equals is not part of Fluent Assertions. Did you mean Be() instead?");
+}
 }

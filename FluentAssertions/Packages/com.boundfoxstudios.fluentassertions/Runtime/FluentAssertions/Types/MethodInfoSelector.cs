@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using FluentAssertions.Common;
 
-namespace FluentAssertions.Types;
+namespace FluentAssertions.Types {
 
 /// <summary>
 /// Allows for fluent selection of methods of a type through reflection.
@@ -236,4 +236,5 @@ public class MethodInfoSelector : IEnumerable<MethodInfo>
     {
         return GetEnumerator();
     }
+}
 }

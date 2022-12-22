@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions.Common;
 
-namespace FluentAssertions.Equivalency.Selection;
+namespace FluentAssertions.Equivalency.Selection {
 
 /// <summary>
 /// Selection rule that adds all public properties of the expectation.
@@ -32,4 +32,5 @@ internal class AllPropertiesSelectionRule : IMemberSelectionRule
     {
         return "Include all non-private properties";
     }
+}
 }

@@ -1,4 +1,4 @@
-namespace FluentAssertions.Equivalency.Steps;
+namespace FluentAssertions.Equivalency.Steps {
 
 internal class AssertionContext<TSubject> : IAssertionContext<TSubject>
 {
@@ -31,4 +31,5 @@ internal class AssertionContext<TSubject> : IAssertionContext<TSubject>
             context.Reason.FormattedMessage,
             context.Reason.Arguments);
     }
+}
 }

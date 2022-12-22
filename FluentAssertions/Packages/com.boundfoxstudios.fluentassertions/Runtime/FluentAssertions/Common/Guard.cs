@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace FluentAssertions.Common;
+namespace FluentAssertions.Common {
 
 internal static class Guard
 {
@@ -71,4 +71,5 @@ internal static class Guard
     private sealed class ValidatedNotNullAttribute : Attribute
     {
     }
+}
 }

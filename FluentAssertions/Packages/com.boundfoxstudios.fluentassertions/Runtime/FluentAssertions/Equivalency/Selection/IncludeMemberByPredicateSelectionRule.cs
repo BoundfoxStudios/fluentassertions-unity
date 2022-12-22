@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using FluentAssertions.Common;
 
-namespace FluentAssertions.Equivalency.Selection;
+namespace FluentAssertions.Equivalency.Selection {
 
 /// <summary>
 /// Selection rule that includes a particular member in the structural comparison.
@@ -49,4 +49,5 @@ internal class IncludeMemberByPredicateSelectionRule : IMemberSelectionRule
     {
         return "Include member when " + description;
     }
+}
 }

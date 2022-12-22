@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace FluentAssertions.Common;
+namespace FluentAssertions.Common {
 
 /// <summary>
 /// Represents an abstract timer that is used to make some of this library's timing dependent functionality better testable.
@@ -28,4 +28,5 @@ public interface IClock
     /// Creates a timer to measure the time to complete some arbitrary executions.
     /// </summary>
     ITimer StartTimer();
+}
 }

@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace FluentAssertions.Formatting;
+namespace FluentAssertions.Formatting {
 
 /// <summary>
 /// Provides a human readable version of a generic or non-generic <see cref="Task"/>
@@ -25,4 +25,5 @@ public class TaskFormatter : IValueFormatter
             formattedGraph.AddFragment("<null>");
         }
     }
+}
 }

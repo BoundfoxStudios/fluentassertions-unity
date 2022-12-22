@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using FluentAssertions.Common;
 
-namespace FluentAssertions.Specialized;
+namespace FluentAssertions.Specialized {
 
 /// <summary>
 /// Contains a number of methods to assert that an <see cref="Action"/> yields the expected result.
@@ -29,4 +29,5 @@ public class ActionAssertions : DelegateAssertions<Action, ActionAssertions>
     /// Returns the type of the subject the assertion applies on.
     /// </summary>
     protected override string Identifier => "action";
+}
 }

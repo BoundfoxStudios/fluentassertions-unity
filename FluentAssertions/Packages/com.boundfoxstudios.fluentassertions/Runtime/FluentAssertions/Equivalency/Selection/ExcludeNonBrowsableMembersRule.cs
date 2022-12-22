@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace FluentAssertions.Equivalency.Selection;
+namespace FluentAssertions.Equivalency.Selection {
 
 internal class ExcludeNonBrowsableMembersRule : IMemberSelectionRule
 {
@@ -12,4 +12,5 @@ internal class ExcludeNonBrowsableMembersRule : IMemberSelectionRule
     {
         return selectedMembers.Where(member => member.IsBrowsable).ToList();
     }
+}
 }

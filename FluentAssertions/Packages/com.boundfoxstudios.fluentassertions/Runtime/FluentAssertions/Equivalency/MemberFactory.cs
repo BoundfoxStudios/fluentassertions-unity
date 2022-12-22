@@ -2,7 +2,7 @@ using System;
 using System.Reflection;
 using FluentAssertions.Common;
 
-namespace FluentAssertions.Equivalency;
+namespace FluentAssertions.Equivalency {
 
 public static class MemberFactory
 {
@@ -32,4 +32,5 @@ public static class MemberFactory
         FieldInfo field = target.GetType().FindField(memberName, preferredMemberType);
         return (field is not null) ? new Field(field, parent) : null;
     }
+}
 }

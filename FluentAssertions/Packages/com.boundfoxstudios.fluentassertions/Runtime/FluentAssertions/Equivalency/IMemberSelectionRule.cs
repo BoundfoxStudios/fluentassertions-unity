@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace FluentAssertions.Equivalency;
+namespace FluentAssertions.Equivalency {
 
 /// <summary>
 /// Represents a rule that defines which members of the expectation to include while comparing
@@ -28,4 +28,5 @@ public interface IMemberSelectionRule
     /// </returns>
     IEnumerable<IMember> SelectMembers(INode currentNode, IEnumerable<IMember> selectedMembers,
         MemberSelectionContext context);
+}
 }

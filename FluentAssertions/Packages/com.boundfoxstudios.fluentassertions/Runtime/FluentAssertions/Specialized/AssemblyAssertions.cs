@@ -6,7 +6,7 @@ using FluentAssertions.Common;
 using FluentAssertions.Execution;
 using FluentAssertions.Primitives;
 
-namespace FluentAssertions.Reflection;
+namespace FluentAssertions.Reflection {
 
 /// <summary>
 /// Contains a number of methods to assert that an <see cref="Assembly"/> is in the expected state.
@@ -141,4 +141,5 @@ public class AssemblyAssertions : ReferenceTypeAssertions<Assembly, AssemblyAsse
     /// Returns the type of the subject the assertion applies on.
     /// </summary>
     protected override string Identifier => "assembly";
+}
 }

@@ -2,7 +2,7 @@
 using FluentAssertions.Common;
 using FluentAssertions.Formatting;
 
-namespace FluentAssertions.Xml;
+namespace FluentAssertions.Xml {
 
 public class XmlNodeFormatter : IValueFormatter
 {
@@ -24,4 +24,5 @@ public class XmlNodeFormatter : IValueFormatter
 
         formattedGraph.AddLine(outerXml.EscapePlaceholders());
     }
+}
 }

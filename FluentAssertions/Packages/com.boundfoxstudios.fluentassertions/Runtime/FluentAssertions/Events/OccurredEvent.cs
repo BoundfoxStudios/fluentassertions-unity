@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FluentAssertions.Events;
+namespace FluentAssertions.Events {
 
 /// <summary>
 /// Represents an occurrence of a particular event.
@@ -26,4 +26,5 @@ public class OccurredEvent
     /// The order in which this event was raised on the monitored object.
     /// </summary>
     public int Sequence { get; set; }
+}
 }

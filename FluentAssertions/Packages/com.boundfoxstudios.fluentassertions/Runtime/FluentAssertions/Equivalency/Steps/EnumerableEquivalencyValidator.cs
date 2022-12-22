@@ -5,7 +5,7 @@ using FluentAssertions.Equivalency.Tracing;
 using FluentAssertions.Execution;
 using static System.FormattableString;
 
-namespace FluentAssertions.Equivalency.Steps;
+namespace FluentAssertions.Equivalency.Steps {
 
 /// <summary>
 /// Executes a single equivalency assertion on two collections, optionally recursive and with or without strict ordering.
@@ -194,4 +194,5 @@ internal class EnumerableEquivalencyValidator
         bool failed = scope.HasFailures();
         return !failed;
     }
+}
 }

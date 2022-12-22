@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using FluentAssertions.Common;
 
-namespace FluentAssertions.Equivalency.Selection;
+namespace FluentAssertions.Equivalency.Selection {
 
 /// <summary>
 /// Selection rule that includes a particular property in the structural comparison.
@@ -35,4 +35,5 @@ internal class IncludeMemberByPathSelectionRule : SelectMemberByPathSelectionRul
     {
         return "Include member root." + memberToInclude;
     }
+}
 }

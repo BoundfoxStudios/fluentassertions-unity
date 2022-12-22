@@ -1,4 +1,4 @@
-﻿namespace FluentAssertions.Formatting;
+﻿namespace FluentAssertions.Formatting {
 
 /// <summary>
 /// Represents a strategy for formatting an arbitrary value into a human-readable string representation.
@@ -38,4 +38,5 @@ public interface IValueFormatter
     /// an <see cref="MaxLinesExceededException"/> that must be ignored by implementations of this interface.
     /// </remarks>
     void Format(object value, FormattedObjectGraph formattedGraph, FormattingContext context, FormatChild formatChild);
+}
 }

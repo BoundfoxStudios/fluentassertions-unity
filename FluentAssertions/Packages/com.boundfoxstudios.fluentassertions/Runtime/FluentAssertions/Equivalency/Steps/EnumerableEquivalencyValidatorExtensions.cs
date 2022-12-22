@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Equivalency.Steps;
+namespace FluentAssertions.Equivalency.Steps {
 
 internal static class EnumerableEquivalencyValidatorExtensions
 {
@@ -40,4 +40,5 @@ internal static class EnumerableEquivalencyValidatorExtensions
                 expectation,
                 Environment.NewLine);
     }
+}
 }

@@ -3,7 +3,7 @@ using System.Linq;
 using System.Xml.Linq;
 using FluentAssertions.Common;
 
-namespace FluentAssertions.Formatting;
+namespace FluentAssertions.Formatting {
 
 public class XElementValueFormatter : IValueFormatter
 {
@@ -51,4 +51,5 @@ public class XElementValueFormatter : IValueFormatter
         string formattedXml = element.ToString();
         return formattedXml.Split(new[] { Environment.NewLine }, StringSplitOptions.None);
     }
+}
 }

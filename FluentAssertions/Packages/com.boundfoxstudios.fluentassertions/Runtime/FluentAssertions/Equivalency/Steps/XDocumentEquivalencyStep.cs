@@ -1,6 +1,6 @@
 ﻿using System.Xml.Linq;
 
-namespace FluentAssertions.Equivalency.Steps;
+namespace FluentAssertions.Equivalency.Steps {
 
 public class XDocumentEquivalencyStep : EquivalencyStep<XDocument>
 {
@@ -13,4 +13,5 @@ public class XDocumentEquivalencyStep : EquivalencyStep<XDocument>
 
         return EquivalencyResult.AssertionCompleted;
     }
+}
 }

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Reflection;
 using FluentAssertions.Common;
 
-namespace FluentAssertions.Events;
+namespace FluentAssertions.Events {
 
 /// <summary>
 /// Tracks the events an object raises.
@@ -134,5 +134,5 @@ internal class EventMonitor<T> : IMonitor<T>
         }
     }
 }
-
+}
 #endif

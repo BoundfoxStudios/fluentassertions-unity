@@ -5,7 +5,7 @@ using FluentAssertions.Data;
 
 using JetBrains.Annotations;
 
-namespace FluentAssertions;
+namespace FluentAssertions {
 
 /// <summary>
 /// Contains an extension method for custom assertions in unit tests related to DataSet objects.
@@ -23,4 +23,5 @@ public static class DataSetAssertionExtensions
     {
         return new DataSetAssertions<TDataSet>(actualValue);
     }
+}
 }

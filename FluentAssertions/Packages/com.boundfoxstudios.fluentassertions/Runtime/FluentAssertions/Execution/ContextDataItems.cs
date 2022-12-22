@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions.Formatting;
 
-namespace FluentAssertions.Execution;
+namespace FluentAssertions.Execution {
 
 /// <summary>
 /// Represents a collection of data items that are associated with an <see cref="AssertionScope"/>.
@@ -84,4 +84,5 @@ internal class ContextDataItems
             return new DataItem(Key, value, Reportable, RequiresFormatting);
         }
     }
+}
 }

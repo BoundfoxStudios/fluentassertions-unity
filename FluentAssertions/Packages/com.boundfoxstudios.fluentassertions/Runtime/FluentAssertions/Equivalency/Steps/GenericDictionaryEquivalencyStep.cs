@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Equivalency.Steps;
+namespace FluentAssertions.Equivalency.Steps {
 
 public class GenericDictionaryEquivalencyStep : IEquivalencyStep
 {
@@ -232,4 +232,5 @@ public class GenericDictionaryEquivalencyStep : IEquivalencyStep
 
         public List<TSubjectKey> AdditionalKeys { get; }
     }
+}
 }

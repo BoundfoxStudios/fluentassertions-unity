@@ -1,4 +1,4 @@
-namespace FluentAssertions.Execution;
+namespace FluentAssertions.Execution {
 
 /// <summary>
 /// Custom version of ICloneable that works on all frameworks.
@@ -12,4 +12,5 @@ public interface ICloneable2
     /// A new object that is a copy of this instance.
     /// </returns>
     object Clone();
+}
 }

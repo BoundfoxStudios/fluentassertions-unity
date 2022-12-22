@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Equivalency;
+namespace FluentAssertions.Equivalency {
 
 /// <summary>
 /// Supports recursively comparing two multi-dimensional arrays for equivalency using strict order for the array items
@@ -143,4 +143,5 @@ internal class Digit
 
         return success;
     }
+}
 }

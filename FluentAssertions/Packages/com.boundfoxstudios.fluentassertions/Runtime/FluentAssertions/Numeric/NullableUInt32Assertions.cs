@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Globalization;
 
-namespace FluentAssertions.Numeric;
+namespace FluentAssertions.Numeric {
 
 /// <summary>
 /// Contains a number of methods to assert that a nullable <see cref="uint"/> is in the expected state.
@@ -24,4 +24,5 @@ internal class NullableUInt32Assertions : NullableNumericAssertions<uint>
         long difference = (long)subject - expected;
         return difference != 0 ? difference.ToString(CultureInfo.InvariantCulture) : null;
     }
+}
 }

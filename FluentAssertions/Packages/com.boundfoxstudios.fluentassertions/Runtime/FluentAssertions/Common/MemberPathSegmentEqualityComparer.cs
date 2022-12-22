@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-namespace FluentAssertions.Common;
+namespace FluentAssertions.Common {
 
 /// <summary>
 /// Compares two segments of a <see cref="MemberPath"/>.
@@ -45,4 +45,5 @@ internal class MemberPathSegmentEqualityComparer : IEqualityComparer<string>
         return obj.GetHashCode();
 #endif
     }
+}
 }

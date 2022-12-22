@@ -1,6 +1,6 @@
 using System;
 
-namespace FluentAssertions.Formatting;
+namespace FluentAssertions.Formatting {
 
 public class GuidValueFormatter : IValueFormatter
 {
@@ -20,4 +20,5 @@ public class GuidValueFormatter : IValueFormatter
     {
         formattedGraph.AddFragment("{" + value + "}");
     }
+}
 }

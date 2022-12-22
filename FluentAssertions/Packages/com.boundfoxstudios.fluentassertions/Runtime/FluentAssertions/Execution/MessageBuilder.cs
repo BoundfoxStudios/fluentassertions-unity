@@ -9,7 +9,7 @@ using FluentAssertions.Formatting;
 
 #endregion
 
-namespace FluentAssertions.Execution;
+namespace FluentAssertions.Execution {
 
 /// <summary>
 /// Encapsulates expanding the various placeholders supported in a failure message.
@@ -137,4 +137,5 @@ internal class MessageBuilder
     {
         return (text.Length > 0) && blanks.Contains(text[0]);
     }
+}
 }

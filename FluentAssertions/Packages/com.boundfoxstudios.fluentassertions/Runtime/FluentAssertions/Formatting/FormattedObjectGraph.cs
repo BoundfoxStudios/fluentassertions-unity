@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Formatting;
+namespace FluentAssertions.Formatting {
 
 /// <summary>
 /// This class is used by the <see cref="Formatter"/> class to collect all the output of the (nested calls of an) <see cref="IValueFormatter"/> into
@@ -127,4 +127,5 @@ public class FormattedObjectGraph
     }
 
     private string Whitespace => new(' ', indentation * SpacesPerIndentation);
+}
 }

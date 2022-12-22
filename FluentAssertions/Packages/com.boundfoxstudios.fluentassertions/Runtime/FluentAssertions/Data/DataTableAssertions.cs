@@ -9,7 +9,7 @@ using FluentAssertions.Equivalency;
 using FluentAssertions.Execution;
 using FluentAssertions.Primitives;
 
-namespace FluentAssertions.Data;
+namespace FluentAssertions.Data {
 
 /// <summary>
 /// Provides convenient assertion methods on a <see cref="DataTable"/> that can be
@@ -264,4 +264,5 @@ public class DataTableAssertions<TDataTable> : ReferenceTypeAssertions<DataTable
     }
 
     protected override string Identifier => "DataTable";
+}
 }

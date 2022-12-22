@@ -2,7 +2,7 @@ using System;
 using System.Linq;
 using FluentAssertions.Common;
 
-namespace FluentAssertions.Execution;
+namespace FluentAssertions.Execution {
 
 /// <summary>
 /// Represents a chaining object returned from <see cref="AssertionScope.Given{T}"/> to continue the assertion using
@@ -103,4 +103,5 @@ public class GivenSelector<T>
         predecessor.ClearExpectation();
         return new ContinuationOfGiven<T>(this, continueAsserting);
     }
+}
 }

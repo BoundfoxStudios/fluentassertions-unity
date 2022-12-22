@@ -6,7 +6,7 @@ using FluentAssertions.Equivalency;
 using FluentAssertions.Execution;
 using FluentAssertions.Primitives;
 
-namespace FluentAssertions.Numeric;
+namespace FluentAssertions.Numeric {
 
 /// <summary>
 /// Contains a number of methods to assert that an <see cref="IComparable{T}"/> is in the expected state.
@@ -362,4 +362,5 @@ public class ComparableTypeAssertions<T, TAssertions> : ReferenceTypeAssertions<
     /// Returns the type of the subject the assertion applies on.
     /// </summary>
     protected override string Identifier => "object";
+}
 }

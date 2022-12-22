@@ -4,7 +4,7 @@ using System.Linq.Expressions;
 using FluentAssertions.Common;
 using FluentAssertions.Equivalency.Selection;
 
-namespace FluentAssertions.Equivalency;
+namespace FluentAssertions.Equivalency {
 
 public class NestedExclusionOptionBuilder<TExpectation, TCurrent>
 {
@@ -42,4 +42,5 @@ public class NestedExclusionOptionBuilder<TExpectation, TCurrent>
         currentPathSelectionRule.AppendPath(nextPath);
         return new NestedExclusionOptionBuilder<TExpectation, TNext>(capturedAssertionOptions, currentPathSelectionRule);
     }
+}
 }

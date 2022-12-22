@@ -6,7 +6,7 @@ using FluentAssertions.Execution;
 
 #endregion
 
-namespace FluentAssertions.Equivalency.Steps;
+namespace FluentAssertions.Equivalency.Steps {
 
 public class EnumEqualityStep : IEquivalencyStep
 {
@@ -99,4 +99,5 @@ public class EnumEqualityStep : IEquivalencyStep
     {
         return o is not null ? Convert.ToDecimal(o, CultureInfo.InvariantCulture) : null;
     }
+}
 }

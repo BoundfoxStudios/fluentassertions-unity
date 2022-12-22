@@ -1,6 +1,6 @@
 ﻿using FluentAssertions.Common;
 
-namespace FluentAssertions.Equivalency;
+namespace FluentAssertions.Equivalency {
 
 public static class SubjectInfoExtensions
 {
@@ -47,4 +47,5 @@ public static class SubjectInfoExtensions
     {
         return memberInfo.GetterAccessibility != accessModifier;
     }
+}
 }

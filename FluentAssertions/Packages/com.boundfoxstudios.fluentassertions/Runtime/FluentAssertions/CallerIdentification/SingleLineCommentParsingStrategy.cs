@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace FluentAssertions.CallerIdentification;
+namespace FluentAssertions.CallerIdentification {
 
 internal class SingleLineCommentParsingStrategy : IParsingStrategy
 {
@@ -36,4 +36,5 @@ internal class SingleLineCommentParsingStrategy : IParsingStrategy
             isCommentContext = false;
         }
     }
+}
 }

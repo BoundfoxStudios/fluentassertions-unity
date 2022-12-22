@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Primitives;
+namespace FluentAssertions.Primitives {
 
 /// <summary>
 /// Contains a number of methods to assert that a nullable <see cref="bool"/> is in the expected state.
@@ -178,4 +178,5 @@ public class NullableBooleanAssertions<TAssertions> : BooleanAssertions<TAsserti
 
         return new AndConstraint<TAssertions>((TAssertions)this);
     }
+}
 }

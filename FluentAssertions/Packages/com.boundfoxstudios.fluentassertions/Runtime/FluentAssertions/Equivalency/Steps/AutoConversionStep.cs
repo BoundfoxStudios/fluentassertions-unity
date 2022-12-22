@@ -3,7 +3,7 @@ using System.Globalization;
 using FluentAssertions.Common;
 using static System.FormattableString;
 
-namespace FluentAssertions.Equivalency.Steps;
+namespace FluentAssertions.Equivalency.Steps {
 
 /// <summary>
 /// Attempts to convert the subject's property value to the expected type.
@@ -69,4 +69,5 @@ public class AutoConversionStep : IEquivalencyStep
     {
         return string.Empty;
     }
+}
 }

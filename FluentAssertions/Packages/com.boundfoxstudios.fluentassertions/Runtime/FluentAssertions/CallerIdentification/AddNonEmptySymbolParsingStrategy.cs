@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace FluentAssertions.CallerIdentification;
+namespace FluentAssertions.CallerIdentification {
 
 internal class AddNonEmptySymbolParsingStrategy : IParsingStrategy
 {
@@ -54,4 +54,5 @@ internal class AddNonEmptySymbolParsingStrategy : IParsingStrategy
         /// </summary>
         RemoveSuperfluousWhitespace,
     }
+}
 }

@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 
-namespace FluentAssertions.Common;
+namespace FluentAssertions.Common {
 
 internal static class ObjectExtensions
 {
@@ -77,4 +77,5 @@ internal static class ObjectExtensions
             uint or
             ulong);
     }
+}
 }

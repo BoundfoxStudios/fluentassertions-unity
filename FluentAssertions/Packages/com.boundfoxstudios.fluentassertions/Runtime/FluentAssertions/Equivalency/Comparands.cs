@@ -3,7 +3,7 @@ using System.Linq;
 using FluentAssertions.Common;
 using static System.FormattableString;
 
-namespace FluentAssertions.Equivalency;
+namespace FluentAssertions.Equivalency {
 
 public class Comparands
 {
@@ -74,4 +74,5 @@ public class Comparands
     {
         return Invariant($"{{Subject={Subject}, Expectation={Expectation}}}");
     }
+}
 }

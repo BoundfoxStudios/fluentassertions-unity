@@ -1,4 +1,4 @@
-﻿namespace FluentAssertions;
+﻿namespace FluentAssertions {
 
 public static class AtMost
 {
@@ -21,4 +21,5 @@ public static class AtMost
 
         internal override bool Assert(int actual) => actual <= ExpectedCount;
     }
+}
 }

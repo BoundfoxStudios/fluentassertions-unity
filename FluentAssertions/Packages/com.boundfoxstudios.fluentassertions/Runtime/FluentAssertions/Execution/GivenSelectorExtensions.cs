@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using FluentAssertions.Common;
 
-namespace FluentAssertions.Execution;
+namespace FluentAssertions.Execution {
 
 internal static class GivenSelectorExtensions
 {
@@ -101,4 +101,5 @@ internal static class GivenSelectorExtensions
 
         IEnumerator IEnumerable.GetEnumerator() => Items.GetEnumerator();
     }
+}
 }

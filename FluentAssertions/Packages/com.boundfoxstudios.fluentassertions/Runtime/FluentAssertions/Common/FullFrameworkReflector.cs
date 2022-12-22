@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 
-namespace FluentAssertions.Common;
+namespace FluentAssertions.Common {
 
 internal class FullFrameworkReflector : IReflector
 {
@@ -53,4 +53,5 @@ internal class FullFrameworkReflector : IReflector
             return new Type[0];
         }
     }
+}
 }

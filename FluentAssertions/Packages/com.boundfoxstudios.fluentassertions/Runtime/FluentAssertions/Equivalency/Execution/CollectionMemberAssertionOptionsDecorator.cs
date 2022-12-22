@@ -5,7 +5,7 @@ using FluentAssertions.Equivalency.Ordering;
 using FluentAssertions.Equivalency.Selection;
 using FluentAssertions.Equivalency.Tracing;
 
-namespace FluentAssertions.Equivalency.Execution;
+namespace FluentAssertions.Equivalency.Execution {
 
 /// <summary>
 /// Ensures that all the rules remove the collection index from the path before processing it further.
@@ -73,4 +73,5 @@ internal class CollectionMemberAssertionOptionsDecorator : IEquivalencyAssertion
     }
 
     public ITraceWriter TraceWriter => inner.TraceWriter;
+}
 }

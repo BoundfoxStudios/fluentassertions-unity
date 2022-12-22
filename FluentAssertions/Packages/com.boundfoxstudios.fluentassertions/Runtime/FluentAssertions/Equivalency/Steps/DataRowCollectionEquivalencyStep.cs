@@ -4,7 +4,7 @@ using System.Linq;
 using FluentAssertions.Data;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Equivalency.Steps;
+namespace FluentAssertions.Equivalency.Steps {
 
 public class DataRowCollectionEquivalencyStep : EquivalencyStep<DataRowCollection>
 {
@@ -243,4 +243,5 @@ public class DataRowCollectionEquivalencyStep : EquivalencyStep<DataRowCollectio
 
         return new CompoundKey(values);
     }
+}
 }

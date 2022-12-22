@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Reflection;
 using FluentAssertions.Common;
 
-namespace FluentAssertions.Equivalency;
+namespace FluentAssertions.Equivalency {
 
 /// <summary>
 /// A specialized type of <see cref="INode  "/> that represents a property of an object in a structural equivalency assertion.
@@ -59,4 +59,5 @@ public class Property : Node, IMember
             return isBrowsable.Value;
         }
     }
+}
 }

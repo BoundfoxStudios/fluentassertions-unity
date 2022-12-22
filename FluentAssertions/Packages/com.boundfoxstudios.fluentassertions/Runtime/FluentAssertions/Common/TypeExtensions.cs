@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using FluentAssertions.Equivalency;
 
-namespace FluentAssertions.Common;
+namespace FluentAssertions.Common {
 
 internal static class TypeExtensions
 {
@@ -609,4 +609,5 @@ internal static class TypeExtensions
 
         return type;
     }
+}
 }

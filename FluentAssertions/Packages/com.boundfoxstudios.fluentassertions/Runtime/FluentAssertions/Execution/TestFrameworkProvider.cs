@@ -4,7 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using FluentAssertions.Common;
 
-namespace FluentAssertions.Execution;
+namespace FluentAssertions.Execution {
 
 internal static class TestFrameworkProvider
 {
@@ -79,4 +79,5 @@ internal static class TestFrameworkProvider
     {
         return Frameworks.Values.FirstOrDefault(framework => framework.IsAvailable);
     }
+}
 }

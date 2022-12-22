@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace FluentAssertions.Collections.MaximumMatching;
+namespace FluentAssertions.Collections.MaximumMatching {
 
 /// <summary>
 /// The <see cref="MaximumMatchingSolver{TElement}"/> class encapsulates the algorithm
@@ -163,4 +163,5 @@ internal class MaximumMatchingSolver<TValue>
             while (previousMatchByPredicate.TryGetValue(match.Predicate, out match));
         }
     }
+}
 }

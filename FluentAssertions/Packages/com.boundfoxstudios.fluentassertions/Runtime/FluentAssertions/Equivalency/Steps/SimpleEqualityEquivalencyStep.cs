@@ -1,4 +1,4 @@
-namespace FluentAssertions.Equivalency.Steps;
+namespace FluentAssertions.Equivalency.Steps {
 
 public class SimpleEqualityEquivalencyStep : IEquivalencyStep
 {
@@ -13,4 +13,5 @@ public class SimpleEqualityEquivalencyStep : IEquivalencyStep
 
         return EquivalencyResult.ContinueWithNext;
     }
+}
 }

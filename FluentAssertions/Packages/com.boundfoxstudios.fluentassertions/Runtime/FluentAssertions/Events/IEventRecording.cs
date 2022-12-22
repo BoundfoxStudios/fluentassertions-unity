@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace FluentAssertions.Events;
+namespace FluentAssertions.Events {
 
 /// <summary>
 /// Represents an (active) recording of all events that happen(ed) while monitoring an object.
@@ -22,4 +22,5 @@ public interface IEventRecording : IEnumerable<OccurredEvent>
     /// The type of the event handler identified by <see cref="EventName"/>.
     /// </summary>
     Type EventHandlerType { get; }
+}
 }

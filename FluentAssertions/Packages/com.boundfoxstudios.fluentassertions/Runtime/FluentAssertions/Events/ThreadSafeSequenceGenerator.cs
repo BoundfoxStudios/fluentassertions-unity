@@ -1,6 +1,6 @@
 using System.Threading;
 
-namespace FluentAssertions.Events;
+namespace FluentAssertions.Events {
 
 /// <summary>
 /// Generates a sequence in a thread-safe manner.
@@ -16,4 +16,5 @@ internal sealed class ThreadSafeSequenceGenerator
     {
         return Interlocked.Increment(ref sequence);
     }
+}
 }

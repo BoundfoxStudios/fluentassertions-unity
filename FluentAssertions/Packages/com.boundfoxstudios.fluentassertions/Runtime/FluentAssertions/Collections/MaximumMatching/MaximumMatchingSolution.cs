@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace FluentAssertions.Collections.MaximumMatching;
+namespace FluentAssertions.Collections.MaximumMatching {
 
 /// <summary>
 /// The <see cref="MaximumMatchingSolution{TElement}"/> class defines the solution (output) for the maximum matching problem.
@@ -34,4 +34,5 @@ internal class MaximumMatchingSolution<TValue>
     {
         return problem.Elements.Except(elementsByMatchedPredicate.Values).ToList();
     }
+}
 }

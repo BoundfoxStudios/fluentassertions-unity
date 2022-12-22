@@ -5,7 +5,7 @@ using System.Text;
 using FluentAssertions.Execution;
 using FluentAssertions.Formatting;
 
-namespace FluentAssertions.Equivalency.Steps;
+namespace FluentAssertions.Equivalency.Steps {
 
 public class ConstraintEquivalencyStep : EquivalencyStep<Constraint>
 {
@@ -278,4 +278,5 @@ public class ConstraintEquivalencyStep : EquivalencyStep<Constraint>
 
         return members;
     }
+}
 }

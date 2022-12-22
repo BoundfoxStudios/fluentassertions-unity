@@ -1,4 +1,4 @@
-﻿namespace FluentAssertions.Equivalency.Steps;
+﻿namespace FluentAssertions.Equivalency.Steps {
 
 public class ReferenceEqualityEquivalencyStep : IEquivalencyStep
 {
@@ -6,4 +6,5 @@ public class ReferenceEqualityEquivalencyStep : IEquivalencyStep
     {
         return ReferenceEquals(comparands.Subject, comparands.Expectation) ? EquivalencyResult.AssertionCompleted : EquivalencyResult.ContinueWithNext;
     }
+}
 }

@@ -1,4 +1,4 @@
-namespace FluentAssertions.Equivalency;
+namespace FluentAssertions.Equivalency {
 
 /// <summary>
 /// Defines a step in the process of comparing two object graphs for structural equivalency.
@@ -22,4 +22,5 @@ public enum EquivalencyResult
 {
     ContinueWithNext,
     AssertionCompleted
+}
 }

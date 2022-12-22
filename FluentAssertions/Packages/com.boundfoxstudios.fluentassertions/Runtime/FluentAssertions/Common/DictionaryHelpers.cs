@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace FluentAssertions.Common;
+namespace FluentAssertions.Common {
 
 internal static class DictionaryHelpers
 {
@@ -88,4 +88,5 @@ internal static class DictionaryHelpers
             return collection.First(kvp => areSameOrEqual(kvp.Key, key)).Value;
         }
     }
+}
 }

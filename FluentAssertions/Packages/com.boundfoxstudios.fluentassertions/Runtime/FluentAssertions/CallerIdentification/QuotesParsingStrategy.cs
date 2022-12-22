@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Text;
 
-namespace FluentAssertions.CallerIdentification;
+namespace FluentAssertions.CallerIdentification {
 
 internal class QuotesParsingStrategy : IParsingStrategy
 {
@@ -67,4 +67,5 @@ internal class QuotesParsingStrategy : IParsingStrategy
                     && statement[statement.Length - 1] == verbatimStringOpener[1]
                     && statement[statement.Length - 2] == verbatimStringOpener[0]);
     }
+}
 }

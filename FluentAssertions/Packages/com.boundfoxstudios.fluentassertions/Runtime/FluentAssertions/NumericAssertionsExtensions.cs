@@ -3,7 +3,7 @@ using FluentAssertions.Execution;
 using FluentAssertions.Numeric;
 using FluentAssertions.Primitives;
 
-namespace FluentAssertions;
+namespace FluentAssertions {
 
 /// <summary>
 /// Contains a number of extension methods for floating point <see cref="NumericAssertions{T}"/>.
@@ -1465,4 +1465,5 @@ public static class NumericAssertionsExtensions
 
         return maxValue;
     }
+}
 }

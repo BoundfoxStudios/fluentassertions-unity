@@ -1,4 +1,4 @@
-namespace FluentAssertions.Equivalency.Ordering;
+namespace FluentAssertions.Equivalency.Ordering {
 
 internal class CollectionMemberOrderingRuleDecorator : IOrderingRule
 {
@@ -18,4 +18,5 @@ internal class CollectionMemberOrderingRuleDecorator : IOrderingRule
     {
         return orderingRule.ToString();
     }
+}
 }

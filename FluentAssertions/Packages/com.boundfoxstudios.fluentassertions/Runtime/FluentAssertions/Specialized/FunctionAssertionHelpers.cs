@@ -2,7 +2,7 @@
 using FluentAssertions.Common;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Specialized;
+namespace FluentAssertions.Specialized {
 
 internal static class FunctionAssertionHelpers
 {
@@ -60,4 +60,5 @@ internal static class FunctionAssertionHelpers
 
         return default;
     }
+}
 }

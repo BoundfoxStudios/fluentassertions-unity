@@ -1,6 +1,6 @@
 using System;
 
-namespace FluentAssertions.Equivalency.Tracing;
+namespace FluentAssertions.Equivalency.Tracing {
 
 /// <summary>
 /// Exposes tracing capabilities that can be used by the implementation of the equivalency algorithm
@@ -48,4 +48,5 @@ public class Tracer
     }
 
     public override string ToString() => (traceWriter is not null) ? traceWriter.ToString() : string.Empty;
+}
 }

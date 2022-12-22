@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using FluentAssertions.Common;
 
-namespace FluentAssertions.Equivalency;
+namespace FluentAssertions.Equivalency {
 
 public class Node : INode
 {
@@ -146,4 +146,5 @@ public class Node : INode
     }
 
     public override string ToString() => Description;
+}
 }

@@ -1,7 +1,7 @@
 using System.Reflection;
 using FluentAssertions.Common;
 
-namespace FluentAssertions.Equivalency.Matching;
+namespace FluentAssertions.Equivalency.Matching {
 
 /// <summary>
 /// Finds a member of the expectation with the exact same name, but doesn't require it.
@@ -26,4 +26,5 @@ internal class TryMatchByNameRule : IMemberMatchingRule
     {
         return "Try to match member by name";
     }
+}
 }

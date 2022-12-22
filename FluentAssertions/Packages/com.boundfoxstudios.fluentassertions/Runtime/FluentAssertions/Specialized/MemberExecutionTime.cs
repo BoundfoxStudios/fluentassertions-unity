@@ -2,7 +2,7 @@
 using System.Linq.Expressions;
 using FluentAssertions.Common;
 
-namespace FluentAssertions.Specialized;
+namespace FluentAssertions.Specialized {
 
 public class MemberExecutionTime<T> : ExecutionTime
 {
@@ -17,4 +17,5 @@ public class MemberExecutionTime<T> : ExecutionTime
         : base(() => action.Compile()(subject), "(" + action.Body + ")", createTimer)
     {
     }
+}
 }

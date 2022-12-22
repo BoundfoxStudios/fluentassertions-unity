@@ -1,6 +1,6 @@
 ﻿using System.Xml;
 
-namespace FluentAssertions.Formatting;
+namespace FluentAssertions.Formatting {
 
 public class XmlReaderValueFormatter : IValueFormatter
 {
@@ -29,4 +29,5 @@ public class XmlReaderValueFormatter : IValueFormatter
 
         formattedGraph.AddFragment(result);
     }
+}
 }

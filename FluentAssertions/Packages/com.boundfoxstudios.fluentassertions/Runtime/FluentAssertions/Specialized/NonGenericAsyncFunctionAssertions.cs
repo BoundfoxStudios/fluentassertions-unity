@@ -2,7 +2,7 @@ using System;
 using System.Threading.Tasks;
 using FluentAssertions.Common;
 
-namespace FluentAssertions.Specialized;
+namespace FluentAssertions.Specialized {
 
 public class NonGenericAsyncFunctionAssertions : AsyncFunctionAssertions<Task, NonGenericAsyncFunctionAssertions>
 {
@@ -17,4 +17,5 @@ public class NonGenericAsyncFunctionAssertions : AsyncFunctionAssertions<Task, N
 #pragma warning restore CS0618
     {
     }
+}
 }

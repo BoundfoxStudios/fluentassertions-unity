@@ -7,7 +7,7 @@ using System.Linq.Expressions;
 using FluentAssertions.Common;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Numeric;
+namespace FluentAssertions.Numeric {
 
 /// <summary>
 /// Contains a number of methods to assert that an <see cref="IComparable{T}"/> is in the expected state.
@@ -500,4 +500,5 @@ public class NumericAssertions<T, TAssertions>
         var difference = CalculateDifferenceForFailureMessage(subject, expectedValue);
         return difference is null ? noDifferenceMessage : $" (difference of {difference}).";
     }
+}
 }

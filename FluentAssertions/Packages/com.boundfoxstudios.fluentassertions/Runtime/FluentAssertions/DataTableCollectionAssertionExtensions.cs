@@ -6,7 +6,7 @@ using FluentAssertions.Collections;
 using FluentAssertions.Common;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions;
+namespace FluentAssertions {
 
 public static class DataTableCollectionAssertionExtensions
 {
@@ -195,4 +195,5 @@ public static class DataTableCollectionAssertionExtensions
 
         return new AndConstraint<GenericCollectionAssertions<DataTable>>(assertion);
     }
+}
 }

@@ -3,7 +3,7 @@ using System.Data;
 using System.Linq;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions.Equivalency.Steps;
+namespace FluentAssertions.Equivalency.Steps {
 
 public class ConstraintCollectionEquivalencyStep : EquivalencyStep<ConstraintCollection>
 {
@@ -51,4 +51,5 @@ public class ConstraintCollectionEquivalencyStep : EquivalencyStep<ConstraintCol
 
         return EquivalencyResult.AssertionCompleted;
     }
+}
 }

@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace FluentAssertions.CallerIdentification;
+namespace FluentAssertions.CallerIdentification {
 
 internal class AwaitParsingStrategy : IParsingStrategy
 {
@@ -42,4 +42,5 @@ internal class AwaitParsingStrategy : IParsingStrategy
     public void NotifyEndOfLineReached()
     {
     }
+}
 }

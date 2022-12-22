@@ -2,7 +2,7 @@ using System;
 
 using System.Runtime.Serialization;
 
-namespace FluentAssertions.Execution;
+namespace FluentAssertions.Execution {
 
 /// <summary>
 /// Represents the default exception in case no test framework is configured.
@@ -22,4 +22,5 @@ public class AssertionFailedException : Exception
         : base(info, context)
     {
     }
+}
 }

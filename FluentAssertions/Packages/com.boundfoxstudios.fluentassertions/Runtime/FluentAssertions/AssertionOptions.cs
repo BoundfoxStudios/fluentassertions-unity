@@ -3,7 +3,7 @@ using FluentAssertions.Common;
 using FluentAssertions.Equivalency;
 using FluentAssertions.Formatting;
 
-namespace FluentAssertions;
+namespace FluentAssertions {
 
 /// <summary>
 /// Holds any global options that control the behavior of FluentAssertions.
@@ -54,4 +54,5 @@ public static class AssertionOptions
     /// Gets the default formatting options used by the formatters in Fluent Assertions.
     /// </summary>
     public static FormattingOptions FormattingOptions { get; } = new();
+}
 }

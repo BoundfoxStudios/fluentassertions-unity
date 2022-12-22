@@ -9,7 +9,7 @@ using FluentAssertions.Data;
 using FluentAssertions.Equivalency;
 using FluentAssertions.Execution;
 
-namespace FluentAssertions;
+namespace FluentAssertions {
 
 public static class DataRowCollectionAssertionExtensions
 {
@@ -160,4 +160,5 @@ public static class DataRowCollectionAssertionExtensions
 
         return new AndConstraint<GenericCollectionAssertions<DataRow>>(assertion);
     }
+}
 }
