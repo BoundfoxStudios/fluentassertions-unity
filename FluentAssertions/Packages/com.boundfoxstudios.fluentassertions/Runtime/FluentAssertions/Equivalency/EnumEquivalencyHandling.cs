@@ -1,8 +1,8 @@
-namespace FluentAssertions.Equivalency
+namespace FluentAssertions.Equivalency {
+
+public enum EnumEquivalencyHandling
 {
-    public enum EnumEquivalencyHandling
-    {
-        ByValue,
-        ByName
-    }
+    ByValue,
+    ByName
+}
 }
