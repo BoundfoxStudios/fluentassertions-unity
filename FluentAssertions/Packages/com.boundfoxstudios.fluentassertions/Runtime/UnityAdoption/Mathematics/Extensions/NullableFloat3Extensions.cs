@@ -10,7 +10,5 @@ namespace BoundfoxStudios.FluentAssertions.Mathematics
   public class NullableFloat3Assertions : NullableMathematicsAssertions<float3>
   {
     public NullableFloat3Assertions(float3? subject) : base(subject) { }
-
-    protected override bool CalculateApproximately(float3 subject, float3 expected, float precision) => math.lengthsq(subject - expected) < precision;
   }
 }

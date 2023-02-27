@@ -1,3 +1,4 @@
+using FluentAssertions;
 using NUnit.Framework;
 using Unity.Mathematics;
 
@@ -31,7 +32,7 @@ namespace BoundfoxStudios.FluentAssertions.Mathematics.Editor.Tests
       var expected = new float3(0.2672612f, 0.5345225f, 0.8017837f);
       
       var normalized = math.normalize(v1);
-      normalized.Should().BeApproximately(expected, 0.5f);
+      normalized.Should().BeCloseTo(expected, 0.5f);
     }
   }
 }

@@ -22,6 +22,12 @@
         "UNITY_INCLUDE_TESTS",
         "FLUENTASSERTIONS_UNITY_MATHEMATICS"
     ],
-    "versionDefines": [],
+    "versionDefines": [
+        {
+            "name": "com.unity.mathematics",
+            "expression": "",
+            "define": "FLUENTASSERTIONS_UNITY_MATHEMATICS"
+        }
+    ],
     "noEngineReferences": false
 }

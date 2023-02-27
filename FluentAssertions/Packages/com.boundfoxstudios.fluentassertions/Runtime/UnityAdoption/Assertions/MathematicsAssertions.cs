@@ -82,16 +82,6 @@ namespace BoundfoxStudios.FluentAssertions
       return new((TAssertions)this);
     }
 
-    public AndConstraint<TAssertions> BeApproximately(TSubject expected, float precision, string because = "", params object[] becauseArgs)
-    {
-      Execute.Assertion
-        .ForCondition(Subject is { } value && CalculateApproximately(value, expected, precision))
-        .BecauseOf(because, becauseArgs)
-        .FailWith("Expected {context:value} to be {0}{reason}, but found {1}" + GenerateDifferenceMessage(expected), expected, Subject);
-
-      return new((TAssertions)this);
-    }
-
     public AndConstraint<TAssertions> BeOfType(Type expectedType, string because = "", params object[] becauseArgs)
     {
       Guard.AgainstNull(expectedType, nameof(expectedType));
@@ -136,8 +126,6 @@ namespace BoundfoxStudios.FluentAssertions
 
       return new((TAssertions)this);
     }
-
-    protected abstract bool CalculateApproximately(TSubject subject, TSubject expected, float precision);
 
     [CanBeNull]
     private protected virtual string CalculateDifferenceForFailureMessage(TSubject subject, TSubject expected) => null;
