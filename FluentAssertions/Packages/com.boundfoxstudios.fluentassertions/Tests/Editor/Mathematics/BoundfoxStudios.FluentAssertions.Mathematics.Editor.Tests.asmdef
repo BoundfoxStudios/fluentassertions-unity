@@ -1,0 +1,33 @@
+{
+    "name": "BoundfoxStudios.FluentAssertions.Mathematics.Editor.Tests",
+    "rootNamespace": "BoundfoxStudios.FluentAssertions.Mathematics.Editor.Tests",
+    "references": [
+        "UnityEngine.TestRunner",
+        "UnityEditor.TestRunner",
+        "BoundfoxStudios.FluentAssertions",
+        "BoundfoxStudios.FluentAssertions.Mathematics",
+        "Unity.Mathematics"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS",
+        "FLUENTASSERTIONS_UNITY_MATHEMATICS"
+    ],
+    "versionDefines": [
+        {
+            "name": "com.unity.mathematics",
+            "expression": "",
+            "define": "FLUENTASSERTIONS_UNITY_MATHEMATICS"
+        }
+    ],
+    "noEngineReferences": false
+}

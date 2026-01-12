@@ -1,6 +1,6 @@
 {
     "name": "BoundfoxStudios.FluentAssertions",
-    "rootNamespace": "",
+    "rootNamespace": "BoundfoxStudios.FluentAssertions",
     "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
